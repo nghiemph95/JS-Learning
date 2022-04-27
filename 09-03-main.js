@@ -35,3 +35,23 @@ console.log(mapArr([1, 2, 3, 4, 5], (x) => x + 1));
 console.log(
   mapArr([1, 2, 3, 4, 5, 6], (x, idx) => (idx % 2 === 0 ? x + 1 : x * 2))
 );
+
+/** filter fn */
+function arrFilter(arr, filterCallback) {
+  if (!Array.isArray(arr) || typeof filterCallback !== "function")
+    return undefined;
+
+  const newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const arrList = arr[i];
+    if (filterCallback(arrList, i)) {
+      newArr.push(arrList);
+    }
+  }
+
+  return newArr;
+}
+
+console.log(arrFilter([1, 2, 3, 4, 5, 6, 7], (x) => x > 3));
+console.log(first);
