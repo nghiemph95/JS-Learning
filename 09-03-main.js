@@ -133,3 +133,83 @@ function findMaxI(numberList) {
 }
 
 console.log(findMaxI([2, 3, 1]));
+
+function findMaxForEach(numberList) {
+  let max = numberList[0];
+
+  numberList.forEach((element) => {
+    if (element > max) {
+      max = element;
+    }
+  });
+
+  return max;
+}
+
+console.log(findMaxForEach([2, 3, 1]));
+
+function findMaxReduce(numberList) {
+  // let max = numberList[0];
+
+  // numberList.forEach((element) => {
+  //   if (element > max) {
+  //     max = element;
+  //   }
+  // });
+
+  // return numberList.reduce((max, number) => (number > max ? number : max));
+  return numberList.reduce((max, number) => {
+    return number > max ? number : max;
+  });
+}
+console.log(findMaxReduce([2, 3, 1]));
+
+/** find longest word */
+function findWordLongest(list) {
+  let max = list[0];
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].length > max.length) {
+      max = list[i];
+    }
+  }
+  return max;
+}
+console.log(findWordLongest(["ab", "abc", "abcd"]));
+
+function findWordLongest(list) {
+  let max = list[0];
+
+  list.forEach((element) => {
+    if (element.length > max.length) {
+      max = element;
+    }
+  });
+
+  // for (let i = 0; i < list.length; i++) {
+  //   if (list[i].length > max.length) {
+  //     max = list[i];
+  //   }
+  // }
+  return max;
+}
+console.log(findWordLongest(["ab", "abc", "abcd"]));
+
+function findWordLongest(list) {
+  // let max = list[0];
+
+  // list.forEach((element) => {
+  //   if (element.length > max.length) {
+  //     max = element;
+  //   }
+  // });
+
+  // for (let i = 0; i < list.length; i++) {
+  //   if (list[i].length > max.length) {
+  //     max = list[i];
+  //   }
+  // }
+  return list.reduce((longestWord, currentWord) =>
+    longestWord > currentWord ? longestWord : currentWord
+  );
+}
+console.log(findWordLongest(["ab", "abc", "abcd"]));
