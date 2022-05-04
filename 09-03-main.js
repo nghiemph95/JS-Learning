@@ -121,3 +121,15 @@ function printNumbers() {
 printNumbers();
 
 /** find max */
+function findMaxI(numberList) {
+  let max = numberList[0];
+
+  for (i = 0; i < numberList.length; i++) {
+    if (numberList[i] > max) {
+      max = numberList[i];
+    }
+  }
+  return max;
+}
+
+console.log(findMaxI([2, 3, 1]));
