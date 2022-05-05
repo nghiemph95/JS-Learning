@@ -195,21 +195,13 @@ function findWordLongest(list) {
 console.log(findWordLongest(["ab", "abc", "abcd"]));
 
 function findWordLongest(list) {
-  // let max = list[0];
-
-  // list.forEach((element) => {
-  //   if (element.length > max.length) {
-  //     max = element;
-  //   }
-  // });
-
-  // for (let i = 0; i < list.length; i++) {
-  //   if (list[i].length > max.length) {
-  //     max = list[i];
-  //   }
-  // }
   return list.reduce((longestWord, currentWord) =>
     longestWord > currentWord ? longestWord : currentWord
   );
 }
 console.log(findWordLongest(["ab", "abc", "abcd"]));
+
+/** create array in a range */
+function createArrayInRangeV1(a, b) {
+  if (a < -100 || b > 100) return -1;
+}
