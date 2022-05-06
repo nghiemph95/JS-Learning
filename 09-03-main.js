@@ -204,4 +204,90 @@ console.log(findWordLongest(["ab", "abc", "abcd"]));
 /** create array in a range */
 function createArrayInRangeV1(a, b) {
   if (a < -100 || b > 100) return -1;
+
+  const range = Math.trunc(b - a) + 1;
+  const arrayList = [];
+
+  for (let i = 0; i < range; i++) {
+    arrayList.push(a + i);
+  }
+  return arrayList;
 }
+console.log(createArrayInRangeV1(5, 7));
+
+function createArrayInRangeV2(a, b) {
+  if (a < -100 || b > 100) return -1;
+
+  const length = b - a + 1;
+
+  return Array.from({ length }, (x, i) => a + i); // ArrayLike = khoi tao array
+}
+
+console.log(createArrayInRangeV2(5, 10));
+
+/** check number is Prime*/
+function isPrimeV1(n) {
+  if (n < 2 || n >= 1000) return false;
+
+  for (i = 2; i <= Math.sqrt(n) + 1; i++) {
+    if (n % i === 0) return false;
+    break;
+  }
+  return true;
+}
+
+console.log(isPrimeV1(4));
+
+function isPrimeV1(n) {
+  if (n < 2 || n >= 1000) return false;
+
+  for (i = 2; i < n - 1; i++) {
+    if (n % i === 0) return false;
+    break;
+  }
+  return true;
+}
+
+console.log(isPrimeV1(5));
+
+/** show divisor list */
+function getDivisorListV1(n) {
+  if (n < 1 || n > 1000) return;
+  const array = [];
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      array.push(i);
+    }
+  }
+  return array;
+}
+
+console.log(getDivisorListV1(10));
+
+function getDivisorListV2(n) {
+  if (n < 1 || n > 1000) return;
+
+  const range = Math.trunc(n);
+
+  const numberList = Array.from({ length: range }, (x, i) => i + 1);
+
+  return numberList.filter((i) => n % i === 0);
+}
+
+console.log(getDivisorListV2(1));
+
+function getDivisorListV3(n) {
+  if (n < 1 || n > 1000) return;
+
+  const array = [];
+  const createArray = Array.from({ length: Math.sqrt(n) }, (x, i) => i + 1);
+  createArray.forEach((element) => n % element === 0);
+  console.log(i);
+  // function isDivisor(i) {
+  //   if (n % i === 0) array.push(i, n / i);
+  // }
+
+  return array.sort((a, b) => a - b);
+}
+
+console.log(getDivisorListV3(10));
