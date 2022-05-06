@@ -279,15 +279,17 @@ console.log(getDivisorListV2(1));
 function getDivisorListV3(n) {
   if (n < 1 || n > 1000) return;
 
+  if (n === 1) return [1];
+
   const array = [];
   const createArray = Array.from({ length: Math.sqrt(n) }, (x, i) => i + 1);
-  createArray.forEach((element) => n % element === 0);
-  console.log(i);
-  // function isDivisor(i) {
-  //   if (n % i === 0) array.push(i, n / i);
-  // }
+  createArray.forEach(isDivisor);
+  console.log(createArray);
+  function isDivisor(i) {
+    if (n % i === 0) array.push(i, n / i);
+  }
 
   return array.sort((a, b) => a - b);
 }
 
-console.log(getDivisorListV3(10));
+console.log(getDivisorListV3(1));
