@@ -294,4 +294,22 @@ function getDivisorListV3(n) {
 
 console.log(getDivisorListV3(1));
 
-/** */
+/** check perfect number*/
+function isPerfectNumber(n) {
+  if (n < 1 || n > 1000) return;
+  let temp = 0;
+
+  for (let i = 1; i <= n / 2; i++) {
+    if (n % i === 0) {
+      temp = temp + i;
+    }
+  }
+
+  if (temp === n && temp !== 0) return true;
+  return false;
+}
+
+console.log(isPerfectNumber(6));
+
+/** check transform Array Number */
+function transformNumbersV1(numberList) {}
