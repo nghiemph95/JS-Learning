@@ -312,4 +312,45 @@ function isPerfectNumber(n) {
 console.log(isPerfectNumber(6));
 
 /** check transform Array Number */
-function transformNumbersV1(numberList) {}
+/** for is */
+function transformNumbersV1(numberList) {
+  if (!Array.isArray(numberList)) return;
+  if (numberList === []) return [];
+
+  const newNumberList = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    newNumberList.push((numberList[i - 1] || 0) + (numberList[i + 1] || 0));
+  }
+  if (newNumberList.length === 1) return numberList;
+  return newNumberList;
+}
+console.log(transformNumbersV1([1]));
+/** forEach */
+function transformNumbersV2(numberList) {
+  if (!Array.isArray(numberList)) return;
+  if (numberList === []) return [];
+  if (numberList.length === 1) return numberList;
+  const newNumberList = [];
+
+  numberList.forEach((_, i) => {
+    newNumberList.push((numberList[i - 1] || 0) + (numberList[i + 1] || 0));
+  });
+
+  return newNumberList;
+}
+console.log(transformNumbersV2([1, 2]));
+/** map() */
+function transformNumbersV3(numberList) {
+  if (!Array.isArray(numberList)) return;
+  if (numberList === []) return [];
+  if (numberList.length === 1) return numberList;
+  const newNumberList = [];
+
+  numberList.map((_, i) => {
+    newNumberList.push((numberList[i - 1] || 0) + (numberList[i + 1] || 0));
+  });
+
+  return newNumberList;
+}
+console.log(transformNumbersV3([1, 2, 3, 4]));
