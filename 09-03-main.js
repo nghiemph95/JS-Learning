@@ -356,4 +356,16 @@ function transformNumbersV3(numberList) {
 console.log(transformNumbersV3([1, 2, 3, 4]));
 
 /** check prime */
-function isPrimeV1(numberList) {}
+function isPrimeV1(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList === []) return false;
+
+  for (let i = 0; i < numberList.length; i++) {
+    for (let m = 2; m <= Math.sqrt(numberList[i]); m++) {
+      console.log(numberList[i]);
+      if (numberList[i] % m === 0) return false;
+    }
+  }
+  return true;
+}
+console.log(isPrimeV1([]));
