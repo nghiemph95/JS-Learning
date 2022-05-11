@@ -358,7 +358,7 @@ console.log(transformNumbersV3([1, 2, 3, 4]));
 /** check prime */
 function isPrimeV1(numberList) {
   if (!Array.isArray(numberList)) return false;
-  if (numberList === []) return false;
+  if (numberList.length === 0) return false;
 
   for (let i = 0; i < numberList.length; i++) {
     for (let m = 2; m <= Math.sqrt(numberList[i]); m++) {
@@ -368,4 +368,4 @@ function isPrimeV1(numberList) {
   }
   return true;
 }
-console.log(isPrimeV1([]));
+console.log(isPrimeV1([5, 4]));
