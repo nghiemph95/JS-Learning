@@ -354,3 +354,6 @@ function transformNumbersV3(numberList) {
   return newNumberList;
 }
 console.log(transformNumbersV3([1, 2, 3, 4]));
+
+/** check prime */
+function isPrimeV1(numberList) {}
