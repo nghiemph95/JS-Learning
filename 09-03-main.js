@@ -370,7 +370,7 @@ function isPrimeV1(numberList) {
   }
   return false;
 }
-console.log(isPrimeV1([2, 4, 6, 5]));
+console.log(isPrimeV1([5]));
 
 /** forEach */
 function isPrimeV2(numberList) {
@@ -483,3 +483,6 @@ function isPrimeV4(numberList) {
   return numberList.some((element) => checkPrime(element));
 }
 console.log(isPrimeV4([4, 6, 8, 10, 10]));
+
+/** check all perfect number */
+function isAllPerfectNumbersV1(numberList) {}
