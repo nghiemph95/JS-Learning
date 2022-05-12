@@ -356,16 +356,130 @@ function transformNumbersV3(numberList) {
 console.log(transformNumbersV3([1, 2, 3, 4]));
 
 /** check prime */
+/** for-i */
 function isPrimeV1(numberList) {
   if (!Array.isArray(numberList)) return false;
   if (numberList.length === 0) return false;
 
   for (let i = 0; i < numberList.length; i++) {
-    for (let m = 2; m <= Math.sqrt(numberList[i]); m++) {
-      console.log(numberList[i]);
-      if (numberList[i] % m === 0) return false;
+    for (let m = 2; m <= Math.sqrt(numberList[i]) + 1; m++) {
+      if (numberList[i] === 1) return false;
+      if (numberList[i] % m !== 0) return true;
+      break;
     }
   }
-  return true;
+  return false;
 }
-console.log(isPrimeV1([5, 4]));
+console.log(isPrimeV1([2, 4, 6, 5]));
+
+/** forEach */
+function isPrimeV2(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return false;
+
+  function checkPrime(number) {
+    if (number <= 1) {
+      return false;
+    } else {
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+
+  const array = [];
+
+  numberList.forEach((element) => {
+    const isPrime = checkPrime(element);
+    array.push(isPrime);
+  });
+
+  return array.includes(true);
+}
+console.log(isPrimeV2([4, 6, 8, 10, 10]));
+
+/** find */
+function isPrimeV3(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return false;
+
+  function checkPrime(number) {
+    if (number <= 1) {
+      return false;
+    } else {
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+
+  const array = [];
+
+  numberList.find((element) => {
+    const isPrime = checkPrime(element);
+    array.push(isPrime);
+  });
+
+  return array.includes(true);
+}
+console.log(isPrimeV3([4, 6, 8, 10, 10]));
+
+/** find index */
+function isPrimeV4(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return false;
+
+  function checkPrime(number) {
+    if (number <= 1) {
+      return false;
+    } else {
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+
+  const array = [];
+
+  numberList.findIndex((element) => {
+    const isPrime = checkPrime(element);
+    array.push(isPrime);
+  });
+
+  return array.includes(true);
+}
+console.log(isPrimeV4([4, 5]));
+
+/** some */
+function isPrimeV4(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return false;
+
+  function checkPrime(number) {
+    if (number <= 1) {
+      return false;
+    } else {
+      for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+  /**Hàm some trong js có nhiệm vụ lặp qua tất cả các phần tử của mảng,
+   * mỗi lần lặp nó sẽ truyền giá trị của phần tử đang lặp vào hàm callback.
+   * Chỉ cần hàm callback return true là hàm some sẽ return true.
+   * Ngược lại, nếu duyệt hết mảng mà không có return true nào thì hàm some sẽ return false. */
+  return numberList.some((element) => checkPrime(element));
+}
+console.log(isPrimeV4([4, 6, 8, 10, 10]));
