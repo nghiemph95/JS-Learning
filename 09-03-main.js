@@ -508,4 +508,7 @@ function isAllPerfectNumbersV1(numberList) {
 console.log(isAllPerfectNumbersV1([1, 28]));
 
 /**reduce */
-function isAllPerfectNumbersV2(numberList) {}
+function isAllPerfectNumbersV2(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return false;
+}
