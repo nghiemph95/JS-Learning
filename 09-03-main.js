@@ -485,6 +485,27 @@ function isPrimeV4(numberList) {
 console.log(isPrimeV4([4, 6, 8, 10, 10]));
 
 /** check all perfect number */
+/** for i */
 function isAllPerfectNumbersV1(numberList) {
-  
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return false;
+
+  const array = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let temp = 0;
+    for (let m = 1; m <= numberList[i] / 2; m++) {
+      if (numberList[i] % m === 0) {
+        temp = temp + m;
+      }
+    }
+    if (temp === numberList[i] && temp !== 0) {
+      array.push(numberList[i]);
+    }
+  }
+  return array.length > 0 && array.length === numberList.length;
 }
+console.log(isAllPerfectNumbersV1([1, 28]));
+
+/**reduce */
+function isAllPerfectNumbersV2(numberList) {}
