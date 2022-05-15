@@ -117,13 +117,10 @@ console.log("https://abc.com".startsWith("https"));
 function isSecureUrlV1(url) {
   if (url === "") return "";
 
-  if (url.indexOf("https") === 0 || url.indexOf("wss") === 0) {
-    return true;
-  }
-  return false;
+  return url.indexOf("https") === 0 || url.indexOf("wss") === 0;
 }
 
-console.log(isSecureUrlV2("http://vietcredit.com.vn"));
+console.log(isSecureUrlV1("https://vietcredit.com.vn"));
 
 function isSecureUrlV2(url) {
   if (url === "") return "";
@@ -170,7 +167,7 @@ console.log("abcDEFghy".split("abcDEFghy".toUpperCase() == "abcDEFghy"));
 
 /** get Full Name */
 function getFullName(firstName, lastName) {
-  if (firstName === "" && lastName === "") return "No inputing!";
+  if (!firstName && lastName === "") return "No inputing!";
 
   let resultFirstName = "";
   if (firstName !== "") {
@@ -208,3 +205,5 @@ function getFullName(firstName, lastName) {
 
 console.log(getFullName("ngHieM"));
 // console.log(getFullName(firstName, lastName));
+
+console.log(!--100);

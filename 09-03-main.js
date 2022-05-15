@@ -485,4 +485,6 @@ function isPrimeV4(numberList) {
 console.log(isPrimeV4([4, 6, 8, 10, 10]));
 
 /** check all perfect number */
-function isAllPerfectNumbersV1(numberList) {}
+function isAllPerfectNumbersV1(numberList) {
+  
+}
