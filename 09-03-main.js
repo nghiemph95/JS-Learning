@@ -505,10 +505,44 @@ function isAllPerfectNumbersV1(numberList) {
   }
   return array.length > 0 && array.length === numberList.length;
 }
-console.log(isAllPerfectNumbersV1([1, 28]));
+console.log(isAllPerfectNumbersV1([6, 28]));
 
 /**reduce */
 function isAllPerfectNumbersV2(numberList) {
   if (!Array.isArray(numberList)) return false;
   if (numberList.length === 0) return false;
+
+  let countPerfectNumb = 0;
+  for (let i = 0; i < numberList.length; i++) {
+    const array = [];
+    for (let m = 1; m <= numberList[i] / 2; m++) {
+      if (numberList[i] % m === 0) array.push(m);
+    }
+
+    if (array.reduce((pre, cur) => pre + cur) === numberList[i]) {
+      countPerfectNumb += 1;
+    }
+  }
+  return countPerfectNumb === numberList.length;
 }
+console.log(isAllPerfectNumbersV2([4, 6, 8]));
+
+/**every */
+function isAllPerfectNumbersV3(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return false;
+
+  function checkPerfectNumber(number) {
+    if (number < 1) return false;
+    const newArray = [];
+    for (let i = 1; i <= number / 2; i++) {
+      if (number % i === 0) {
+        newArray.push(i);
+      }
+    }
+    const res = newArray.reduce((pre, cur) => pre + cur);
+    return res === number;
+  }
+  return numberList.every((element) => checkPerfectNumber(element));
+}
+console.log(isAllPerfectNumbersV3([4, 6, 8]));
