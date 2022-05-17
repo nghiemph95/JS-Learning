@@ -525,7 +525,7 @@ function isAllPerfectNumbersV2(numberList) {
   }
   return countPerfectNumb === numberList.length;
 }
-console.log(isAllPerfectNumbersV2([4, 6, 8]));
+console.log(isAllPerfectNumbersV2([6, 28]));
 
 /**every */
 function isAllPerfectNumbersV3(numberList) {
@@ -546,3 +546,26 @@ function isAllPerfectNumbersV3(numberList) {
   return numberList.every((element) => checkPerfectNumber(element));
 }
 console.log(isAllPerfectNumbersV3([4, 6, 8]));
+
+/** calcAvgOfAllEvenNumbers */
+function calcAvgOfAllEvenNumbers(numberList) {
+  if (!Array.isArray(numberList)) return 0;
+  if (numberList.length === 0) return 0;
+
+  const newArray = [];
+
+  if (numberList.every((element) => element % 2 !== 0)) {
+    return 0;
+  } else {
+    for (let i = 0; i < numberList.length; i++) {
+      if (numberList[i] % 2 === 0) {
+        newArray.push(numberList[i]);
+      }
+    }
+
+    return Math.ceil(
+      newArray.reduce((pre, cur) => pre + cur) / newArray.length
+    );
+  }
+}
+console.log(calcAvgOfAllEvenNumbers([2, 4, 8]));
