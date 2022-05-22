@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/nghiemph95/JS-Learning#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "babel-jest": "^28.1.0",
     "jest": "^28.1.0"
   }
 }
