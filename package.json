@@ -1,0 +1,22 @@
+{
+  "name": "js-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "04-03-main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nghiemph95/JS-Learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nghiemph95/JS-Learning/issues"
+  },
+  "homepage": "https://github.com/nghiemph95/JS-Learning#readme",
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
+}
