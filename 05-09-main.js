@@ -1,5 +1,5 @@
 //v1
-function checkStudent(score) {
+function checkStudentV1(score) {
   let set;
 
   if (score > 8) set = "Excellence";
@@ -9,10 +9,10 @@ function checkStudent(score) {
 
   return set;
 }
-console.log(checkStudent(3));
+// console.log(checkStudent(3));
 
 //v2
-function checkStudent(score) {
+function checkStudentV2(score) {
   if (0 > score || score > 10) return "Invalid Score";
 
   let set = "Bad";
@@ -25,8 +25,8 @@ function checkStudent(score) {
 }
 
 //v3
-function checkStudent(score) {
-  if (0 > score || score > 10) return "Invalid";
+export function checkStudentV3(score) {
+  if (score < 0 || score > 10) return "Invalid";
 
   if (score > 8) return "Excellence";
   if (score >= 7) return "Good";
@@ -34,7 +34,7 @@ function checkStudent(score) {
 
   return "Bad";
 }
-console.log(checkStudent(3));
+// console.log(checkStudent(3));
 
 // switch case
 function getErrorMessage(error) {
@@ -53,8 +53,8 @@ function getErrorMessage(error) {
   }
   return message;
 }
-console.log(getErrorMessage("E01"));
-console.log(getErrorMessage());
+// console.log(getErrorMessage("E01"));
+// console.log(getErrorMessage());
 
 function getErrorMessage(error) {
   const errorMap = {
@@ -66,7 +66,7 @@ function getErrorMessage(error) {
   const message = errorMap[error];
   return message;
 }
-console.log(getErrorMessage("E01"));
+// console.log(getErrorMessage("E01"));
 
 function getError(errorCode) {
   let message = "";
@@ -84,5 +84,3 @@ function getError(errorCode) {
   }
   return message;
 }
-
-
