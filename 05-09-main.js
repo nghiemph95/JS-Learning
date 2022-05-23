@@ -37,7 +37,7 @@ export function checkStudentV3(score) {
 // console.log(checkStudent(3));
 
 // switch case
-function getErrorMessage(error) {
+function getErrorMessageV1(error) {
   let message = "";
 
   switch (error) {
@@ -56,7 +56,7 @@ function getErrorMessage(error) {
 // console.log(getErrorMessage("E01"));
 // console.log(getErrorMessage());
 
-function getErrorMessage(error) {
+function getErrorMessageV2(error) {
   const errorMap = {
     E01: "Test1",
     E02: "Test2",
