@@ -1,4 +1,4 @@
-import { sumSnCalcV1, sumSnCalcV2 } from "./sumSnCalcV1";
+import { sumSnCalcV1, sumSnCalcV2 } from "./sumSnCalc";
 
 describe("test sum func S(n)", () => {
   test("should be return 0 when n <= 0", () => {
