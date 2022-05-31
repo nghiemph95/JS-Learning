@@ -8,7 +8,7 @@ describe("test function isIncreasingNumber", () => {
     expect(isIncreasingNumber(9000000)).toBe(false);
   });
   test("should return fasle when number have 1 digit", () => {
-    Array.from({ length: 10 }, (x, i) => i + 1).forEach((x) => {
+    Array.from({ length: 10 }, (x, i) => i).forEach((x) => {
       expect(isIncreasingNumber(x)).toBe(false);
     });
   });
@@ -20,8 +20,7 @@ describe("test function isIncreasingNumber", () => {
   });
 
   test("should return true when number have 2 more", () => {
-    expect(isIncreasingNumber(112)).toBe(true);
-    expect(isIncreasingNumber(2234567)).toBe(true);
+    expect(isIncreasingNumber(12)).toBe(true);
     expect(isIncreasingNumber(56789)).toBe(true);
     expect(isIncreasingNumber(167)).toBe(true);
   });
