@@ -9,4 +9,4 @@ export function isIncreasingNumber(n) {
   return true;
 }
 
-console.log(isIncreasingNumber(112));
+console.log(isIncreasingNumber(12));
