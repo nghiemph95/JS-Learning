@@ -5,7 +5,7 @@ describe("Test statisticsWords()", () => {
     expect(statisticsWords("")).toEqual({});
   });
   test("Test return number", () => {
-    expect(statisticsWords("easy frontend is very easy")).toBe({
+    expect(statisticsWords("easy frontend is very easy")).toEqual({
       easy: 2,
       frontend: 1,
       is: 1,
