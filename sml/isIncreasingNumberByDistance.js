@@ -5,7 +5,6 @@ export function isIncreasingNumberByDistance(n, x) {
 
   for (let i = 1; i <= numString.length; i++) {
     if (numString[i + 1] - numString[i] === x) return true;
-    console.log(numString[i + 1] - numString[i]);
   }
   return false;
 }
