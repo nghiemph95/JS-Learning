@@ -1,6 +1,9 @@
 import { countEmails } from "./countEmails";
 
 describe("Test countEmails()", () => {
+  test("should return 0", () => {
+    expect(countEmails("")).toEqual(0);
+  });
   test("should return the number of Email", () => {
     expect(countEmails("my email should be abc@super.com")).toEqual(1);
     expect(
