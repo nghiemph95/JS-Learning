@@ -2,13 +2,13 @@ export function getDisplayedAddress(address) {
   if (typeof address !== "object") return {};
 
   let res = "";
-  let word = "";
+
   for (const check in address) {
-    if (typeof address[check] === "number") {
-      res = `${address[check]} `;
-    } else {
-      word = `${address[check]}, `;
-    }
+    let word =
+      typeof address[check] === "number"
+        ? `${address[check]} `
+        : `${address[check]}, `;
+
     res = res + word;
   }
   return res.slice(0, -2);
