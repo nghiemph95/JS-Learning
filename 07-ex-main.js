@@ -25,7 +25,7 @@ function capitalize(str) {
 }
 
 console.log(capitalize(""));
-console.log(capitalize("test StRinG"));
+console.log(capitalize("test StRinG FpfA AkkdfE dsfasFEFD"));
 
 /** String Includes */
 function hasEmail(str) {

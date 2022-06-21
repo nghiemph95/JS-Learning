@@ -1,23 +1,22 @@
 export function hasEasyFrontend(wordList) {
   if (!Array.isArray(wordList)) return false;
 
-  //   return (
-  //     wordList.filter(
-  //       (element) =>
-  //         (element === "easy" &&
-  //         element === "frontend") ||
-  //         element === "easy frontend"
-  //     ).length > 0
-  //   );
+  return (
+    wordList.filter(
+      (_, i) =>
+        (wordList[i] === "easy" && wordList[i + 1] === "frontend") ||
+        wordList[i] === "easy frontend"
+    ).length > 0
+  );
 
-  for (let i = 0; i < wordList.length; i++) {
-    if (wordList[i] === "") return false;
+//   for (let i = 0; i < wordList.length; i++) {
+//     if (wordList[i] === "") return false;
 
-    if (
-      (wordList[i] === "easy" && wordList[i + 1] === "frontend") ||
-      wordList[i] === "easy frontend"
-    )
-      return true;
-  }
+//     if (
+//       (wordList[i] === "easy" && wordList[i + 1] === "frontend") ||
+//       wordList[i] === "easy frontend"
+//     )
+//       return true;
+//   }
 }
-// console.log(hasEasyFrontend(["easy", "frontend"]));
+console.log(hasEasyFrontend(["easy", "frontend"]));
