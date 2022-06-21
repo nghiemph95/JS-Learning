@@ -4,6 +4,7 @@ function isAlice(student) {
   return student.gender === "female" && student.name.toLowerCase() === "alice";
 }
 
+/** for i */
 function hasAlice(studentList) {
   if (!Array.isArray(studentList) || studentList.length === 0) return false;
 
@@ -20,3 +21,19 @@ const studentList = [
 ];
 
 console.log(hasAlice(studentList));
+
+/** forEach */
+function hasAlice(studentList) {
+  if (!Array.isArray(studentList) || studentList.length === 0) return false;
+
+  let check = false;
+  studentList.forEach((element) => {
+    if (isAlice(element)) check = true;
+  });
+  return check;
+}
+
+/** find */
+function hasAlice(studentList) {
+  if (!Array.isArray(studentList) || studentList.length === 0) return false;
+}
