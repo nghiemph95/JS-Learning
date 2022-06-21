@@ -7,10 +7,6 @@ export function hasStudent(studentList, studentId) {
       return false;
     }
   }
-  const studentList = [
-    { id: 1, name: "Easy" },
-    { id: 2, name: "Frontend" },
-  ];
 }
 
 // console.log(hasStudent(studentList, 3));
