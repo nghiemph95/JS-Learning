@@ -5,7 +5,7 @@ function isAlice(student) {
 }
 
 /** for i */
-function hasAlice(studentList) {
+function hasAliceV1(studentList) {
   if (!Array.isArray(studentList) || studentList.length === 0) return false;
 
   for (let i = 0; i < studentList.length; i++) {
@@ -14,16 +14,16 @@ function hasAlice(studentList) {
   return false;
 }
 
-const studentList = [
-  { id: 1, name: "Alice", gender: "male" },
-  { id: 2, name: "aliCE", gender: "female" },
-  { id: 3, name: "Easy Frontend", gender: "male" },
-];
+// const studentList = [
+//   { id: 1, name: "Alice", gender: "male" },
+//   { id: 2, name: "aliCE", gender: "female" },
+//   { id: 3, name: "Easy Frontend", gender: "male" },
+// ];
 
-console.log(hasAlice(studentList));
+// console.log(hasAlice(studentList));
 
 /** forEach */
-function hasAlice(studentList) {
+function hasAliceV2(studentList) {
   if (!Array.isArray(studentList) || studentList.length === 0) return false;
 
   let check = false;
@@ -34,6 +34,15 @@ function hasAlice(studentList) {
 }
 
 /** find */
-function hasAlice(studentList) {
+function hasAliceV3(studentList) {
   if (!Array.isArray(studentList) || studentList.length === 0) return false;
+
+  return Boolean(studentList.find(isAlice));
+}
+
+/** findIndex */
+export function hasAlice(studentList) {
+  if (!Array.isArray(studentList) || studentList.length === 0) return false;
+
+  return studentList.findIndex(isAlice) > 0;
 }
