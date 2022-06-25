@@ -6,5 +6,3 @@ export function isSymmetricList(numberList) {
   }
   return true;
 }
-
-console.log(isSymmetricList([1, 2, 2, 1]));
