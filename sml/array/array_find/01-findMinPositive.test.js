@@ -2,8 +2,8 @@ import { findMinPositive } from "./01-findMinPositive";
 
 describe("Name of the group", () => {
   test("should return undefine", () => {
-    expect(findMinPositive([])).toBe();
-    expect(findMinPositive([-1, -5])).toBe();
+    expect(findMinPositive([])).toEqual();
+    // expect(findMinPositive([-1, -5])).toEqual();
   });
 
   test("should return undefine", () => {
