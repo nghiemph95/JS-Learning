@@ -36,8 +36,10 @@ export function findMinPositive(numberList) {
   // });
   // return res;
 
-  return Math.min(...numberList?.filter((element) => element > 0));
+  let res;
+
+  res = Math.min(...numberList?.filter((element) => element > 0));
 }
-// console.log(findMinPositive([]));
+console.log(findMinPositive([-1, -2]));
 
 // console.log(Math.min(...[-1, -5, 2, 6].filter((element) => element > 0)));
