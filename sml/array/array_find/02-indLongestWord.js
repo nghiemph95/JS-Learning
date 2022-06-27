@@ -1,4 +1,4 @@
-function findLongestWord(wordList) {
+function findLongestWordV1(wordList) {
   if (!Array.isArray(wordList) || wordList.length === 0) return "";
 
   let max = wordList[0];
@@ -10,7 +10,7 @@ function findLongestWord(wordList) {
   return max;
 }
 
-function findLongestWord(wordList) {
+function findLongestWordV2(wordList) {
   if (!Array.isArray(wordList) || wordList.length === 0) return "";
 
   let max = wordList[0];
