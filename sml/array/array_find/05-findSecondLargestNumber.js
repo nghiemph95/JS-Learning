@@ -6,7 +6,6 @@ export function findSecondLargestNumber(numberList) {
   )
     return;
 
-  let newArray = [];
   let max = numberList[0];
 
   for (let i = 1; i < numberList.length; i++) {
