@@ -91,7 +91,7 @@ function isEven(n) {
 function isPerfectSquare(n) {
   return Math.trunc(Math.sqrt(n)) ** 2 === n;
 }
-console.log(isPerfectSquare(5));
+console.log(isPerfectSquare(36));
 
 /** finding Max */
 function findingMax(a, b, c) {

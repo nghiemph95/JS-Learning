@@ -27,4 +27,4 @@ export function findLastNegativeOdd(numberList) {
 
   return numberList.slice(-1).find((e) => e % 2 !== 0 && e < 0);
 }
-console.log(findLastNegativeOdd([-1, -3, -5]));
+console.log([-1, -3, -5].reverse());
