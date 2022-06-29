@@ -13,7 +13,6 @@ function isUrl(url) {
 
   const domainString = url.slice(firstDot + 1);
 
-  //   const secondDot = domainString.indexOf(".");
   let last;
   if (domainString.indexOf(".") > 0) {
     last = domainString.slice(domainString.indexOf("."));
