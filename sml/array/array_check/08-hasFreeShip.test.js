@@ -1,4 +1,4 @@
-import { hasFreeShip } from "./hasFreeShip";
+import { hasFreeShip } from "./08-hasFreeShip";
 
 describe("Name of the group testing", () => {
   const productList = [

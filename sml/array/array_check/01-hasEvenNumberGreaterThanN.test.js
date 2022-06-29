@@ -1,4 +1,4 @@
-import { hasEvenNumberGreaterThanN } from "./hasEvenNumberGreaterThanN";
+import { hasEvenNumberGreaterThanN } from "./01-hasEvenNumberGreaterThanN";
 
 describe("Test hasEvenNumberGreaterThanN()", () => {
   test("should return false", () => {
