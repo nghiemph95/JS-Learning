@@ -8,7 +8,7 @@ describe("Name of the group", () => {
     { id: 4, name: "Sarah", marks: { math: 2, english: 8, programming: 10 } },
   ];
   test("should ", () => {
-    expect(findStudent(studentList)).toBe({
+    expect(findStudent(studentList)).toStrictEqual({
       id: 3,
       name: "John",
       marks: { math: 4, english: 7, programming: 9 },
