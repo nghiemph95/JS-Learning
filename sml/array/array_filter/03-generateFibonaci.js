@@ -1,0 +1,1 @@
+exoprt function generateFibonaci(n) {}
