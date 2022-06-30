@@ -18,11 +18,19 @@ export function generateFibonaciV1(n) {
   let fiboArray = [0, 1];
   let data = [];
 
-  for (let i = 2; i <= n; i++) {
+  for (let i = 2; i < n; i++) {
     fiboArray[i] = fiboArray[i - 1] + fiboArray[i - 2];
-    data.push(fiboArray[i]);
+    res = fiboArray.concat(fiboArray[i]);
   }
 
-  return data;
+  return res;
 }
-console.log(generateFibonaciV1(10));
+
+export function generateFibonaciV1(n) {
+  return Array.from({ length: n }).reduce(
+    (acc, _val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),
+    []
+  );
+}
+
+// console.log(generateFibonaciV1(10));
