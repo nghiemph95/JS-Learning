@@ -14,7 +14,7 @@ export function generateFibonaci(n) {
   return fiboArray;
 }
 
-export function generateFibonaciV1(n) {
+export function generateFibonaciV2(n) {
   let fiboArray = [0, 1];
   let data = [];
 
