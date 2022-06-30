@@ -1,4 +1,4 @@
-export function findNumbers(numberList) {
+export function findNumbersV1(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 1) return [];
 
   let newArray = [];
@@ -10,4 +10,9 @@ export function findNumbers(numberList) {
   return newArray;
 }
 
+export function findNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 1) return [];
+
+  return numberList.filter((_, i) => numberList[i] > numberList[i - 1]);
+}
 // console.log(findNumbers([2, 5, 3, 7]));
