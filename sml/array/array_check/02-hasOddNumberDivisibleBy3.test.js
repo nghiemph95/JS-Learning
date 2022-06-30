@@ -1,4 +1,4 @@
-import { hasOddNumberDivisibleBy3 } from "./hasOddNumberDivisibleBy3";
+import { hasOddNumberDivisibleBy3 } from "./02-hasOddNumberDivisibleBy3";
 
 describe("Test result of hasOddNumberDivisibleBy3", () => {
   test("should show result true", () => {

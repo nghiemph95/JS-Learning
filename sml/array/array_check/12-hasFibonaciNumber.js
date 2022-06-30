@@ -18,5 +18,5 @@ export function hasFibonaciNumber(numberList) {
   return false;
 }
 
-console.log(hasFibonaciNumber([0, 1, 2, 3]));
+// console.log(hasFibonaciNumber([0, 1, 2, 3]));
 // console.log(hasFibonaciNumber([4, 6, 7]));
