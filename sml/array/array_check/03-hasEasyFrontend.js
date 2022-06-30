@@ -9,14 +9,14 @@ export function hasEasyFrontend(wordList) {
     ).length > 0
   );
 
-//   for (let i = 0; i < wordList.length; i++) {
-//     if (wordList[i] === "") return false;
+  //   for (let i = 0; i < wordList.length; i++) {
+  //     if (wordList[i] === "") return false;
 
-//     if (
-//       (wordList[i] === "easy" && wordList[i + 1] === "frontend") ||
-//       wordList[i] === "easy frontend"
-//     )
-//       return true;
-//   }
+  //     if (
+  //       (wordList[i] === "easy" && wordList[i + 1] === "frontend") ||
+  //       wordList[i] === "easy frontend"
+  //     )
+  //       return true;
+  //   }
 }
-console.log(hasEasyFrontend(["easy", "frontend"]));
+// console.log(hasEasyFrontend(["easy", "frontend"]));
