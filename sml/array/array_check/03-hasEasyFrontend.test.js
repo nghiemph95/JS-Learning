@@ -1,4 +1,4 @@
-import { hasEasyFrontend } from "./hasEasyFrontend";
+import { hasEasyFrontend } from "./03-hasEasyFrontend";
 
 describe("Test function", () => {
   test("should return false", () => {

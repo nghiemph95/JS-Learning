@@ -1,4 +1,4 @@
-import { hasTruthy } from "./hasTruthy";
+import { hasTruthy } from "./04-hasTruthy";
 
 describe("Test function hasTruthy", () => {
   test("should return false", () => {

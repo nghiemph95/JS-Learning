@@ -1,4 +1,4 @@
-import { hasFalsy } from "./hasFalsy";
+import { hasFalsy } from "./05-hasFalsy";
 
 describe("Test function hasFalsy()", () => {
   test("should return false", () => {

@@ -1,4 +1,4 @@
-import { isSymmetricList } from "./isSymmetricList";
+import { isSymmetricList } from "./11-isSymmetricList";
 
 describe("Name of the group", () => {
   test("should return false", () => {

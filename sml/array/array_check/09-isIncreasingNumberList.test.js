@@ -1,4 +1,4 @@
-import { isIncreasingNumberList } from "./isIncreasingNumberList";
+import { isIncreasingNumberList } from "./09-isIncreasingNumberList";
 
 describe("Name of the group", () => {
   test("should return true", () => {

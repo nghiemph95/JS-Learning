@@ -1,4 +1,4 @@
-import { hasStudent } from "./hasStudent";
+import { hasStudent } from "./06-hasStudent";
 
 describe("Test function hasStudent()", () => {
   const studentList = [

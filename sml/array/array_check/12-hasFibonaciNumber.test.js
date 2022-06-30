@@ -1,4 +1,4 @@
-import { hasFibonaciNumber } from "./hasFibonaciNumber";
+import { hasFibonaciNumber } from "./12-hasFibonaciNumber";
 
 describe("Name of the group", () => {
   test("should return false", () => {

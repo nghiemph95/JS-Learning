@@ -1,4 +1,4 @@
-import { hasAlice } from "./hasAlice";
+import { hasAlice } from "./07-hasAlice";
 
 describe("Test func", () => {
   const studentList = [
