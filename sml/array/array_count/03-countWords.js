@@ -17,7 +17,7 @@ export function countWords(wordList, n) {
   return wordList.filter((element) => element.length >= n).length;
 }
 
-export function countWords(wordList, n) {
+export function countWordsV2(wordList, n) {
   if (!Array.isArray(wordList) || wordList.length === 0) return 0;
 
   return wordList.findIndex((e) => e.length >= n);
