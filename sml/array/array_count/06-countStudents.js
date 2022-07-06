@@ -43,20 +43,23 @@ export function countStudentsV2(studentList, avgMark) {
 export function countStudents(studentList, avgMark) {
   if (!Array.isArray(studentList) || studentList.length === 0 || avgMark === 0)
     return;
-  //   let count = 0;
+  let count = 0;
 
-  const count = studentList.every((element, index) => {
+  studentList.some((element) => {
     if (
       Object.values(element.marks).reduce((pre, cur) => pre + cur) /
         Object.values(element.marks).length >=
       avgMark
     ) {
-      count[index] = true;
+      count++;
     }
   });
   return count;
 }
 
-const studentListV1 = { id: 1, name: "Alice", marks: { math: 8, english: 6 } };
+const studentList = [
+  { id: 1, name: "Alice", marks: { math: 5, english: 6 } },
+  { id: 2, name: "Bob", marks: { math: 9, english: 8 } },
+];
 
-console.log(Object.values(studentListV1.marks));
+console.log(countStudents(studentList, 7));
