@@ -10,4 +10,4 @@ export function sumEvenNumbers(numberList) {
 
   return array.reduce((a, b) => a + b);
 }
-console.log(sumEvenNumbers([-10, -4, 2, 8, 5]));
+// console.log(sumEvenNumbers([-10, -4, 2, 8, 5]));
