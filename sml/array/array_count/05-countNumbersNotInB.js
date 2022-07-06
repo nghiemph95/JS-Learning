@@ -8,7 +8,7 @@ export function countNumbersNotInBV1(a, b) {
   for (let i = 0; i < a.length; i++) {
     for (let m = 0; m < b.length; m++) {
       if (a[i] !== b[m]) {
-        count++;
+        continue;
       }
     }
   }
@@ -34,5 +34,6 @@ export function countNumbersNotInB(a, b) {
   });
 
   return count;
+  
 }
 // console.log(countNumbersNotInB([1, 2, 3], [3, 4, 5]));
