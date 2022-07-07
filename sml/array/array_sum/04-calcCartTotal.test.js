@@ -6,6 +6,6 @@ describe("Name of the group", () => {
     { id: 2, product: { id: 2, price: 100000 }, quantity: 2 },
   ];
   test("should ", () => {
-    expect(calcCartTotal(cartItemList)).toBe(250000);
+    expect(calcCartTotal(cartItemList)).toEqual(250000);
   });
 });
