@@ -1,4 +1,4 @@
-export function sumAllDigits(numberList) {
+export function sumAllDigitsV1(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return 0;
 
   if (numberList.length === 1) return Number(numberList);
@@ -15,7 +15,7 @@ export function sumAllDigits(numberList) {
   return sum;
 }
 
-export function sumAllDigits(numberList) {
+export function sumAllDigitsV2(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return 0;
 
   if (numberList.length === 1) return Number(numberList);
