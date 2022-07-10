@@ -9,4 +9,4 @@ export function remove(arr, k, n) {
   return arr;
 }
 
-console.log(remove([1, 2, 3], 0));
+console.log(remove([1, 2, 3], 1, 2));
