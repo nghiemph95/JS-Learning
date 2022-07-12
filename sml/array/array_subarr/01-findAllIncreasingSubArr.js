@@ -1,7 +1,7 @@
 /** Viết hàm findAllIncreasingSubArr(numberList) để tìm ra tất cả các mảng con tăng dần có trong mảng
 numberList. */
 export function findAllIncreasingSubArr(numberList) {
-  if (!Array.isArray(numberList) || numberList.length === 0) return;
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
 
   const arr = [];
 
@@ -20,4 +20,6 @@ export function findAllIncreasingSubArr(numberList) {
   return arr;
 }
 
-console.log(findAllIncreasingSubArr([1, 2, 3, -5, -10, 5, 10]));
+// console.log(findAllIncreasingSubArr([1, 2, 3, -5, -10, 5, 10]));
+
+// console.log([1, 2, 3], [-10, 5, 10].split(","));
