@@ -1,4 +1,4 @@
-function countStudents(studentList) {
+export function countStudents(studentList) {
   if (!Array.isArray(studentList) || studentList.length === 0) return 0;
 
   let count = 0;
