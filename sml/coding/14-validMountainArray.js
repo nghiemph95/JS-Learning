@@ -24,5 +24,6 @@ export function validMountainArray(numberList) {
       isMountainArray = false;
     }
   }
+
   return isMountainArray;
 }
