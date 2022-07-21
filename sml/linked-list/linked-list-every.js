@@ -45,10 +45,12 @@ function createLinkedList() {
     return head;
   }
 
+  /** Get Head */
   function getHead() {
     return head;
   }
 
+  //Get Tail
   function getTail() {
     if (head == null) return null;
 
@@ -60,6 +62,7 @@ function createLinkedList() {
     return tail;
   }
 
+  //Get Size
   function getSize() {
     if (head == null) return 0;
 
@@ -72,6 +75,7 @@ function createLinkedList() {
     return count;
   }
 
+  //Find Index by Data
   function findIndexByData(data) {
     if (head == null) return -1;
 
@@ -85,6 +89,7 @@ function createLinkedList() {
     return -1;
   }
 
+  //Find With Callback
   function findWithCallback(callback) {
     if (head == null) return;
 
@@ -98,6 +103,7 @@ function createLinkedList() {
     return;
   }
 
+  //Insert Head
   function insertHead(newData) {
     const newNode = { data: newData, next: null };
 
@@ -110,6 +116,7 @@ function createLinkedList() {
     head = newNode;
   }
 
+  //Some
   function some(isValidFn) {
     if (head == null) return false;
 
@@ -123,6 +130,7 @@ function createLinkedList() {
     return false;
   }
 
+  //Every
   function every(isValidFn) {
     if (head == null) return false;
 
@@ -135,6 +143,7 @@ function createLinkedList() {
     return false;
   }
 
+  //Print List
   function printList() {
     if (head == null) return;
 
