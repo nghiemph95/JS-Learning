@@ -137,12 +137,11 @@ function createLinkedList() {
     let current = head;
 
     while (current != null) {
-      if (isValidFn(current.data)) return true;
+      if (!isValidFn(current.data)) return false;
       current = current.next;
     }
-    return false;
+    return true;
   }
-  //   return false;
 
   // Remove Head
   function removeHead() {
@@ -231,8 +230,9 @@ numberLinkedList.insertHead(1);
 
 numberLinkedList.insertTail(6);
 
-// numberLinkedList.removeHead(1);
+numberLinkedList.removeHead(1);
 numberLinkedList.removeTail(5);
+numberLinkedList.removeAtPosition(3);
 
 numberLinkedList.insertBeforePosition(3, 2);
 

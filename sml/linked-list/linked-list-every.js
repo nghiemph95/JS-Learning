@@ -142,7 +142,7 @@ function createLinkedList() {
     }
     return false;
   }
-
+  return false;     
   //Print List
   function printList() {
     if (head == null) return;
