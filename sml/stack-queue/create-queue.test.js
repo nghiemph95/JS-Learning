@@ -68,3 +68,7 @@ describe("createQueue()", () => {
     expect(queue.getBack()).toBeUndefined();
   });
 });
+
+console.log(NaN == NaN);
+console.log(NaN === NaN);
+console.log(Object.is(NaN, NaN));
