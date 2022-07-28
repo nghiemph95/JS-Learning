@@ -59,6 +59,7 @@ export function countUniqueNumbers(numberList) {
 
   const count = numberList.reduce((count, number) => {
     count[number] = true;
+    console.log(count[number]);
     return count;
   }, {});
 
