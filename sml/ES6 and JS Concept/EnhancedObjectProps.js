@@ -69,3 +69,29 @@ const numberList = [5, 10, 15];
 const [a, b] = numberList;
 // a = 5
 // b = 10
+
+// swap
+let x = 10;
+let y = 20;
+[y, x] = [x, y]; // swap
+console.log(x); // 20
+console.log(y); // 10
+
+// rename prop
+// destructuring value
+const studentV3 = {
+  id: 1,
+  name: "Easy Frontend",
+};
+const { id: studentId, nameX, ageX = 18 } = student;
+console.log(studentId); // 1
+console.log(ageX); // 18
+console.log(id); // ReferenceError: id is not defined
+
+/** Object.assign() */
+const ax = { id: 1 };
+const bx = { name: "Easy" };
+const cx = Object.assign(a, b);
+console.log(ax); // { id: 1, name: 'Easy' }
+console.log(cx); // { id: 1, name: 'Easy' }
+console.log(ax === cx); // true (same reference)
