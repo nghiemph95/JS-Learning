@@ -1,7 +1,7 @@
 /** 1.Property shorthand - Gán props cho Object nhưng dạng rút gọn
  *  2.Computed property name
  *  3.Method properties
- *  4.Desctructuring
+ *  4.Desctructuring - Rút trích thuộc tính của mọt Object nào đấy
  *  5.Object.assign()
  */
 
@@ -23,3 +23,49 @@ const studentShorthand = {
   age,
   isHero: false,
 };
+
+/** Computed property name */
+const key = "Power";
+const studentV1 = {
+  id: 1,
+  name: "Easy Frontend",
+  "hero type": "iron man", // key with spaces
+  [key]: 50, //tạo ra props tên là Power - lấy giá trị của biến key làm thuộc tính
+  [`get${key}`]: function () {
+    return 100;
+  },
+};
+student.id; // 1
+student.Power; // 50
+
+//student.hero type; // syntax error
+student["hero type"]; // 'iron man'
+
+student.Power; // 50
+student[key]; // 50
+
+student.getPower(); // 100
+
+/** Method properties */
+const studentMethod = {
+  sayHello: function () {
+    console.log("Easy Frontend");
+  }, // ES5
+  getPower() {
+    return 100;
+  }, // ES6
+};
+
+/** Desctructuring*/
+// object destructuring
+const studentV2 = {
+  ix: 1,
+  nameS: "Easy Frontend",
+};
+const { ix, nameS } = studentV2;
+
+// array destructuring
+const numberList = [5, 10, 15];
+const [a, b] = numberList;
+// a = 5
+// b = 10
