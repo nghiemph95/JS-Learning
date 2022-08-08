@@ -30,3 +30,46 @@ function sayHello() {
 [1, 2, 3].forEach(function (number) {
   console.log(this); // undefined
 });
+
+/** this in Arrow function */
+const sayHello = () => {
+  console.log(this); // window or global
+};
+
+("use strict");
+function sayHello() {
+  console.log(this); // undefined
+  const getLanguage = () => {
+    console.log(this); // same as this from outer normal function
+  };
+  getLanguage();
+}
+
+/** this in method */
+const studentV1 = {
+  name: "Bob",
+  sayHello: function () {
+    console.log("My name is", this.name);
+  },
+};
+studentV1.sayHello(); // 'My name is Bob'
+
+const studentV2 = {
+  name: "Bob",
+  // ES6 property methods
+  sayHello() {
+    console.log("My name is", this.name);
+  },
+};
+studentV2.sayHello(); // 'My name is Bob'
+
+("use strict");
+// avoid using arrow function in object methods
+const student = {
+  name: "Bob",
+  // arrow function
+  sayHello: () => {
+    console.log("My name is", this.name);
+  },
+};
+student.sayHello(); // 'My name is undefined'
