@@ -91,7 +91,20 @@ console.log(id); // ReferenceError: id is not defined
 /** Object.assign() */
 const ax = { id: 1 };
 const bx = { name: "Easy" };
-const cx = Object.assign(a, b);
+const cx = Object.assign(a, b); // return to object ax
 console.log(ax); // { id: 1, name: 'Easy' }
 console.log(cx); // { id: 1, name: 'Easy' }
 console.log(ax === cx); // true (same reference)
+
+// clone object
+const studentV4 = {
+  id: 1,
+  name: "Easy Frontend",
+};
+// spread operator
+const alice = {
+  ...student,
+  name: "Alice",
+};
+// object.assign
+const bob = Object.assign({}, student, { name: "Bob" });
