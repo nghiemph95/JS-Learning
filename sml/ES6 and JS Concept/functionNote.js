@@ -1,4 +1,4 @@
-// Default parameter value
+/** Default parameter value */
 function sum(a, b) {}
 function sum(a, b = 10) {}
 function sum(a = 5, b = 10) {}
@@ -14,7 +14,7 @@ sum(10, 20); // 30
 sum(undefined, undefined); // 15
 sum(undefined, null); // 5 as null is converted to 0
 
-// Rest parameter - Gom danh sach lai thanh 1
+/** Rest parameter - Gom danh sach lai thanh 1 */
 /** ES5 */
 function sum() {
   let sum = 0;
@@ -41,7 +41,7 @@ function sum(...numberList) {
   return numberList.reduce((total, number) => total + number); // ...numberList : Array
 }
 
-// Spread operator - Tu 1 tach ra thanh 1 danh sach
+/** Spread operator - Tu 1 tach ra thanh 1 danh sach */
 function sum(...numberList) {
   return numberList.reduce((total, number) => total + number); // ...numberList : Array
 }
@@ -49,7 +49,7 @@ function sum(...numberList) {
 const numberList = [1, 2, 3];
 console.log(sum(...numberList)); //spread operator - split parameter into '1', '2', '3'
 
-//Arrow function
+/** Arrow function */
 function sum() {} // function declaration
 const sum = function () {}; // function expression
 const sum = () => {}; // arrow function
@@ -71,7 +71,7 @@ const getStudentV2 = () => ({
 });
 console.log(getStudentV2());
 
-// Constructor function
+/**Constructor function */
 function Student(id, name) {
   this.is = id;
   this.name = name;
@@ -87,7 +87,7 @@ alice.sayHello(); // Test Alice
 const bob = new Student(2, "Bob");
 bob.sayHello(); // Test Bob
 
-// Curry function
+/**Curry function */
 sum(1)(2); //3
 //Explain
 sum(1); // return 1 function
