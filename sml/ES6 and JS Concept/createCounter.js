@@ -1,9 +1,15 @@
 function createCounter() {
   const objectResult = {};
 
-  function count() {}
+  function count(label = "default") {
+    objectResult[label] = (objectResult[label] || 0) + 1;
 
-  function resetCount() {}
+    return `${label}: ${objectResult[label]}`;
+  }
+
+  function resetCount(label = "default") {
+    objectResult[label] = 0;
+  }
 
   return {
     count,
@@ -12,3 +18,15 @@ function createCounter() {
 }
 
 const counter = createCounter();
+console.log(counter.count());
+console.log(counter.count());
+console.log(counter.count());
+
+console.log(counter.count("test"));
+console.log(counter.count("test"));
+console.log(counter.count("test"));
+
+console.log(counter.count("Counter"));
+console.log(counter.count("Counter"));
+console.log(counter.resetCount("Counter"));
+console.log(counter.count("Counter"));
