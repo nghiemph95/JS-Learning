@@ -1,5 +1,5 @@
 function createCounter() {
-  const objectResult = {};
+  const objectResult = [];
 
   function count(label = "default") {
     objectResult[label] = (objectResult[label] || 0) + 1;
