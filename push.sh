@@ -3,10 +3,10 @@ git add .
 # echo 'Enter the commit message:'
 
 
-git commit -m'push'
+GIT_AUTHOR_DATE=$(date -d'...') GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE" git commit -m'push'
 
-echo 'Enter the git pushing source code:'
-read push
+# echo 'Enter the git pushing source code:'
+# read push
 
 
 git push
