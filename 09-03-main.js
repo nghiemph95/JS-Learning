@@ -569,3 +569,4 @@ function calcAvgOfAllEvenNumbers(numberList) {
   }
 }
 console.log(calcAvgOfAllEvenNumbers([2, 4, 8]));
+//test

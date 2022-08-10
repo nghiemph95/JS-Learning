@@ -8,6 +8,6 @@ git commit -m'push'
 echo 'Enter the name of the branch:'
 read branch
 
-git push origin $JS-Learning
+git push
 
-read
+exitss
