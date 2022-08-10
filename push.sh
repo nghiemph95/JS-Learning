@@ -5,7 +5,7 @@ git add .
 
 git commit -m'push'
 
-# echo 'Enter the name of the branch:'
+echo 'Enter the git pushing source code:'
 
 
 git push
