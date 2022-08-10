@@ -2,8 +2,9 @@ git add .
 
 # echo 'Enter the commit message:'
 
-
-GIT_AUTHOR_DATE=$(date -d'...') GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE" git commit -m GIT_AUTHOR_DATE=$(date -d'...')
+current="`date +'%Y-%m-%d %H:%M:%S'`"
+msg="Updated: $current"
+git commit -m "$msg" # Updated: 2019-08-28 10:22:06
 
 # echo 'Enter the git pushing source code:'
 # read push
