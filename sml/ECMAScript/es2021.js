@@ -53,9 +53,42 @@ console.log(ai.speed);
 //Numeric separator
 // before
 const counter = 1000000;
+
 // ES2021 - more readable
 const count = 1_000_000;
 // don't overuse it =)))
 1_00; // 100
 10_0; // 100
 1_5_0; // 150;
+
+//String.prototype.replaceAll(); Điểm khác nhau giữa replace và replaceAll là replace chỉ replace phần tử đầu tiên nó tìm thấy, còn All thì nó sẽ replace tất cả đổi
+// với string
+// Before: need to use regex with global flag
+const queryStringX = "q=query+string+parameters";
+const withSpaces = queryString.replace(/\+/g, " ");
+// 'q=query string parameters'
+
+// ES2021
+const queryString = "q=query+string+parameters";
+// const withSpaces = queryString.split('+').join(' ');
+queryString.replaceAll("+", " ");
+// 'q=query string parameters'
+
+//Promise.any
+Promise.any([
+  fetch("https://v8.dev/").then(() => "home"),
+  fetch("https://v8.dev/blog").then(() => "blog"),
+  fetch("https://v8.dev/docs").then(() => "docs"),
+])
+  .then((first) => {
+    // Any of the promises was fulfilled.
+    console.log(first);
+    // → 'home'
+  })
+  .catch((error) => {
+    // All of the promises were rejected.
+    console.log(error);
+  });
+
+/** Promise.race = wait for the first item either fulfilled or rejected.
+Promise.any = wait for the first fulfilled item */
