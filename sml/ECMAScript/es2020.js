@@ -26,7 +26,8 @@ const doMath = async (num1, num2) => {
 };
 doMath(4, 2);
 
-/** Nullish Coalescing */
+/** Nullish Coalescing
+ */
 const value = x ?? y;
 // - return y if x is nullish (null or undefined)
 // - otherwise return x
@@ -128,3 +129,6 @@ import * as utils from "./utils.mjs";
 export { utils };
 // ES2020
 export * as utils from "./utils.mjs";
+
+/** Import.meta */
+console.log(import.meta); // { url: "file:///home/user/module.js" }
