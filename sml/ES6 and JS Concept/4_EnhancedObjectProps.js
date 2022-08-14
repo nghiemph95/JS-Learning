@@ -56,7 +56,7 @@ const studentMethod = {
   }, // ES6
 };
 
-/** Desctructuring*/
+/** Desctructuring - Rút trích thuộc tính*/
 // object destructuring
 const studentV2 = {
   ix: 1,
