@@ -88,7 +88,7 @@ console.log(studentId); // 1
 console.log(ageX); // 18
 console.log(id); // ReferenceError: id is not defined
 
-/** Object.assign() */
+/** Object.assign() - Sử dụng khi không muốn thay đổi tham chiếu*/
 const ax = { id: 1 };
 const bx = { name: "Easy" };
 const cx = Object.assign(a, b); // return to object ax
@@ -103,7 +103,7 @@ const studentV4 = {
 };
 // spread operator
 const alice = {
-  ...student,
+  ...studentV4,
   name: "Alice",
 };
 // object.assign
