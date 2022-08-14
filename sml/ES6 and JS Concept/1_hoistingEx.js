@@ -18,3 +18,9 @@ var tip = 100;
   var tip = 10;
 })(); // Dấu ngoặc () cuối cùng có nghĩa là thực thi hàm luôn
 //()(): ngoạc đầu tiên là định nghĩa hàm, hàm thứ 2 là thực thi hàm
+
+/** function declaration */
+function sayHello() {}
+
+/** function expression */
+const sum = function () {};
