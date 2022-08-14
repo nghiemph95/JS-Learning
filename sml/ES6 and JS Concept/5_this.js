@@ -34,7 +34,7 @@ function sayHello() {
 
 /** this in Arrow function */
 const sayHello = () => {
-  console.log(this); // window or global
+  console.log(this); // window or global (tất cả trỏ tới global object tùy vào brower/nodejs)
 };
 
 ("use strict");
