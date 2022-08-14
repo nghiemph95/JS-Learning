@@ -1,3 +1,4 @@
+/** Ứng với mỗi case khác nhau this sẽ có giá trị khác nhau */
 /** browser */
 console.log(this); // window object
 console.log(this === window); //true
@@ -15,11 +16,11 @@ console.log(global.name); // 'Easy Frontend'
 /** this in normal function */
 //non-strict mode
 function sayHello() {
-  console.log(this); // window or global
+  console.log(this); // window or global (tất cả trỏ tới global object tùy vào brower/nodejs)
 }
 // anonymous function
 [1, 2, 3].forEach(function (number) {
-  console.log(this); // window or global
+  console.log(this); // window or global (tất cả trỏ tới global object tùy vào brower/nodejs)
 });
 
 ("use strict");
