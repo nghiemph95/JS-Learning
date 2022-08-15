@@ -1,3 +1,4 @@
+/** bind/call/apply nhằm chỉ định 1 cái this trong nomal func/reguler func */
 "use strict";
 
 function sayHello(a, b) {
