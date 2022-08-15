@@ -12,3 +12,25 @@ const debounceLog = debounce(log, wait);
 debounceLog();
 debounceLog();
 debounceLog();
+
+/** simple implementation */
+function debounce(callBack, wait) {
+  let timeoutId; // Clouser
+
+  return function () {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(callBack, wait);
+  };
+}
+
+function log() {
+  console.log("test");
+}
+
+const logDebounce = debounce(log, 500);
+logDebounce();
+logDebounce();
+logDebounce(); // log "test" at the end
