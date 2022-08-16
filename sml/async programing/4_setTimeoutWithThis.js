@@ -1,16 +1,18 @@
 /** setTimeout with This */
 const student = {
   name: "test",
+  //Method sayHello()
   sayHello() {
     console.log("NAME", this.name);
     console.log("THIS", this);
   },
 };
 
-student.sayHello(); // this trong method sẽ trỏ đến object mà gọi cái method đó là sayHello()
+student.sayHello(); // this trong method sẽ trỏ đến object mà gọi cái method đó là student
 
 //Thằng gọi không phải thằng Student
 // setTimeout sẽ chạy qua webAPI, sau khi đó mới chạy qua callback queue, nên hàm được gọi là từ 1 context khác
+// Nên kết quả là ra 1 global object
 setTimeout(student.sayHello);
 
 // setTimeout sẽ không dùng bind this được
