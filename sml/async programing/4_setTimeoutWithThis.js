@@ -8,3 +8,5 @@ const student = {
 };
 
 student.sayHello(); // this trong method sẽ trở đến object mà gọi cái method đó là sayHello()
+
+setTimeout(student.sayHello);
