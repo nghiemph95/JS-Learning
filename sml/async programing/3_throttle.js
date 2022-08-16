@@ -20,7 +20,7 @@ function throttle(callback, wait) {
 
 const throttleLog = throttle(log, 500);
 
-throttleLog(); //set timeout 500 -> call -> turn off flag throttle
+throttleLog(); // set timeout 500 -> call -> turn off flag throttle
 throttleLog(); // check throttling -> ignore
 throttleLog(); // check throttling -> ignore
 throttleLog(); // check throttling -> ignore
