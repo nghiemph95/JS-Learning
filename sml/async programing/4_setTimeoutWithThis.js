@@ -7,7 +7,7 @@ const student = {
   },
 };
 
-student.sayHello(); // this trong method sẽ trở đến object mà gọi cái method đó là sayHello()
+student.sayHello(); // this trong method sẽ trỏ đến object mà gọi cái method đó là sayHello()
 
 //Thằng gọi không phải thằng Student
 // setTimeout sẽ chạy qua webAPI, sau khi đó mới chạy qua callback queue, nên hàm được gọi là từ 1 context khác
