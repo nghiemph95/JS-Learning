@@ -16,9 +16,13 @@ setTimeout(student.sayHello);
 // setTimeout sẽ không dùng bind this được
 setTimeout.bind(student, student.sayHello); // Dính lỗi Illegal invocation
 
-//Cách sử lý sử dụng wrapper function
+//Cách sử lý issue bên trên bằng cách sử dụng wrapper function
+// Tức là tạo ra 1 cái inline func trước sau đó mới gọi func của mình
 setTimeout(() => {
   console.log("Cách sử lý sử dụng wrapper function");
   console.log("this", this); //This sẽ trả ra global object
-  student.sayHello();
+  student.sayHello(); // Hàm sayHello() được gọi bỏi object student
 });
+
+//Cách xử lý issue "setTimeout ko dùng bind this được" bằng cách sử dụng bind this
+setTimeout(student.sayHello.bind(student)); //bind thẳng vào hàm chứ ko dùng setTimeout.bind được
