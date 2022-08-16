@@ -36,6 +36,7 @@ const studentV2 = {
     console.log("THIS", this);
   },
 
+  // Đừng viết arrow vì arrow ko có this riêng của nó mà tái sử dụng lại this bên ngoài => global object
   arrow: () => {
     console.log("NAME", this.name);
     console.log("THIS", this);
@@ -45,8 +46,8 @@ const studentV2 = {
     console.log("OUTER THIS", this);
 
     setTimeout(function () {
-      console.log("NAME", this.name);
-      console.log("THIS", this);
+      console.log("NAME", this.name); //This trong đây sẽ là global func
+      console.log("THIS", this); //This trong đây sẽ là global func
     });
   },
 
@@ -54,8 +55,10 @@ const studentV2 = {
     console.log("OUTER THIS", this);
 
     setTimeout(() => {
-      console.log("NAME", this.name);
+      console.log("NAME", this.name); //This trong này nằm trong arrow func nên sẽ hưởng cái this bên ngoài OUTER THIS nên là student
       console.log("THIS", this);
     });
   },
 };
+
+studentV2.timeoutNormal();
