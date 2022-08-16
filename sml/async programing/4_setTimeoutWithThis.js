@@ -32,7 +32,7 @@ setTimeout(student.sayHello.bind(student)); //bind thẳng vào hàm chứ ko d�
 /** Ví dụ vui vui */
 const studentV2 = {
   name: "Test time 2",
-
+  // Nếu lấy studentV2.normal() thì trả ra kết quả bình thường
   normal() {
     console.log("NAME", this.name);
     console.log("THIS", this);
