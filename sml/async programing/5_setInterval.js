@@ -11,4 +11,18 @@ const intervalId = setInterval(() => {
 
 clearInterval(intervalId);
 
-function countDown() {}
+/** Example interval */
+//Không nên thay đổi tham số đầu vào, nếu muốn thay đổi nên tạo 1 biến riêng. Ví dụ cần check dữ liệu đầu vào là bn thì vô tình mất dữ liệu
+function countDown(second) {
+  let currentSecond = second;
+
+  const intervalId = setInterval(() => {
+    console.log(currentSecond);
+
+    if (currentSecond <= 0) clearInterval(intervalId);
+
+    currentSecond--;
+  }, 1000);
+}
+
+countDown(20);
