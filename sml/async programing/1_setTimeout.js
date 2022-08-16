@@ -9,7 +9,7 @@ function sayHello() {
   console.log("Hi");
 }
 // say hello after 1 second
-setTimeout(sayHello, 1000);
+setTimeout(sayHello, 5000);
 
 // say hello after 1 second
 setTimeout(() => {
