@@ -26,3 +26,36 @@ setTimeout(() => {
 
 //Cách xử lý issue "setTimeout ko dùng bind this được" bằng cách sử dụng bind this
 setTimeout(student.sayHello.bind(student)); //bind thẳng vào hàm chứ ko dùng setTimeout.bind được
+
+/** Ví dụ vui vui */
+const studentV2 = {
+  name: "Test time 2",
+
+  normal() {
+    console.log("NAME", this.name);
+    console.log("THIS", this);
+  },
+
+  arrow: () => {
+    console.log("NAME", this.name);
+    console.log("THIS", this);
+  },
+
+  timeoutNormal() {
+    console.log("OUTER THIS", this);
+
+    setTimeout(function () {
+      console.log("NAME", this.name);
+      console.log("THIS", this);
+    });
+  },
+
+  timeoutArrow() {
+    console.log("OUTER THIS", this);
+
+    setTimeout(() => {
+      console.log("NAME", this.name);
+      console.log("THIS", this);
+    });
+  },
+};
