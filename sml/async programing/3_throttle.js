@@ -1,4 +1,7 @@
-/** throttle trigger cái hàm của mình tối đa 1 lần trong khoảng thời gian quy ước */
+/** throttle trigger cái hàm của mình tối đa 1 lần trong khoảng thời gian quy ước
+ * Throttle giới hạn số lần gọi hàm trong một khoảng thời gian. Ví dụ khi một hàm dùng throttle,
+ *  throttle sẽ gọi hàm này nhiều nhất 1 lần mỗi x mili giây với x là khoảng thời gian mà ta cài đặt.
+ */
 function log() {
   console.log("tada");
 }
