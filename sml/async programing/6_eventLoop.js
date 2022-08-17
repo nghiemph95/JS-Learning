@@ -18,7 +18,7 @@
 /** JIT: Just in Time : Kết hợp Compiler(Compile 1 lần) và Interpreter(Compiler từng dòng) */
 
 /** Memory heap: Vùng nhớ lưu trữ biến , object, array....
- *  Call Stack: Mỗi lần gọi 1 cái hàm, hàm đó sẽ đc push vào call stack, nếu hàm đó đc thực thi xong sẽ thoát khỏi call stack
+ *  Call Stack: Mỗi lần gọi 1 cái hàm, hàm đó sẽ đc push vào call stack, nếu hàm đó đc thực thi xong sẽ pop khỏi call stack
  *  Web APIs : Trong trường hợp call stack ko xử lý hoặc ko hiểu một số hàm trong call stack nó sẽ đẩy qua Web APIs. Ví dụ: xử lý DOM, AJAX, setTimeout, setInterval
  *  Khi Web APIs làm xong, sẽ có 1 số hàm cần thực thi thì sẽ đưa vô callback Queue
  *  Khi Call Stack empty (tức là xử lý xong các hàm trong script) thì evet loop sẽ đẩy hàm trong Callback queue lên Call Stack
