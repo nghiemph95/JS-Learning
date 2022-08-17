@@ -13,3 +13,5 @@
  * - Firefox: Spider Monkey
  * - Safari: JavaScript Core
  */
+
+/** JIT: Just in Time : Kết hợp Compiler(Compile 1 lần) và Interpreter(Compiler từng dòng) */

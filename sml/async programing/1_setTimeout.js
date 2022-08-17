@@ -8,13 +8,13 @@ const timeoutId = setTimeout(callback, timeout);
 function sayHello() {
   console.log("Hi");
 }
-// say hello after 1 second
+// say hello after 5 second
 setTimeout(sayHello, 5000);
 
 // say hello after 1 second
 setTimeout(() => {
-  console.log("Hi");
-}, 1000);
+  console.log("Hi after 5s");
+}, 5000);
 
 // say hello as soon as you can (not immediately)
 setTimeout(() => {

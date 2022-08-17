@@ -30,7 +30,7 @@ function log() {
   console.log("test");
 }
 
-const logDebounce = debounce(log, 500);
+const logDebounce = debounce(log, 5000);
 logDebounce();
 logDebounce();
 logDebounce(); // log "test" at the end
