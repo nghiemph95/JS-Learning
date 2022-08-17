@@ -24,4 +24,17 @@
  *  Khi Call Stack empty (tức là xử lý xong các hàm trong script) thì evet loop sẽ đẩy hàm trong Callback queue lên Call Stack
  */
 
+/** Bất cứ khi nào một hàm không đồng bộ được gọi, nó sẽ được gửi đến một API của trình duyệt  */
 /** Promise queue (Microtask) có độ ưu tiên cao hơn Callback Queue(Macrotask) */
+console.log("a");
+
+setTimeout(() => console.log("b"), 0);
+
+new Promise((resolve, reject) => {
+  resolve();
+}).then(() => {
+  console.log("c");
+});
+
+console.log("d");
+// a -> d -> c -> b
