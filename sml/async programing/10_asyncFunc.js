@@ -55,9 +55,18 @@ async function getData() {
 }
 async function main() {
   try {
-    const data = getData();
+    const data = getData(); // Không được quên từ khóa await
   } catch (error) {
     console.log(error);
   }
 }
 main();
+
+/** Nếu muốn chạy song song thì dùng Promise.all còn nếu muốn trình tự thì dùng async await */
+const promiseList = [getAllStudent, getAllCategories, getAllCities];
+// Trigger API calls at the same time
+Promise.all(promiseList)
+  .then(([studentList, categoryList, cityList]) => {
+    console.log(studentList, categoryList, cityList);
+  })
+  .catch((error) => console.log(error));
