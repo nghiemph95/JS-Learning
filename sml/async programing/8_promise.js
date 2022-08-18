@@ -54,3 +54,39 @@ Promise.resolve(5)
     return finalNumber;
   })
   .catch((error) => console.log(error));
+
+// Áp dụng với fetch
+fetch("https://js-post-api.herokuapp.com/api/students?_page=1")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+
+/** Fake API */
+
+// studentApi.js
+const studentApi = {
+  getAll() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          //Fake API
+          data: [
+            { id: 1, name: "Alice" },
+            { id: 2, name: "Bob" },
+          ],
+          pagination: {
+            _total: 2,
+            _page: 1,
+            _limit: 10,
+          },
+        });
+      }, 1000);
+    });
+  },
+};
+
+// app.js
+studentApi
+  .getAll()
+  .then((response) => console.log(response))
+  .catch((error) => console.log(error));
