@@ -29,3 +29,15 @@ async function getNumber() {
   return Promise.resolve(10);
 }
 getNumber(); // it return a promise
+
+/** Handle error */
+async function getAllStudent() {
+  try {
+    const url = "http://js-post-api.herokuapp.com/api/students?_page=1";
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
