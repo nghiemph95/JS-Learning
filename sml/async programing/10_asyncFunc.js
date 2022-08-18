@@ -33,11 +33,17 @@ getNumber(); // it return a promise
 /** Handle error */
 async function getAllStudent() {
   try {
+    // Đầu tiên nó lấy url
     const url = "http://js-post-api.herokuapp.com/api/students?_page=1";
+    // fetch(url): là 1 Promise
+    // await fetch(url): đứng đợi Promise resolve
+    // trong trường hợp fetch thành công sẽ trả kết quả vể response. Trong qua trình đi load dữ liệu
+    // hàm sẽ dựng lại tại dòng này cho đến khi thành công
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
   } catch (error) {
+    // Trường hợp fetch có lỗi xảy ra sẽ nhảy vô catch
     console.log(error);
   }
 }
