@@ -23,3 +23,23 @@ const promiseV2 = new Promise((resolve, reject) => {
 promiseV2
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
+
+/** Promise method */
+const b = new Promise((resolve) => {
+  resolve("BBB");
+});
+const promiseA = Promise.resolve("AAA");
+const promiseB = Promise.resolve(b);
+Promise.all([promiseA, promiseB])
+  .then(([resultA, resultB]) => {
+    console.log(resultA, resultB);
+  })
+  .catch((error) => console.log(error));
+
+/** Ngoài ra promise còn thêm finally */
+Promise.resolve("tada")
+  .then((message) => console.log(message))
+  .catch((error) => console.log(error))
+  .finally(() => {
+    // usually we hide loading here - Tức là nếu thành công hoặc thất bại thì mình muốn xử lý ntn tùy ý
+  });
