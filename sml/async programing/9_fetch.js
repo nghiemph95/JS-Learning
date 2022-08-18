@@ -87,3 +87,21 @@ fetch("https://js-post-api.herokuapp.com/api/invalid-endpoint", {
     // Toast message
     // Send report to log server (Sentry)
   });
+
+/**API là chuẩn giao tiếp giữa 2 hệ thống với nhau.
+
+HTTP API là chuẩn giao tiếp thông qua HTTP để 2 hệ thống có thể nói chuyện với nhau.
+
+HTTPS giúp mình bảo mật gói tin trên đường truyền internet, trong khi HTTP thì sẽ được truyền đi dạng plain/text. 
+Dễ bị tấn công middleman.
+
+REST API là chuẩn giao tiếp client-server (cùng một số đặc điểm khác) giúp mình có được 
+một số quy tắc nhất định trong việc quy định về resource, method để client và server có thể "nói chuyện" được với nhau.
+
+
+
+Về nguyên tắc đơn giản,
+
+- Client: gửi một HTTP Request lên server
+
+- Server: sau khi nhận được request sẽ xử lý và trả về một HTTP Response */
