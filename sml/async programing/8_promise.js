@@ -3,11 +3,19 @@
  * nếu error: sử dụng .catch() để trả về error
  */
 
+/** Một object Promise đại diện cho một giá trị ở thời điểm hiện tại có thể chưa tồn tại,
+ * nhưng sẽ được xử lý và có giá trị vào một thời gian nào đó trong tương lai. */
+
 /** tạo promise */
 const promise = new Promise((resolve, reject) => {});
 console.log(promise);
 
 /** retrieve promise value */
+/** Chúng ta bắt đầu với việc khởi tạo một đối tượng Promise và truyền vào đó một hàm callback.
+ * Hàm callback này sẽ nhận 2 tham số là resolve và reject, với cả 2 tham số đều có kiểu là hàm (function).
+ * Tất cả các code bất đồng bộ sẽ nằm trong hàm callback này.
+ * Nếu mọi thứ thành công, Promise sẽ được hoàn thành và hàm resolve sẽ được gọi.
+ * Trong trường hợp có lỗi, hàm reject sẽ được gọi với một đối tượng Error, nhằm xác định rằng Promise này đã bị không thành công. */
 const promiseV1 = new Promise((resolve, reject) => {
   setTimeout(() => resolve([1, 2, 3, 4]), 3000);
 });
