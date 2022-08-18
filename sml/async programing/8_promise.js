@@ -43,3 +43,14 @@ Promise.resolve("tada")
   .finally(() => {
     // usually we hide loading here - Tức là nếu thành công hoặc thất bại thì mình muốn xử lý ntn tùy ý
   });
+
+/** Promise chaining - Dùng để thay thế cho callback hell khi gọi lại kết quả của trước đó*/
+Promise.resolve(5)
+  .then((n) => n * 2) // 10
+  .then((n) => Promise.resolve(n * 2)) // 10*2=20
+  .then((n) => {
+    const finalNumber = n + 10; // 20 + 10 = 30
+    console.log(finalNumber);
+    return finalNumber;
+  })
+  .catch((error) => console.log(error));
