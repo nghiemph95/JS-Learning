@@ -18,3 +18,14 @@ async function getNumber() {
   return 10;
 }
 getNumber(); // Hàm return về 1 Promise khi đó ko phải return về 10 mà return về Promise
+
+// Muốn lấy giá trị của Promise thì biểu diễn như sau:
+getNumber().then((n) => {
+  console.log(n);
+});
+
+// Hoặc khi return về Promise thì nó sẽ sử dụng luôn
+async function getNumber() {
+  return Promise.resolve(10);
+}
+getNumber(); // it return a promise
