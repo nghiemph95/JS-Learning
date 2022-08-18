@@ -47,3 +47,17 @@ async function getAllStudent() {
     console.log(error);
   }
 }
+
+// Không được quên await
+async function getData() {
+  // return Promise.reject(new Error('tada, my error :P'))
+  throw new Error("tada, my error :P");
+}
+async function main() {
+  try {
+    const data = getData();
+  } catch (error) {
+    console.log(error);
+  }
+}
+main();
