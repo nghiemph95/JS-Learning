@@ -70,3 +70,5 @@ Promise.all(promiseList)
     console.log(studentList, categoryList, cityList);
   })
   .catch((error) => console.log(error));
+
+/** await chỉ được phép sử dụng trong async function, nhưng sau ES2022 thì sẽ được nhé */
