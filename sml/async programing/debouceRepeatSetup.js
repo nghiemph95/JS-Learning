@@ -11,7 +11,16 @@ showDebounce();
 showDebounce();
 
 /** implement Debounce */
-function debounceSetup(callback, wait) {}
+function debounceSetup(callback, wait) {
+  let timeoutId;
+
+  return function () {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(callback, wait);
+  };
+}
 
 function eventTrigger() {
   console.log("The event has completed !");
