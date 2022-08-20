@@ -12,8 +12,9 @@ showDebounce();
 
 /** implement Debounce */
 function debounceSetup(callback, wait) {
-  let timeoutId;
+  let timeoutId; // Lexical scope
 
+  //Closure
   return function () {
     if (timeoutId) {
       clearTimeout(timeoutId);
@@ -22,12 +23,12 @@ function debounceSetup(callback, wait) {
   };
 }
 
-function eventTrigger() {
-  console.log("The event has completed !");
+function eventLog() {
+  console.log("The event completed");
 }
 
-const logDebounce = debounceSetup(eventTrigger, 3000);
-logDebounce();
-logDebounce();
-logDebounce();
-logDebounce();
+const debounceRun = debounceSetup(eventLog, 3000);
+debounceRun();
+debounceRun();
+debounceRun();
+debounceRun();
