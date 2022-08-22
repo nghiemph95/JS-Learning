@@ -19,7 +19,7 @@ const intervalId = printClock();
 // until I call clearInterval
 clearInterval(intervalId) */
 
-function showClock() {
+function printClock() {
   const now = new Date();
   now.getHours();
   now.getMinutes();
