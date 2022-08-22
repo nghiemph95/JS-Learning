@@ -19,6 +19,7 @@ function debounceSetup(callback, wait) {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
+
     timeoutId = setTimeout(callback, wait);
   };
 }

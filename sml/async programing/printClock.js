@@ -20,10 +20,16 @@ const intervalId = printClock();
 clearInterval(intervalId) */
 
 function printClock() {
-  const now = new Date();
-  now.getHours();
-  now.getMinutes();
-  now.getSeconds();
-}
+  setInterval(() => {
+    let now = new Date();
 
-function clockFunc() {}
+    console.log(
+      `${now.getHours() < 10 ? `0${now.getHours()}` : now.getHours()}:${
+        now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()
+      }:${now.getSeconds() < 10 ? `0${now.getSeconds()}` : now.getSeconds()}`
+    );
+  }, 1000);
+}
+const intervalId = printClock();
+
+clearInterval(intervalId);
