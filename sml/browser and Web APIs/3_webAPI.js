@@ -5,3 +5,12 @@
  * Ví dụ: Khi muốn thực hiện lưu xún localStorage thì JSEngine ko biết,
  * nên sẽ đẩy qua WebAPIs
  */
+
+/** Canvas API: Dùng làm game, animation */
+/** Clipboard API: Thực hiện bộ nhớ ví dụ như copy/paste */
+/** Console API:  */
+/** DOM API: Xử lý DOM, parse từ HTML ra */
+/** Fetch API: Dùng để gửi request lên server */
+/** Geolocation API: Get location hiện tại */
+/** Drag and Drop API: Kéo thả */
+/** History API: Goback hoặc Forward/Previous */
