@@ -48,3 +48,20 @@ console.log(`Name: ${studentV2.name} and Age: ${studentV2.age}`);
 /** Assert - Show log khi điều kiện log = false */
 console.assert(1 === 1, "equal but not show in console");
 console.assert(1 === 2, "not equal and show in console"); //Assertion failed: not equal and show in console
+
+/** Counting */
+console.count(); // default: 1
+console.count("default"); // default: 2
+console.count(); // default: 3
+
+console.count("easy"); // easy: 1
+console.count("easy"); // easy: 2
+
+console.count("intermediate"); // intermediate: 1
+console.count("intermediate"); // intermediate: 2
+console.countReset("intermediate");
+console.count("intermediate"); // intermediate: 1
+
+console.count("hard"); // hard: 1
+console.count("hard"); // hard: 2
+console.count("hard"); // hard: 3
