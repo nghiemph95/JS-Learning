@@ -44,3 +44,7 @@ console.log("Name: %s and Age: %i", studentV2.name, studentV2.age);
 // GOOD
 console.log(`Name: ${studentV2.name} and Age: ${studentV2.age}`);
 // Name: Alice and Age: 18
+
+/** Assert - Show log khi điều kiện log = false */
+console.assert(1 === 1, "equal but not show in console");
+console.assert(1 === 2, "not equal and show in console"); //Assertion failed: not equal and show in console
