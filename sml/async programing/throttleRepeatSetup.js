@@ -24,3 +24,7 @@ showThrottle();
 showThrottle();
 showThrottle();
 showThrottle();
+
+setTimeout(showThrottle, 2000);
+setTimeout(showThrottle, 3000);
+setTimeout(showThrottle, 4000);
