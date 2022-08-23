@@ -65,3 +65,58 @@ console.count("intermediate"); // intermediate: 1
 console.count("hard"); // hard: 1
 console.count("hard"); // hard: 2
 console.count("hard"); // hard: 3
+
+/** Tracking time */
+console.time("loop"); // start timer
+let count = 0;
+for (let i = 0; i < 10000; i++) {
+  count++;
+  if (i % 1000 === 0) console.timeLog("loop");
+}
+console.timeEnd("loop"); // end timer
+
+/** Group */
+console.group("TODO ADD");
+console.log("Before", { title: "easy" });
+console.log("After", { id: 1, title: "easy" });
+console.groupEnd();
+
+console.groupCollapsed("TODO ADD");
+console.log("Before", { title: "easy" });
+console.log("After", { id: 1, title: "easy" });
+console.groupEnd();
+
+/** Stack trace */
+function foo() {
+  function bar() {
+    console.trace();
+  }
+  bar();
+}
+foo();
+
+/** Table */
+console.table({
+  id: 1,
+  name: "Alice",
+  age: 18,
+  isHero: true,
+});
+
+console.table(
+  [
+    {
+      id: 1,
+      name: "Alice",
+      age: 18,
+      isHero: true,
+    },
+    {
+      id: 2,
+      name: "Bob",
+      age: 20,
+      isHero: false,
+    },
+  ],
+  ["id", "name", "age"]
+);
