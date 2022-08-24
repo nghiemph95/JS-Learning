@@ -1,5 +1,6 @@
 /** DOM: là cấu trúc dạng cây và là
- * 1 cái ánh xạ của file document, có thể là HTML hoặc XML */
+ * 1 cái ánh xạ của file document, có thể là HTML hoặc XML
+ * và trong cái cây này mình có thể truy suất bằng JS để tương tác */
 
 /** Rendering Process
  * 1. File HTML sẽ build lên cây DOM (Document Object Model)
