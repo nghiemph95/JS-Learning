@@ -33,3 +33,25 @@ debounceRun();
 debounceRun();
 debounceRun();
 debounceRun();
+
+/** Setup lần 2 hàm debounce */
+function deboucneRun(callback, wait) {
+  let flagTimeout;
+
+  return function () {
+    if (flagTimeout) {
+      clearTimeout(flagTimeout);
+    }
+
+    flagTimeout = setTimeout(callback, wait);
+  };
+}
+
+function showMessage() {
+  console.log("Debounce run");
+}
+
+const debounceTest = deboucneRun(showMessage, 3000);
+debounceTest();
+debounceTest();
+debounceTest();
