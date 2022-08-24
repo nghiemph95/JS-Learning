@@ -13,6 +13,7 @@
  * 4. Nodes: html, head, meta, body, p, ...
  * 5. DOM: DOM Tree (html -> head -> meta,link,body -> p,div,span)
  */
+
 /** Tại sao lại là cấu trúc cây: Bởi vì bên CSS sẽ có thuộc tính kế thừa
  * Ví dụ: thằng cha có font-size là 16px thì thằng con cũng được thừa hưởng
  */
