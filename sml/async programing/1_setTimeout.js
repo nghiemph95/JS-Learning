@@ -13,8 +13,8 @@ setTimeout(sayHello, 5000);
 
 // say hello after 1 second
 setTimeout(() => {
-  console.log("Hi after 5s");
-}, 5000);
+  console.log("Hi after 1s");
+}, 1000);
 
 // say hello as soon as you can (not immediately)
 setTimeout(() => {
