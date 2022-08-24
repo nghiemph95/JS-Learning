@@ -44,6 +44,7 @@ function deboucneRun(callback, wait) {
     }
 
     flagTimeout = setTimeout(callback, wait);
+    console.log(flagTimeout);
   };
 }
 
