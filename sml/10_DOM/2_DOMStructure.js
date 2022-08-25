@@ -1,3 +1,8 @@
+/** Mục đich:
+ * 1. Tìm hiểu eventTarget
+ * 2. Tìm hiểu về Node
+ */
+
 /** để truy cập đến node gốc trong cây DOM ta dùng document */
 document;
 window.document;
@@ -28,4 +33,5 @@ document.body;
  * 2. node.text_node (text)
  * 3. node.comment_node (<!-- ... -->)
  * 4. node.document_node (document note)
+ * ... còn rất nhiều
  */
