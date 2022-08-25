@@ -3,6 +3,7 @@
  * 2. Tìm nhiều phần tử thỏa đk nào đó
  */
 
+/** Find an element */
 /** getElementById lưu ý chỉ tồn tại trên document chứ ko tồn tại trên element
  * bởi vì trong file HTML thì id là unique, nên trên toàn bộ document, nó ko
  * cần pk đưa xún từn phần tử mà chỉ cần tồn tại trên document
@@ -36,3 +37,12 @@ if (titleV1) {
 const productName = document.querySelector("#product-123 > .product__name");
 const productPrice = document.querySelector("#product-123 > .product__price");
 // as it need to search on the whole tree over and over again for each query
+
+// DO: arrow down the query scope
+// 1. Get the product first
+// 2. From the product element, search the element inside it's subtree only
+const product = document.getElementById("product-123");
+if (product) {
+  const productName = product.querySelector(".product__name");
+  const productPrice = product.querySelector(".product__name");
+}
