@@ -85,6 +85,12 @@ function createBinarySearchTree(initKeyList) {
   }
 
   //dfs: duyệt qua tất cả node
+  /** DFS: Depth First Traversals
+   * có 3 dạng:
+   * 1. InOrder: Left - Root - Right
+   * 2. PreOrder: Root - Left - Right
+   * 3. PostOrder: Left - Right - Root
+   */
 
   function printInOrder(node) {
     if (node == null) return;
@@ -124,5 +130,5 @@ function createBinarySearchTree(initKeyList) {
   };
 }
 
-const binarySearchTree = createBinarySearchTree([10, 7, 15]);
+const binarySearchTree = printInOrder([10, 7, 15]);
 console.log(binarySearchTree.root);
