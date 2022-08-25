@@ -25,3 +25,14 @@ const titleV1 = document.querySelector("#title");
 if (titleV1) {
   console.log(title.textContent);
 }
+
+/** cố gắng Narrow Down (thu hẹp phạm vi) tìm kiếm khi muốn lấy phần tử */
+<div id="product-123" class="product">
+  <p class="product__name">Javascript cho người mới bắt đầu 🎉 </p>
+  <p class="product__price">39.99$</p>
+</div>;
+
+// DON'T
+const productName = document.querySelector("#product-123 > .product__name");
+const productPrice = document.querySelector("#product-123 > .product__price");
+// as it need to search on the whole tree over and over again for each query
