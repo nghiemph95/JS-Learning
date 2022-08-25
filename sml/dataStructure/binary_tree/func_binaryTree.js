@@ -130,5 +130,7 @@ function createBinarySearchTree(initKeyList) {
   };
 }
 
-const binarySearchTree = printInOrder([10, 7, 15]);
+const binarySearchTree = createBinarySearchTree([10, 7, 15, 5, 9, 20, 13, 17]);
 console.log(binarySearchTree.root);
+
+binarySearchTree.printInOrder(binarySearchTree.root);
