@@ -46,3 +46,57 @@ if (product) {
   const productName = product.querySelector(".product__name");
   const productPrice = product.querySelector(".product__name");
 }
+
+/** Find all elements */
+/** Sử dụng querySelectorAll - search by: CSS Selector
+ * Chú ý: querySelectorAll có Live là NO tức là khi cập nhật trên DOM nó sẽ ko thay đổi
+ * giá trị đã query
+ */
+
+<ul id="todoList">
+  <li>Learn Javascript</li>
+  <li>Learn ReactJS</li>
+  <li>Learn NextJS</li>
+</ul>;
+
+// 1. Narrow down the scope of querying
+const todoListElement = document.getElementById("todoList");
+// 2. Make sure to check if existed before using
+if (todoListElement) {
+  // 3. Get list of li elements
+  const todoElementList = todoListElement.querySelectorAll("li");
+  // 4. Loop through it and log the content
+  for (const todoElement of todoElementList) {
+    console.log(todoElement.textContent);
+    // Learn Javascript
+    // Learn ReactJS
+    // Learn NextJS
+  }
+}
+
+//Sử dụng nhìu CSS Selector
+<div id="todoList">
+  <ul class="todo-list" data-weekday="monday">
+    <li>Learn Javascript</li>
+    <li>Learn ReactJS</li>
+    <li>Learn NextJS</li>
+  </ul>
+  <ul class="todo-list tuesday" data-weekday="tuesday">
+    <li>Learn Javascript</li>
+    <li>Learn ReactJS</li>
+    <li>Learn NextJS</li>
+  </ul>
+</div>;
+
+// 1. Narrow down the scope of querying
+const todoListElementv1 = document.getElementById("todoList");
+// 2. Make sure to check if existed before using
+if (todoListElementv1) {
+  // 3. Some ways of query all li
+  todoListElementv1.querySelectorAll("li");
+  todoListElementv1.querySelectorAll("ul > li");
+  todoListElementv1.querySelectorAll("ul.todo-list > li");
+  todoListElementv1.querySelectorAll(
+    'ul[data-weekday="monday"] > li, ul[data-weekday="tuesday"] > li'
+  );
+}
