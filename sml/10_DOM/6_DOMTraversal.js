@@ -60,3 +60,8 @@ console.log(document.body.firstElementChild); // h1
 console.log(document.body.lastElementChild); // script
 console.log(document.body.previousElementSibling); // head
 console.log(document.body.nextElementSibling); // null
+
+/** parentNode và parentElement khác nhau cái gì
+ * parentNode: return về thằng cha, nó là cái gì thì return về cái đó
+ * parentElement: return về th cha nếu nó là 1 element, nếu ko thì return null
+ */

@@ -53,6 +53,7 @@ console.log(sum(...numberList)); //spread operator - split parameter into '1', '
 function sum() {} // function declaration
 const sum = function () {}; // function expression: định nghĩa ra 1 cái express/annoynimous func và gán vô 1 biến nào đó
 const sum = () => {}; // arrow function
+(function () {}); // regular function
 
 const sum = (a, b) => {
   return a + b;
