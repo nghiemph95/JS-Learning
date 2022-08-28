@@ -23,3 +23,10 @@ if (ulElement) {
     ulElement.removeChild(ulElement.lastElementChild);
   }
 }
+
+/** Người ta thường sử dụng VirtualDOM nhằm tạo 1 cây trung gian trên bộ nhớ
+ * nhằm giảm tải cho DOM chính (thao tác sử lý trên DOM rất tốn kém)
+ * sau đó nó sẽ gom lại các hành động, sau đó nó sẽ thực hiện những
+ * thuật toán nhằm lấy kết quả cuối cùng
+ *
+ */
