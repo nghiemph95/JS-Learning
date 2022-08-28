@@ -30,3 +30,7 @@ if (ulElement) {
  * thuật toán nhằm lấy kết quả cuối cùng
  *
  */
+
+/** LƯU Ý : Việc add/remove trên DOM là 1 việc tốn kém
+ * chi phí và ko hề tốt chút nào
+ */
