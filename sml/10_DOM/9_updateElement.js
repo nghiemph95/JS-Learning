@@ -26,8 +26,44 @@ $0.href; // undefined
  * nhớ là đối với attribute có tính chất live tức là khi thay đổi trên trình duyệt nó cũng thay đổi theo
  * element.attribute()
  */
-
+/**--------------------------------------------------------------------------------------------------- */
 /** HTMLElement.dataset được sử dụng khi custom attribute với format là 'data-*'
  * Lưu ý: khi gõ trong HTML phải theo chuẩn kebab-case (chữ thường có gạch nối)
  * Lưu ý: khi gõ trong JS, sẽ convert theo chuẩn camelCase (learningJavascript)
  */
+
+<nav id="topnav" data-test="easy" data-learning-javascript="false"></nav>;
+
+const nav = document.getElementById("topnav");
+if (nav) {
+  //get data attributes
+  nav.dataset.test; //easy
+  nav.dataset.learningJavascript; // false
+
+  // set data attribute (it will convert to string)
+  nav.dataset.test = "hard";
+  nav.dataset.learningJavascript = true;
+}
+
+/** ------------------------------------------------------------------------------------------------- */
+/** Element.classList: là 1 cái object giúp tương tác vs class của mình */
+function handleToggleClick() {
+  const accordion = document.getElementById("accordion");
+  if (!accordion) return;
+
+  accordion.classList.toggle("active"); // add toggle vào class
+}
+
+/** ------------------------------------------------------------------------------------------------ */
+/** HTMLElement.style */
+const title = document.getElementById("title");
+if (title) {
+  //set style
+  title.style.color = "red";
+  title.style.fontSize = "24px";
+  title.style.fontWeight = "bold";
+
+  // get style
+  const computedStyle = getComputedStyle(title);
+  computedStyle.color; // rgb(255, 0, 0)
+}
