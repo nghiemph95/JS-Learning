@@ -63,7 +63,7 @@ if (title) {
   title.style.fontSize = "24px";
   title.style.fontWeight = "bold";
 
-  // get style
+  // get style (dùng để get thuộc tính style của element)
   const computedStyle = getComputedStyle(title);
   computedStyle.color; // rgb(255, 0, 0)
 }
