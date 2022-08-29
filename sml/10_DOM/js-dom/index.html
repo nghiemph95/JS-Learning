@@ -33,10 +33,30 @@
     <ul id="todoList1"></ul>
     <ul id="todoList2"></ul>
 
+    <!-- Template -->
+    <template id="todoTemplate">
+        <li>
+            <div class="todo alert alert-secondary" role="alert">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="todo__title mb-0">TODO TITLE</p>
+                    <div class="todo__actions">
+                        <button type="button" class="btn btn-success mark-as-done">
+                            Finish
+                        </button>
+                        <button type="button" class="btn btn-danger remove">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </template>
+
     <script src="./JS/2_createElement.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
