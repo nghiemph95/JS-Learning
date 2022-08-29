@@ -1,12 +1,20 @@
 function createTodoElement(todo) {
   if (!todo) return;
 
-  const liElement = document.createElement('li');
-  liElement.textContent = todo.title;
-  // thêm id cho todo
-  liElement.dataset.id = todo.id;
+  // find template
+  const todoTemplate = document.getElementById('todoTemplate');
+  if (!todoTemplate) return null;
 
-  return liElement;
+  // clone li template
+  const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+  todoElement.dataset.id = todo.id;
+  // update content where needed
+  const titleElement = todoElement.querySelector('.todo__title');
+  if (titleElement) titleElement.textContent = todo.title;
+
+  // TODO: attach events
+
+  return todoElement;
 }
 
 function renderTodoList(todoList, ulElementId) {
@@ -26,22 +34,13 @@ function renderTodoList(todoList, ulElementId) {
 
 //main
 (() => {
-  const todoList1 = [
+  const todoList = [
     { id: 1, title: 'Learn JS' },
     { id: 2, title: 'Learn ReactJS' },
     { id: 3, title: 'Learn NextJS' },
   ];
 
-  renderTodoList(todoList1, 'todoList1');
-
-  const todoList2 = [
-    { id: 1, title: 'Learn JS' },
-    { id: 2, title: 'Learn ReactJS' },
-    { id: 3, title: 'Learn NextJS' },
-    { id: 4, title: 'Learn Git' },
-  ];
-
-  renderTodoList(todoList2, 'todoList2');
+  renderTodoList(todoList, 'todoList');
 
   //do something else
 })();
