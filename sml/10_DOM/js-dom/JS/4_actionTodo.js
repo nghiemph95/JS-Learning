@@ -12,21 +12,29 @@ function createTodoElement(todo) {
 
   // render todo status
   const divElement = todoElement.querySelector('div.todo');
+
   if (divElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
     divElement.classList.remove('alert-secondary');
     divElement.classList.add(alertClass);
+
+    const buttonElement = todoElement.querySelector('button.btn.btn-success');
+    if (buttonElement) {
+      const buttonClass = todo.status === 'completed' ? 'btn-success' : 'btn-dark';
+      buttonElement.classList.remove('mark-as-done');
+      buttonElement.classList.add(buttonClass);
+    }
   } else return null;
 
   // render button content
-  const buttonElement = todoElement.querySelector('div.todo__actions');
-  if (buttonElement) {
-    const buttonSuccessClass = buttonElement.querySelector('button.btn.mark-as-done');
-    if (buttonSuccessClass) {
-      buttonSuccessClass.classList.remove('mark-as-done');
-      buttonSuccessClass.classList.add('btn-success');
-    }
-  }
+  //   const buttonElement = todoElement.querySelector('div.todo__actions');
+  //   if (buttonElement) {
+  //     const buttonSuccessClass = buttonElement.querySelector('button.btn.mark-as-done');
+  //     if (buttonSuccessClass) {
+  //       buttonSuccessClass.classList.remove('mark-as-done');
+  //       buttonSuccessClass.classList.add('btn-success');
+  //     }
+  //   }
 
   //   if (alertClass === 'completed') {
   //     //   const buttonElement = todoElement.querySelector('button.btn');
