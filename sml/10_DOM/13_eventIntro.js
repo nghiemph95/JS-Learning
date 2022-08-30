@@ -47,3 +47,15 @@ if (clickMeButton1) {
 }
 
 // Remove event
+<button id="clickMeButton">Click me</button>;
+
+const clickMeButton2 = document.getElementById("clickMeButton");
+if (clickMeButton2) {
+  function handleClick() {
+    alert("thanks");
+  }
+  clickMeButton2.addEventListener("click", handleClick);
+
+  //Remove
+  clickMeButton2.removeEventListener("click", handleClick);
+}
