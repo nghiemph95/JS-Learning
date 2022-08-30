@@ -38,6 +38,7 @@ if (clickMeButton) {
 const clickMeButton1 = document.getElementById("clickMeButton");
 if (clickMeButton1) {
   // không thể remove được do đây là 1 in-line function
+  // bản thân function cũng là 1 tham chiếu, nếu muốn remove sự kiện thì phải tạo riêng 1 fucntion
   clickMeButton1.addEventListener("click", () => {
     alert("test");
   });
