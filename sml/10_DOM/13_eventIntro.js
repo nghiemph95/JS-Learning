@@ -37,6 +37,7 @@ if (clickMeButton) {
 
 const clickMeButton1 = document.getElementById("clickMeButton");
 if (clickMeButton1) {
+  // không thể remove được do đây là 1 in-line function
   clickMeButton1.addEventListener("click", () => {
     alert("test");
   });
