@@ -54,3 +54,24 @@ function createTodoElement(todo) {
     </div>
   </li>
 </template>;
+
+// JS.file
+function createTodoElement(todo) {
+  if (!todo) return;
+
+  // find template
+  const todoTemplate = document.getElementById("todoTemplate");
+  if (!todoTemplate) return;
+
+  // clone template
+  const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+  todoElement.dataset.id = todo.id;
+
+  // find element and updte
+  const todoTitleElement = todoElement.querySelector(".todo__title");
+  if (todoTitleElement) todoTitleElement.textContent = todo.title;
+
+  // TODO: attach event
+
+  return todoElement;
+}
