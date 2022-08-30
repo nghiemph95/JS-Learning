@@ -21,7 +21,7 @@ function createTodoElement(todo) {
     const buttonElement = todoElement.querySelector('button.btn.btn-success');
     if (buttonElement) {
       const buttonClass = todo.status === 'completed' ? 'btn-success' : 'btn-dark';
-      buttonElement.classList.remove('mark-as-done');
+      //   buttonElement.classList.remove('mark-as-done');
       buttonElement.classList.add(buttonClass);
     }
   } else return null;
