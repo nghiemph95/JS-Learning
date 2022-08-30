@@ -18,6 +18,25 @@ function createTodoElement(todo) {
     divElement.classList.add(alertClass);
   } else return null;
 
+  // render button content
+  const buttonElement = todoElement.querySelector('div.todo__actions');
+  if (buttonElement) {
+    const buttonSuccessClass = buttonElement.querySelector('button.btn.mark-as-done');
+    if (buttonSuccessClass) {
+      buttonSuccessClass.classList.remove('mark-as-done');
+      buttonSuccessClass.classList.add('btn-success');
+    }
+  }
+
+  //   if (alertClass === 'completed') {
+  //     //   const buttonElement = todoElement.querySelector('button.btn');
+  //     buttonElement.classList.remove('btn-success mark-as-done');
+  //     buttonElement.classList.add('btn-success');
+  //   } else {
+  //     buttonElement.classList.remove('btn-success mark-as-done');
+  //     buttonElement.classList.add('btn-dark');
+  //   }
+
   // update content where needed
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
