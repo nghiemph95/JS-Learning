@@ -14,8 +14,9 @@ function createTodoElement(todo) {
   const divElement = todoElement.querySelector('div.todo');
   if (divElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
+    divElement.classList.remove('alert-secondary');
     divElement.classList.add(alertClass);
-  }
+  } else return null;
 
   // update content where needed
   const titleElement = todoElement.querySelector('.todo__title');
@@ -27,6 +28,13 @@ function createTodoElement(todo) {
   if (markAsDoneButton) {
     markAsDoneButton.addEventListener('click', () => {
       console.log('mark as done click');
+      const currentStatus = todoElement.dataset.status;
+      const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
+      todoElement.dataset.status = newStatus;
+
+      const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
+      divElement.classList.remove('alert-success', 'alert-secondary');
+      divElement.classList.add(newAlertClass);
     });
   }
   // add click event for remove button
