@@ -12,13 +12,13 @@ function createTodoElement(todo) {
 
   // render todo status
   const divElement = todoElement.querySelector('div.todo');
-
+  const buttonElement = todoElement.querySelector('button.btn.btn-success');
   if (divElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
     divElement.classList.remove('alert-secondary');
     divElement.classList.add(alertClass);
 
-    const buttonElement = todoElement.querySelector('button.btn.btn-success');
+    // const buttonElement = todoElement.querySelector('button.btn.btn-success');
     if (buttonElement) {
       const buttonClass = todo.status === 'completed' ? 'btn-success' : 'btn-dark';
       buttonElement.classList.remove();
@@ -62,6 +62,10 @@ function createTodoElement(todo) {
       const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
       divElement.classList.remove('alert-success', 'alert-secondary');
       divElement.classList.add(newAlertClass);
+
+      const newButtonClass = currentStatus === 'pending' ? 'btn-success' : 'btn-dark';
+      buttonElement.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
+      buttonElement.classList.add(newButtonClass);
     });
   }
   // add click event for remove button
