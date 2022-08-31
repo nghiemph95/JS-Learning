@@ -13,37 +13,18 @@ function createTodoElement(todo) {
   // render todo status
   const divElement = todoElement.querySelector('div.todo');
   const buttonElement = todoElement.querySelector('button.btn.btn-success');
-  if (divElement) {
+
+  if (divElement && buttonElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
     divElement.classList.remove('alert-secondary');
     divElement.classList.add(alertClass);
 
-    // const buttonElement = todoElement.querySelector('button.btn.btn-success');
-    if (buttonElement) {
-      const buttonClass = todo.status === 'completed' ? 'btn-success' : 'btn-dark';
-      buttonElement.classList.remove();
-      buttonElement.classList.add(buttonClass);
-    }
+    const buttonClass = todo.status === 'completed' ? 'btn-success' : 'btn-dark';
+    buttonElement.classList.add(buttonClass);
+
+    const buttonContent = todo.status === 'completed' ? 'Reset' : 'Finish';
+    buttonElement.textContent = buttonContent;
   } else return null;
-
-  // render button content
-  //   const buttonElement = todoElement.querySelector('div.todo__actions');
-  //   if (buttonElement) {
-  //     const buttonSuccessClass = buttonElement.querySelector('button.btn.mark-as-done');
-  //     if (buttonSuccessClass) {
-  //       buttonSuccessClass.classList.remove('mark-as-done');
-  //       buttonSuccessClass.classList.add('btn-success');
-  //     }
-  //   }
-
-  //   if (alertClass === 'completed') {
-  //     //   const buttonElement = todoElement.querySelector('button.btn');
-  //     buttonElement.classList.remove('btn-success mark-as-done');
-  //     buttonElement.classList.add('btn-success');
-  //   } else {
-  //     buttonElement.classList.remove('btn-success mark-as-done');
-  //     buttonElement.classList.add('btn-dark');
-  //   }
 
   // update content where needed
   const titleElement = todoElement.querySelector('.todo__title');
@@ -66,6 +47,9 @@ function createTodoElement(todo) {
       const newButtonClass = currentStatus === 'pending' ? 'btn-success' : 'btn-dark';
       buttonElement.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
       buttonElement.classList.add(newButtonClass);
+
+      const newButtonContent = currentStatus === 'pending' ? 'Reset' : 'Finish';
+      buttonElement.textContent = newButtonContent;
     });
   }
   // add click event for remove button
