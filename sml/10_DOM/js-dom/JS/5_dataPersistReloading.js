@@ -56,7 +56,15 @@ function createTodoElement(todo) {
   const removeButton = todoElement.querySelector('button.remove');
   if (removeButton) {
     removeButton.addEventListener('click', () => {
-      console.log('remove click');
+      /** Save to localStorage */
+      // lấy todo list hiện tại
+      const todoList = getTodoList();
+      console.log(todoList);
+      // todo muốn remove có id là
+      const newTodoList = todoList.filter((element) => element.id !== todo.id);
+      localStorage.setItem('todo_list', JSON.stringify(newTodoList));
+
+      // remove DOM
       todoElement.remove();
     });
   }
@@ -89,12 +97,13 @@ function getTodoList() {
 
 //main
 (() => {
-  const todoList = [
-    { id: 1, title: 'Learn JS', status: 'pending' },
-    { id: 2, title: 'Learn ReactJS', status: 'completed' },
-    { id: 3, title: 'Learn NextJS', status: 'pending' },
-  ];
+  //   const todoList = [
+  //     { id: 1, title: 'Learn JS', status: 'pending' },
+  //     { id: 2, title: 'Learn ReactJS', status: 'completed' },
+  //     { id: 3, title: 'Learn NextJS', status: 'pending' },
+  //   ];
 
+  const todoList = getTodoList();
   renderTodoList(todoList, 'todoList');
 
   //do something else
