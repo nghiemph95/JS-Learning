@@ -35,9 +35,20 @@ function createTodoElement(todo) {
   const markAsDoneButton = todoElement.querySelector('button.mark-as-done');
   if (markAsDoneButton) {
     markAsDoneButton.addEventListener('click', () => {
-      console.log('mark as done click');
       const currentStatus = todoElement.dataset.status;
       const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
+
+      //get current todo list
+      const todoList = getTodoList();
+      //update status of current todo
+      const index = todoList.findIndex((x) => x.id === todo.id);
+      if (index >= 0) {
+        todoList[index].status = newStatus;
+        //save to local storage
+        localStorage.setItem('todo_list', JSON.stringify(todoList));
+      }
+
+      // update data-status on li element
       todoElement.dataset.status = newStatus;
 
       const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
@@ -59,7 +70,7 @@ function createTodoElement(todo) {
       /** Save to localStorage */
       // lấy todo list hiện tại
       const todoList = getTodoList();
-      console.log(todoList);
+      //   console.log({ todoList, removeId: todo.id });
       // todo muốn remove có id là
       const newTodoList = todoList.filter((element) => element.id !== todo.id);
       localStorage.setItem('todo_list', JSON.stringify(newTodoList));
