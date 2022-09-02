@@ -38,7 +38,7 @@ function createTodoElement(todo) {
       const currentStatus = todoElement.dataset.status;
       const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
 
-      //get current todo list
+      //get current todo list from localStorage
       const todoList = getTodoList();
       //update status of current todo
       const index = todoList.findIndex((x) => x.id === todo.id);
