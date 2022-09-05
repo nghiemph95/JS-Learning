@@ -132,7 +132,14 @@ function handleTodoFormSubmit(event) {
   const todoList = getTodoList();
   todoList.push(newTodo);
   localStorage.setItem('todo_list', JSON.stringify(todoList));
+
   // apply DOM changes
+  const newLiElement = createTodoElement(newTodo);
+
+  const ulElement = document.getElementById('todoList');
+  if (!ulElement) return;
+
+  ulElement.appendChild(newLiElement)
 }
 
 //main
