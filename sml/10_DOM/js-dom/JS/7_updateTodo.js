@@ -84,7 +84,10 @@ function createTodoElement(todo) {
   const editButton = todoElement.querySelector('button.edit');
   if (editButton) {
     editButton.addEventListener('click', () => {
-      //populate data to todo form
+      // lấy dữ liệu mới nhất từ localStorage
+
+
+      //populate data to todo form (đẩy thông tin lên todoForm (input form))
       populateTodoForm(todo);
     });
   }
@@ -97,10 +100,10 @@ function populateTodoForm(todo) {
   const todoForm = document.getElementById('todoFormId');
   if (!todoForm) return;
 
-  // dataset.id = todo.id
+  // dataset.id = todo.id (Cập nhật dataId lên cái form để phân biệt edit thằng nào)
   todoForm.dataset.id = todo.id;
 
-  // set values for form controls
+  // set values for form controls (set những giá trị cần thiết vô control)
   // set todoText input
   const todoInput = document.getElementById('todoText');
   if (!todoInput) return;
@@ -144,11 +147,10 @@ function handleTodoFormSubmit(event) {
     return;
   }
 
-  const todoText = todoInput.value;
 
   const newTodo = {
     id: Date.now(), // tạm coi là 1 unique
-    title: todoText,
+    title:  todoInput.value,
     status: 'pending',
   };
 
