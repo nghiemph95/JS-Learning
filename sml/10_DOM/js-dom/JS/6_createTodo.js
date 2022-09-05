@@ -141,7 +141,7 @@ function handleTodoFormSubmit(event) {
 
   ulElement.appendChild(newLiElement);
 
-  //reset form
+  //reset form để quay lại add thêm cái mới
   const todoForm = document.getElementById('todoFormId');
   if (todoForm) todoForm.reset();
 }
