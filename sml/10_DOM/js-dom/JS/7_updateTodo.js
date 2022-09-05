@@ -176,6 +176,9 @@ function handleTodoFormSubmit(event) {
     }
   } else {
     //add mode
+    const newTitle = todoInput.value;
+    if (!newTitle) return;
+
     const newTodo = {
       id: Date.now(), // tạm coi là 1 unique
       title: todoInput.value,
