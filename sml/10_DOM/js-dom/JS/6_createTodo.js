@@ -113,8 +113,25 @@ function handleTodoFormSubmit(event) {
   console.log('form submit');
 
   // get form value
-  //validate form values
-  // save
+  const todoInput = document.getElementById('todoText');
+  // validate form values
+  if (!todoInput) {
+    alert('todo input not found');
+    return;
+  }
+
+  const todoText = todoInput.value;
+
+  const newTodo = {
+    id: Date.now(),
+    title: todoText,
+    status: 'pending',
+  };
+
+  // save to localStorage
+  const todoList = getTodoList();
+  todoList.push(newTodo);
+  localStorage.setItem('todo_list', JSON.stringify(todoList));
   // apply DOM changes
 }
 
