@@ -84,10 +84,14 @@ function createTodoElement(todo) {
   const editButton = todoElement.querySelector('button.edit');
   if (editButton) {
     editButton.addEventListener('click', () => {
-      // lấy dữ liệu mới nhất từ localStorage
+      // lấy dữ liệu mới nhất(lastest) từ localStorage
+      const todoList = getTodoList();
 
+      //find todo
+      const lastestTodo = todoList.find((element) => element.id === todo.id);
+      if (!lastestTodo) return;
       //populate data to todo form (đẩy thông tin lên todoForm (input form))
-      populateTodoForm(todo);
+      populateTodoForm(lastestTodo);
     });
   }
 
@@ -151,7 +155,25 @@ function handleTodoFormSubmit(event) {
   const isEdit = Boolean(todoForm.dataset.id);
 
   if (isEdit) {
-    //
+    //tìm todo hiện tại
+    const todoList = getTodoList();
+    const index = todoList.findIndex((element) => element.id.toString() === todoForm.dataset.id);
+    if (index < 0) return;
+
+    //cập nhật content
+    todoList[index].title = todoInput.value;
+
+    //save
+    localStorage.setItem('todo_list', JSON.stringify(todoList));
+
+    //cập nhật DOM changes
+    // find li element có id = todoForm.dataset.id
+    const liElement = document.querySelector(`ul#todoList > li[data-id="${todoForm.dataset.id}"]`);
+    if (liElement) {
+      // liElement.textContent = todoInput.value;
+      const titleElement = liElement.querySelector('.todo__title');
+      if (titleElement) titleElement.textContent = todoInput.value;
+    }
   } else {
     //add mode
     const newTodo = {
@@ -175,7 +197,7 @@ function handleTodoFormSubmit(event) {
   }
 
   //reset form để quay lại add thêm cái mới
-  delete todoForm.dataset.id
+  delete todoForm.dataset.id;
   if (todoForm) todoForm.reset();
 }
 
