@@ -123,7 +123,7 @@ function handleTodoFormSubmit(event) {
   const todoText = todoInput.value;
 
   const newTodo = {
-    id: Date.now(),
+    id: Date.now(), // tạm coi là 1 unique
     title: todoText,
     status: 'pending',
   };
@@ -139,7 +139,11 @@ function handleTodoFormSubmit(event) {
   const ulElement = document.getElementById('todoList');
   if (!ulElement) return;
 
-  ulElement.appendChild(newLiElement)
+  ulElement.appendChild(newLiElement);
+
+  //reset form
+  const todoForm = document.getElementById('todoFormId');
+  if (todoForm) todoForm.reset();
 }
 
 //main
