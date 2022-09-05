@@ -99,13 +99,18 @@ function renderTodoList(todoList, ulElementId) {
 }
 
 function getTodoList() {
-  //Hiện tại hàm getTodoList() có khả năng xảy ra lỗi nếu như 
+  //Hiện tại hàm getTodoList() có khả năng xảy ra lỗi nếu như
   // trong localStorage của bạn chưa có key todo_list
   try {
     return JSON.parse(localStorage.getItem('todo_list')) || [];
   } catch {
     return [];
   }
+}
+
+function handleTodoFormSubmit(event) {
+  // event.preventDefault();
+  console.log('form submit');
 }
 
 //main
@@ -120,4 +125,9 @@ function getTodoList() {
   renderTodoList(todoList, 'todoList');
 
   //do something else
+  //register submit event for todo form
+  const todoForm = document.getElementById('todoFormId');
+  if (todoForm) {
+    todoForm.addEventListener('submit', handleTodoFormSubmit);
+  }
 })();
