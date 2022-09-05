@@ -109,8 +109,13 @@ function getTodoList() {
 }
 
 function handleTodoFormSubmit(event) {
-  // event.preventDefault();
+  event.preventDefault();
   console.log('form submit');
+
+  // get form value
+  //validate form values
+  // save
+  // apply DOM changes
 }
 
 //main
