@@ -86,7 +86,6 @@ function createTodoElement(todo) {
     editButton.addEventListener('click', () => {
       // lấy dữ liệu mới nhất từ localStorage
 
-
       //populate data to todo form (đẩy thông tin lên todoForm (input form))
       populateTodoForm(todo);
     });
@@ -137,7 +136,8 @@ function getTodoList() {
 
 function handleTodoFormSubmit(event) {
   event.preventDefault();
-  console.log('form submit');
+  const todoForm = document.getElementById('todoFormId');
+  if (!todoForm) return;
 
   // get form value
   const todoInput = document.getElementById('todoText');
@@ -147,28 +147,35 @@ function handleTodoFormSubmit(event) {
     return;
   }
 
+  // xác định add hoặc edit mode
+  const isEdit = Boolean(todoForm.dataset.id);
 
-  const newTodo = {
-    id: Date.now(), // tạm coi là 1 unique
-    title:  todoInput.value,
-    status: 'pending',
-  };
+  if (isEdit) {
+    //
+  } else {
+    //add mode
+    const newTodo = {
+      id: Date.now(), // tạm coi là 1 unique
+      title: todoInput.value,
+      status: 'pending',
+    };
 
-  // save to localStorage
-  const todoList = getTodoList();
-  todoList.push(newTodo);
-  localStorage.setItem('todo_list', JSON.stringify(todoList));
+    // save to localStorage
+    const todoList = getTodoList();
+    todoList.push(newTodo);
+    localStorage.setItem('todo_list', JSON.stringify(todoList));
 
-  // apply DOM changes
-  const newLiElement = createTodoElement(newTodo);
+    // apply DOM changes
+    const newLiElement = createTodoElement(newTodo);
 
-  const ulElement = document.getElementById('todoList');
-  if (!ulElement) return;
+    const ulElement = document.getElementById('todoList');
+    if (!ulElement) return;
 
-  ulElement.appendChild(newLiElement);
+    ulElement.appendChild(newLiElement);
+  }
 
   //reset form để quay lại add thêm cái mới
-  const todoForm = document.getElementById('todoFormId');
+  delete todoForm.dataset.id
   if (todoForm) todoForm.reset();
 }
 
