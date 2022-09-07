@@ -140,11 +140,12 @@ function getTodoList() {
 
 function handleTodoFormSubmit(event) {
   event.preventDefault();
-  const todoForm = document.getElementById('todoFormId');
+  const todoForm = document.getElementById('todoFormId'); // Form todo
   if (!todoForm) return;
 
-  // get form value
-  const todoInput = document.getElementById('todoText');
+  // get form value and checkbox value
+  const todoInput = document.getElementById('todoText'); // Input form
+  const todoCheckBox = document.getElementById('checkBox'); // Checkbox form
   // validate form values
   if (!todoInput) {
     alert('todo input not found');
