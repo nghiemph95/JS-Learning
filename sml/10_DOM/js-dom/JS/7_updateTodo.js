@@ -111,6 +111,11 @@ function populateTodoForm(todo) {
   const todoInput = document.getElementById('todoText');
   if (!todoInput) return;
   todoInput.value = todo.title;
+
+  // set checkbox input
+  const todoCheckBoxInput = document.getElementById('checkBox');
+  if (!todoCheckBoxInput) return;
+  todoCheckBoxInput.checked = todo.status;
 }
 
 function renderTodoList(todoList, ulElementId) {
@@ -161,8 +166,9 @@ function handleTodoFormSubmit(event) {
     const index = todoList.findIndex((element) => element.id.toString() === todoForm.dataset.id);
     if (index < 0) return;
 
-    //cập nhật content
+    //cập nhật content and status
     todoList[index].title = todoInput.value;
+    todoList[index].status = todoCheckBox.checked === 'true' ? 'completed' : 'pending';
 
     //save
     localStorage.setItem('todo_list', JSON.stringify(todoList));
@@ -174,6 +180,9 @@ function handleTodoFormSubmit(event) {
       // liElement.textContent = todoInput.value;
       const titleElement = liElement.querySelector('.todo__title');
       if (titleElement) titleElement.textContent = todoInput.value;
+
+      liElement.dataset.status = todoCheckBox.checked === 'true' ? 'completed' : 'pending';
+      // const newStatus = liElement.dataset.status === 'pending' ? 'completed' : 'pending';
     }
   } else {
     //add mode
