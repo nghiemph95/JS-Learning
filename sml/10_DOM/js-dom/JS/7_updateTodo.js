@@ -181,16 +181,18 @@ function handleTodoFormSubmit(event) {
       // liElement.textContent = todoInput.value;
       const titleElement = liElement.querySelector('.todo__title');
       if (titleElement) titleElement.textContent = todoInput.value;
-      
 
       liElement.dataset.status = todoCheckBox.checked === true ? 'completed' : 'pending';
 
-      // const checkBoxStatus = liElement.querySelector('.todo alert');
-      // if (checkBoxStatus) {
-      //   const newStatus = todoCheckBox.checked === 'true' ? 'alert-success' : 'alert-secondary';
-      //   checkBoxStatus.classList.remove('alert-success', 'alert-secondary');
-      //   checkBoxStatus.classList.add(newStatus);
-      // }
+      const newStatusFromCheckbox = liElement.dataset.status;  // completed or pending
+
+      const checkBoxStatus = liElement.querySelector('div.todo');
+      if (checkBoxStatus) {
+        const newStatus =
+          newStatusFromCheckbox === 'completed' ? 'alert-success' : 'alert-secondary';
+        checkBoxStatus.classList.remove('alert-success', 'alert-secondary');
+        checkBoxStatus.classList.add(newStatus);
+      }
     }
   } else {
     //add mode
