@@ -29,7 +29,7 @@
             <form id="todoFormId">
                 <div class="mb-3">
                     <label class="form-label">What are you going to do?</label>
-                    <input id="todoText" name="todoText" type="text" class="form-control" >
+                    <input id="todoText" name="todoText" type="text" class="form-control">
                     <input id="checkBox" class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label" for="flexCheckDefault">
                         Completed/Pending
@@ -47,6 +47,13 @@
     <section class="my-4">
         <div class="container">
             <h1>Todo List</h1>
+
+            <!-- SearchTodo -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                    aria-describedby="basic-addon1">
+            </div>
 
             <ul id="todoList" class="todo-list"></ul>
         </div>
