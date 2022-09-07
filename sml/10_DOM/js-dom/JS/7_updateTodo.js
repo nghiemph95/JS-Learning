@@ -194,8 +194,7 @@ function handleTodoFormSubmit(event) {
 
       const buttonElementUpdate = liElement.querySelector('button.btn.btn-success');
       if (!buttonElementUpdate) return;
-      const buttonChangeColor =
-        newStatusFromCheckbox === 'completed' ? 'btn-success' : 'btn-dark';
+      const buttonChangeColor = newStatusFromCheckbox === 'completed' ? 'btn-success' : 'btn-dark';
       buttonElementUpdate.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
       buttonElementUpdate.classList.add(buttonChangeColor);
 
@@ -232,6 +231,7 @@ function handleTodoFormSubmit(event) {
   //reset form để quay lại add thêm cái mới
   delete todoForm.dataset.id;
   delete todoForm.dataset.status;
+  console.log(todoForm);
   if (todoForm) todoForm.reset();
 }
 
