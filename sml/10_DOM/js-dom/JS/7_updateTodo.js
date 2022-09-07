@@ -209,6 +209,7 @@ function handleTodoFormSubmit(event) {
     const newTitle = todoInput.value;
     if (!newTitle) return;
 
+    //get trạng thái của checkbox trước khi tạo mới todoList
     const statusInput = todoCheckBox.checked === true ? 'completed' : 'pending';
 
     const newTodo = {
