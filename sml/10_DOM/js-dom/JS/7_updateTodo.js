@@ -182,7 +182,13 @@ function handleTodoFormSubmit(event) {
       if (titleElement) titleElement.textContent = todoInput.value;
 
       liElement.dataset.status = todoCheckBox.checked === 'true' ? 'completed' : 'pending';
-      // const newStatus = liElement.dataset.status === 'pending' ? 'completed' : 'pending';
+      const checkBoxStatus = liElement.querySelector('.todo alert');
+      if (checkBoxStatus) {
+        const newStatus = todoCheckBox.checked === 'true' ? 'alert-success' : 'alert-secondary';
+        checkBoxStatus.classList.remove('alert-success', 'alert-secondary');
+        checkBoxStatus.classList.add(newStatus);
+
+      }
     }
   } else {
     //add mode
