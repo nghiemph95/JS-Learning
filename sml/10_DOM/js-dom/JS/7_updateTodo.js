@@ -168,8 +168,8 @@ function handleTodoFormSubmit(event) {
 
     //cập nhật content and status
     todoList[index].title = todoInput.value;
-    todoList[index].status = todoCheckBox.checked === 'true' ? 'completed' : 'pending';
-
+    todoList[index].status = todoCheckBox.checked === true ? 'completed' : 'pending';
+    console.log(todoList[index].status);
     //save
     localStorage.setItem('todo_list', JSON.stringify(todoList));
 
@@ -181,7 +181,7 @@ function handleTodoFormSubmit(event) {
       const titleElement = liElement.querySelector('.todo__title');
       if (titleElement) titleElement.textContent = todoInput.value;
 
-      liElement.dataset.status = todoCheckBox.checked === 'false' ? 'completed' : 'pending';
+      // liElement.dataset.status = todoCheckBox.checked === true ? 'completed' : 'pending';
 
       // const checkBoxStatus = liElement.querySelector('.todo alert');
       // if (checkBoxStatus) {
