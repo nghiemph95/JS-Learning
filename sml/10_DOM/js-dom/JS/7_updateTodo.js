@@ -113,9 +113,9 @@ function populateTodoForm(todo) {
   todoInput.value = todo.title;
 
   // set checkbox input
-  const todoCheckBoxInput = document.getElementById('checkBox');
-  if (!todoCheckBoxInput) return;
-  todoCheckBoxInput.checked = todo.status;
+  // const todoCheckBoxInput = document.getElementById('checkBox');
+  // if (!todoCheckBoxInput) return;
+  // todoCheckBoxInput.checked = todo.status;
 }
 
 function renderTodoList(todoList, ulElementId) {
@@ -173,7 +173,7 @@ function handleTodoFormSubmit(event) {
     //save
     localStorage.setItem('todo_list', JSON.stringify(todoList));
 
-    //cập nhật DOM changes
+    // cập nhật DOM changes
     // find li element có id = todoForm.dataset.id
     const liElement = document.querySelector(`ul#todoList > li[data-id="${todoForm.dataset.id}"]`);
     if (liElement) {
