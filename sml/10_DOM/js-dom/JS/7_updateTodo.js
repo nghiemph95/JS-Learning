@@ -177,30 +177,30 @@ function handleTodoFormSubmit(event) {
     // find li element có id = todoForm.dataset.id
     const liElement = document.querySelector(`ul#todoList > li[data-id="${todoForm.dataset.id}"]`);
     if (liElement) {
-      // edit context -> title change
+      // lấy input form truyền xuống title của todoList dựa theo id
       const titleElement = liElement.querySelector('.todo__title');
       if (titleElement) titleElement.textContent = todoInput.value;
 
-      // edit status checkbox -> status todo
+      // lấy input checkbox truyền xuống trạng thái của todoList theo id
       liElement.dataset.status = todoCheckBox.checked === true ? 'completed' : 'pending';
       const newStatusFromCheckbox = liElement.dataset.status; // completed or pending
 
-      const checkBoxStatus = liElement.querySelector('div.todo');
-      if (!checkBoxStatus) return;
+      const todoListStatus = liElement.querySelector('div.todo');
+      if (!todoListStatus) return;
       const newStatus = newStatusFromCheckbox === 'completed' ? 'alert-success' : 'alert-secondary';
-      checkBoxStatus.classList.remove('alert-success', 'alert-secondary');
-      checkBoxStatus.classList.add(newStatus);
+      todoListStatus.classList.remove('alert-success', 'alert-secondary');
+      todoListStatus.classList.add(newStatus);
 
-      const buttonElementUpdate = liElement.querySelector(
+      const buttonStatusUpdate = liElement.querySelector(
         'button.btn.btn-dark, button.btn.btn-success'
       );
-      if (!buttonElementUpdate) return;
+      if (!buttonStatusUpdate) return;
       const buttonChangeColor = newStatusFromCheckbox === 'completed' ? 'btn-success' : 'btn-dark';
-      buttonElementUpdate.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
-      buttonElementUpdate.classList.add(buttonChangeColor);
+      buttonStatusUpdate.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
+      buttonStatusUpdate.classList.add(buttonChangeColor);
 
       const buttonChangeContent = newStatusFromCheckbox === 'completed' ? 'Reset' : 'Finish';
-      buttonElementUpdate.textContent = buttonChangeContent;
+      buttonStatusUpdate.textContent = buttonChangeContent;
     }
   } else {
     //add mode
