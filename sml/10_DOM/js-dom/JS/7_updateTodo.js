@@ -192,7 +192,9 @@ function handleTodoFormSubmit(event) {
       checkBoxStatus.classList.remove('alert-success', 'alert-secondary');
       checkBoxStatus.classList.add(newStatus);
 
-      const buttonElementUpdate = liElement.querySelector('button.btn.btn-success');
+      const buttonElementUpdate = liElement.querySelector(
+        'button.btn.btn-dark, button.btn.btn-success'
+      );
       if (!buttonElementUpdate) return;
       const buttonChangeColor = newStatusFromCheckbox === 'completed' ? 'btn-success' : 'btn-dark';
       buttonElementUpdate.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
