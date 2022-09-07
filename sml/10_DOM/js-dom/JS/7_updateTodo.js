@@ -178,31 +178,41 @@ function handleTodoFormSubmit(event) {
     // find li element có id = todoForm.dataset.id
     const liElement = document.querySelector(`ul#todoList > li[data-id="${todoForm.dataset.id}"]`);
     if (liElement) {
-      // liElement.textContent = todoInput.value;
+      // edit context -> title change
       const titleElement = liElement.querySelector('.todo__title');
       if (titleElement) titleElement.textContent = todoInput.value;
 
+      // edit status checkbox -> status todo
       liElement.dataset.status = todoCheckBox.checked === true ? 'completed' : 'pending';
-
-      const newStatusFromCheckbox = liElement.dataset.status;  // completed or pending
+      const newStatusFromCheckbox = liElement.dataset.status; // completed or pending
 
       const checkBoxStatus = liElement.querySelector('div.todo');
-      if (checkBoxStatus) {
-        const newStatus =
-          newStatusFromCheckbox === 'completed' ? 'alert-success' : 'alert-secondary';
-        checkBoxStatus.classList.remove('alert-success', 'alert-secondary');
-        checkBoxStatus.classList.add(newStatus);
-      }
+      if (!checkBoxStatus) return;
+      const newStatus = newStatusFromCheckbox === 'completed' ? 'alert-success' : 'alert-secondary';
+      checkBoxStatus.classList.remove('alert-success', 'alert-secondary');
+      checkBoxStatus.classList.add(newStatus);
+
+      const buttonElementUpdate = liElement.querySelector('button.btn.btn-success');
+      if (!buttonElementUpdate) return;
+      const buttonChangeColor =
+        newStatusFromCheckbox === 'completed' ? 'btn-success' : 'btn-dark';
+      buttonElementUpdate.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
+      buttonElementUpdate.classList.add(buttonChangeColor);
+
+      const buttonChangeContent = newStatusFromCheckbox === 'completed' ? 'Reset' : 'Finish';
+      buttonElementUpdate.textContent = buttonChangeContent;
     }
   } else {
     //add mode
     const newTitle = todoInput.value;
     if (!newTitle) return;
 
+    const statusInput = todoCheckBox.checked === true ? 'completed' : 'pending';
+
     const newTodo = {
       id: Date.now(), // tạm coi là 1 unique
       title: todoInput.value,
-      status: 'pending',
+      status: statusInput,
     };
 
     // save to localStorage
@@ -221,6 +231,7 @@ function handleTodoFormSubmit(event) {
 
   //reset form để quay lại add thêm cái mới
   delete todoForm.dataset.id;
+  delete todoForm.dataset.status;
   if (todoForm) todoForm.reset();
 }
 
