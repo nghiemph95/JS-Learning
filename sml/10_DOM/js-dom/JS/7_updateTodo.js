@@ -113,9 +113,9 @@ function populateTodoForm(todo) {
   todoInput.value = todo.title;
 
   // set checkbox input
-  // const todoCheckBoxInput = document.getElementById('checkBox');
-  // if (!todoCheckBoxInput) return;
-  // todoCheckBoxInput.checked = todo.status;
+  const todoCheckBoxInput = document.getElementById('checkBox');
+  if (!todoCheckBoxInput) return;
+  todoCheckBoxInput.checked = todo.status === 'completed' ? true : false;
 }
 
 function renderTodoList(todoList, ulElementId) {
@@ -169,7 +169,6 @@ function handleTodoFormSubmit(event) {
     //cập nhật content and status
     todoList[index].title = todoInput.value;
     todoList[index].status = todoCheckBox.checked === true ? 'completed' : 'pending';
-    console.log(todoList[index].status);
 
     //save
     localStorage.setItem('todo_list', JSON.stringify(todoList));
