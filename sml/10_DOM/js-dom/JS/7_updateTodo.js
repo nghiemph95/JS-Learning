@@ -107,12 +107,12 @@ function populateTodoForm(todo) {
   todoForm.dataset.id = todo.id;
 
   // set values for form controls (set những giá trị cần thiết vô control)
-  // set todoText input
+  // popular to todoForm input
   const todoInput = document.getElementById('todoText');
   if (!todoInput) return;
   todoInput.value = todo.title;
 
-  // set checkbox input
+  // popular to checkbox input
   const todoCheckBoxInput = document.getElementById('checkBox');
   if (!todoCheckBoxInput) return;
   todoCheckBoxInput.checked = todo.status === 'completed' ? true : false;
