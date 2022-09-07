@@ -191,6 +191,7 @@ function handleTodoFormSubmit(event) {
       todoListStatus.classList.remove('alert-success', 'alert-secondary');
       todoListStatus.classList.add(newStatus);
 
+      // đổi màu button khi truyền trạng thái của checkbox xuống todoList
       const buttonStatusUpdate = liElement.querySelector(
         'button.btn.btn-dark, button.btn.btn-success'
       );
@@ -199,6 +200,7 @@ function handleTodoFormSubmit(event) {
       buttonStatusUpdate.classList.remove('btn-success', 'mark-as-done', 'btn-dark');
       buttonStatusUpdate.classList.add(buttonChangeColor);
 
+      // đổi content của button khi truyền trạng thái của checkbox xuống todoList
       const buttonChangeContent = newStatusFromCheckbox === 'completed' ? 'Reset' : 'Finish';
       buttonStatusUpdate.textContent = buttonChangeContent;
     }
