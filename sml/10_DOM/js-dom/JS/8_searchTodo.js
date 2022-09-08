@@ -4,7 +4,15 @@ function getAllTodoElement() {
 }
 
 // duyệt qua mảng li xem có match vs searchTerm ko
-function isMatch(liElement, searchTerm) {}
+function isMatch(liElement, searchTerm) {
+  if (!liElement) return false;
+  if (searchTerm === '') return true;
+
+  const titleElement = liElement.querySelector('p.todo__title');
+  if (!titleElement) return false;
+
+  return titleElement.textContent.toLowerCase().includes(searchTerm.toLowerCase());
+}
 
 // hàm search
 function searchTodo(searchTerm) {
@@ -12,6 +20,9 @@ function searchTodo(searchTerm) {
 
   for (const todoElement of todoElementList) {
     console.log(todoElement);
+    const needToShow = isMatch(todoElement, searchTerm);
+
+    todoElement.hidden = !needToShow;
   }
   // nếu searchTerm ko có giá trị = empty thì show tất cả
 
