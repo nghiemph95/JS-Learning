@@ -38,7 +38,30 @@ function initSearchInput() {
   });
 }
 
+function filterTodo(filterStatus) {
+  const todoElementList = getAllTodoElement();
+
+  for (const todoElement of todoElementList) {
+    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+
+    todoElement.hidden = !needToShow;
+  }
+}
+
+function initFilterStatus() {
+  // find select
+  const filterStatusSelect = document.getElementById('filterStatus');
+  if (!filterStatusSelect) return;
+
+  // attach event change
+  filterStatusSelect.addEventListener('change', () => {
+    console.log('status change', filterStatusSelect.value);
+    filterTodo(filterStatusSelect.value);
+  });
+}
+
 //main
 (() => {
   initSearchInput();
+  initFilterStatus();
 })();
