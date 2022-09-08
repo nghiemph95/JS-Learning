@@ -11,3 +11,17 @@
  * 1. giá trị có thay đổi và bạn có blur ra ngoài (click ra ngoài)
  * 2. thay đổi giá trị và nhấn enter
  */
+
+// duyệt qua từng liElement, check có map với searchTerm ko ?
+
+// search function
+
+//init search
+function initSearchInput() {
+
+}
+
+// main
+(() => {
+  initSearchInput();
+})();
