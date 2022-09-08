@@ -13,12 +13,41 @@
  */
 
 // duyệt qua từng liElement, check có map với searchTerm ko ?
+function isMatch(liElement, searchTerm) {
+  // searchTerm = null
+  if (searchTerm === "") return true;
+  // searchTerm !== null
+  const contentElement = liElement.querySelector("p.todo__title");
+  if (!contentElement) return false;
+
+  return contentElement.textContent
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase());
+}
 
 // search function
+function searchTodo(searchTerm) {
+  // loop qua tất cả liElement
+  const todoElelmentList = document.querySelectorAll("#todoList > li");
 
-//init search
+  for (const todoElement of todoElelmentList) {
+    // check mỗi element có map với searchTerm hay ko
+    const isShow = isMatch(todoElement, searchTerm);
+
+    todoElement.hidden = !isShow; // false = show
+  }
+}
+
+// input searchTerm
 function initSearchInput() {
+  // find search input form
+  const searchInput = document.getElementById("searchTerm");
+  if (!searchInput) return;
 
+  // gắn sự kiện search
+  searchInput.addEventListener("input", () => {
+    searchTodo(searchInput.value);
+  });
 }
 
 // main
