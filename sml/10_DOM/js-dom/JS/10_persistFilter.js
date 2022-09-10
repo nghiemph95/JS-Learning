@@ -42,7 +42,7 @@ function initSearchInput(params) {
   const searchInput = document.getElementById('searchTerm');
   if (!searchInput) return;
 
-  if (params.get('seachTerm')) {
+  if (params.get('searchTerm')) {
     searchInput.value = params.get('searchTerm');
   }
   // gắn sự kiên cho searchInput
