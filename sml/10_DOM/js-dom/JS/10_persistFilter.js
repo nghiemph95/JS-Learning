@@ -42,7 +42,7 @@ function filterTodo(filterStatus) {
   const todoElementList = getAllTodoElement();
 
   for (const todoElement of todoElementList) {
-    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+    const needToShow = filterStatus === 'all' || filterStatus === todoElement.dataset.status;
 
     todoElement.hidden = !needToShow;
   }
@@ -55,7 +55,6 @@ function initFilterStatus() {
 
   // attach event change
   filterStatusSelect.addEventListener('change', () => {
-    console.log('status change', filterStatusSelect.value);
     filterTodo(filterStatusSelect.value);
   });
 }
