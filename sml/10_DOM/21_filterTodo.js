@@ -13,7 +13,7 @@ function filterTodo(filterStatus) {
 }
 
 function initFilterStatus() {
-  // find select
+  // find select status
   const filterStatusSelect = document.getElementById("filterStatus");
   if (!filterStatusSelect) return;
   // attach event
