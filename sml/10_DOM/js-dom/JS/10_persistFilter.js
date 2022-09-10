@@ -37,11 +37,14 @@ function isMatch(liElement, params) {
 //   }
 // }
 
-function initSearchInput() {
+function initSearchInput(params) {
   // find search term input
   const searchInput = document.getElementById('searchTerm');
   if (!searchInput) return;
 
+  if (params.get('seachTerm')) {
+    searchInput.value = params.get('searchTerm');
+  }
   // gắn sự kiên cho searchInput
   searchInput.addEventListener('input', () => {
     // searchTodo(searchInput.value);
@@ -73,11 +76,14 @@ function handleFilterChange(filterName, filterValue) {
 //   }
 // }
 
-function initFilterStatus() {
+function initFilterStatus(params) {
   // find select
   const filterStatusSelect = document.getElementById('filterStatus');
   if (!filterStatusSelect) return;
 
+  if (params.get('status')) {
+    filterStatusSelect.value = params.get('status');
+  }
   // attach event change
   filterStatusSelect.addEventListener('change', () => {
     // filterTodo(filterStatusSelect.value);
@@ -87,6 +93,9 @@ function initFilterStatus() {
 
 //main
 (() => {
-  initSearchInput();
-  initFilterStatus();
+  //get query params object
+  const params = new URLSearchParams(window.location.search);
+
+  initSearchInput(params);
+  initFilterStatus(params);
 })();
