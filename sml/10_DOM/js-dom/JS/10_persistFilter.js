@@ -4,7 +4,7 @@ function getAllTodoElement() {
 }
 
 function isMatchStatus(liElement, filterStatus) {
-  return filterStatus === 'all' || filterStatus === todoElement.dataset.status;
+  return filterStatus === 'all' || filterStatus === liElement.dataset.status;
 }
 
 function isMatchSearch(liElement, searchTerm) {
