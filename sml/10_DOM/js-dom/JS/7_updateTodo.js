@@ -1,4 +1,27 @@
-function createTodoElement(todo) {
+function isMatchStatus(liElement, filterStatus) {
+  return filterStatus === 'all' || filterStatus === liElement.dataset.status;
+}
+
+function isMatchSearch(liElement, searchTerm) {
+  if (!liElement) return false;
+  // nếu searchTerm ko có giá trị = empty thì show tất cả
+  if (searchTerm === '') return true;
+
+  // nếu searchTerm != empty -> filter todo
+  const titleElement = liElement.querySelector('p.todo__title');
+  if (!titleElement) return false;
+
+  return titleElement.textContent.toLowerCase().includes(searchTerm.toLowerCase());
+}
+
+function isMatch(liElement, params) {
+  return (
+    isMatchSearch(liElement, params.get('searchTerm')) &&
+    isMatchStatus(liElement, params.get('status'))
+  );
+}
+
+function createTodoElement(todo, params) {
   if (!todo) return;
 
   // find template
@@ -29,6 +52,9 @@ function createTodoElement(todo) {
   // update content where needed
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
+
+  // check if we should show it or not (Phải đợi nó gắn cái text content cho todo__title vào đã, rồi mới truyền params)
+  todoElement.hidden = !isMatch(todoElement, params);
 
   // TODO: attach events
   // add click event for mark-as-done button
@@ -118,7 +144,7 @@ function populateTodoForm(todo) {
   todoCheckBoxInput.checked = todo.status === 'completed' ? true : false;
 }
 
-function renderTodoList(todoList, ulElementId) {
+function renderTodoList(todoList, ulElementId, params) {
   if (!Array.isArray(todoList) || todoList.length === 0) return;
 
   //find ul element
@@ -128,7 +154,7 @@ function renderTodoList(todoList, ulElementId) {
   // loop through todoList
   for (const todo of todoList) {
     // each todo -> create li element -> append to ul
-    const listElement = createTodoElement(todo);
+    const listElement = createTodoElement(todo, params);
     ulElement.appendChild(listElement);
   }
 }
@@ -247,8 +273,10 @@ function handleTodoFormSubmit(event) {
   //     { id: 3, title: 'Learn NextJS', status: 'pending' },
   //   ];
 
+  const params = new URLSearchParams(window.location.search);
+
   const todoList = getTodoList();
-  renderTodoList(todoList, 'todoList');
+  renderTodoList(todoList, 'todoList', params);
 
   //do something else
   //register submit event for todo form
