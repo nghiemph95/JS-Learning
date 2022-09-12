@@ -13,6 +13,18 @@ function isMatchStatus(liElement, filterStatus) {
 }
 
 // function check Match Search
+function isMatchSearch(liElement, searchTerm) {
+  // searchInput = empty
+  if (!searchTerm) return true;
+
+  // searchInput != empty
+  const titleTextInput = liElement.querySelector("p.todo__title");
+  if (!titleTextInput) return false;
+
+  return titleTextInput.textContent
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase());
+}
 
 // function check Match
 function isMatch(liElement, params) {
