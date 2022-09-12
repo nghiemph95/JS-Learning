@@ -3,7 +3,23 @@
 // 2. Current Turn
 // 3. Replay Game
 // 4. Game status
-export function getCellElementList() {}
-export function getCurrentTurnElement() {}
-export function getCellElementAtIdx() {}
-export function getGameStatusElement() {}
+
+// lấy danh sách các ô
+export function getCellElementList() {
+  return document.querySelectorAll("#cellList > li");
+}
+
+// lấy turn để đổi X -> O
+export function getCurrentTurnElement() {
+  return document.getElementById("currentTurn");
+}
+
+// lấy vị trí của các X và O trên bàn
+export function getCellElementAtIdx(index) {
+  return document.querySelector(`#cellList > li:nth-child(${index + 1})`);
+}
+
+// lấy status của game
+export function getGameStatusElement() {
+  return document.getElementById("gameStatus");
+}
