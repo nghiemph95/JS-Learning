@@ -9,7 +9,7 @@
 
 // function check Match Status
 function isMatchStatus(liElement, filterStatus) {
-  return;
+  return filterStatus === "all" || filterStatus === liElement.dataset.status;
 }
 
 // function check Match Search
