@@ -9,7 +9,7 @@
 
 // function check Match Status
 function isMatchStatus(liElement, filterStatus) {
-    return 
+  return;
 }
 
 // function check Match Search
@@ -17,6 +17,8 @@ function isMatchStatus(liElement, filterStatus) {
 // function check Match
 function isMatch(liElement, params) {
   return (
+    //url.searchParams.get('status') = pending/completed
+    //url.searchParams.get('searchTerm') = textContent
     isMatchSearch(liElement, params.get("searchTerm")) &&
     isMatchStatus(liElement, params.get("status"))
   );
