@@ -10,7 +10,7 @@ function isMatchStatus(liElement, filterStatus) {
 function isMatchSearch(liElement, searchTerm) {
   if (!liElement) return false;
   // nếu searchTerm ko có giá trị = empty thì show tất cả
-  if (searchTerm === '') return true;
+  if (!searchTerm) return true;
 
   // nếu searchTerm != empty -> filter todo
   const titleElement = liElement.querySelector('p.todo__title');
