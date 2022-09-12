@@ -1,4 +1,4 @@
-import { getCellElementList } from "./selectors";
+import { getCellElementList } from "./selectors.js";
 
 console.log(getCellElementList());
 
