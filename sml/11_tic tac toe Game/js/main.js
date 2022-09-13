@@ -1,3 +1,4 @@
+import { TURN } from "./constants.js";
 import {
   getCellElementList,
   getCurrentTurnElement,
@@ -5,17 +6,45 @@ import {
   getGameStatusElement,
 } from "./selectors.js";
 
-console.log(getCellElementList());
-console.log(getCurrentTurnElement());
-console.log(getCellElementAtIdx(4));
-console.log(getGameStatusElement());
+// console.log(getCellElementList());
+// console.log(getCurrentTurnElement());
+// console.log(getCellElementAtIdx(4));
+// console.log(getGameStatusElement());
 
 /**
  * Global variables
  */
-let currentTurn = "cross";
+let currentTurn = TURN.CROSS;
 let isGameEnded = false;
 let cellValues = new Array(9).fill("");
+
+function toggleTurn() {
+  //toggle turn
+  currentTurn = currentTurn === TURN.CIRCLE ? TURN.CROSS : TURN.CIRCLE;
+
+  // update turn on DOM element
+  const currentTurnElement = getCurrentTurnElement();
+  if (currentTurnElement) {
+    currentTurnElement.classList.remove(TURN.CIRCLE, TURN.CROSS);
+    currentTurnElement.classList.add(currentTurn);
+  }
+}
+
+function handleCellClick(cell, index) {
+  //set selected cell
+  cell.classList.add(currentTurn);
+  // toggle turn
+  toggleTurn();
+
+  console.log("click", cell, index);
+}
+
+function initCellElementList() {
+  const cellElementList = getCellElementList();
+  cellElementList.forEach((cell, index) => {
+    cell.addEventListener("click", () => handleCellClick(cell, index));
+  });
+}
 
 /**
  * TODOs
@@ -32,3 +61,9 @@ let cellValues = new Array(9).fill("");
  * 4. On replay button click --> reset game to play again.
  *
  */
+
+(() => {
+  // bind click event for all li element
+  initCellElementList();
+  // bind click event for replay button
+})();
