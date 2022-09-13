@@ -10,6 +10,7 @@
 // |  a0  | a1  | a2  |
 // |  a3  | a4  | a5  |
 // |  a6  | a7  | a8  |
+// 123, 345, 678, 036, 147, 258, 048, 246
 // Each item will receive either of 3 values: empty, X or O.
 // Return an object includes two keys:
 // - `status`: a string indicate status of the game. It can be one of the following values:
