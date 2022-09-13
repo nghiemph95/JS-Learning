@@ -7,7 +7,7 @@ import {
 
 console.log(getCellElementList());
 console.log(getCurrentTurnElement());
-console.log(getCellElementAtIdx());
+console.log(getCellElementAtIdx(4));
 console.log(getGameStatusElement());
 
 /**
