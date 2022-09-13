@@ -31,6 +31,12 @@ function toggleTurn() {
 }
 
 function handleCellClick(cell, index) {
+  // check cell is already cross/circle
+  if (
+    cell.classList.contains(TURN.CIRCLE) ||
+    cell.classList.contains(TURN.CROSS)
+  )
+    return;
   //set selected cell
   cell.classList.add(currentTurn);
   // toggle turn
