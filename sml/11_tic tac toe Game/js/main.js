@@ -37,8 +37,10 @@ function handleCellClick(cell, index) {
     cell.classList.contains(TURN.CROSS)
   )
     return;
+
   //set selected cell
   cell.classList.add(currentTurn);
+
   // toggle turn
   toggleTurn();
 
