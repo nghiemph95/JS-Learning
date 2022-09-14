@@ -36,7 +36,7 @@
 // }
 //
 
-import { GAME_STATUS } from "./constants";
+import { CELL_VALUE, GAME_STATUS } from "./constants";
 
 // Input: an array of 9 items
 // Output: an object as mentioned above
@@ -60,12 +60,30 @@ export function checkGameStatus(cellValues) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
+  const winIndex = locationWinList.findIndex((locationWin) => {
+    const first = cellValues[locationWin[0]];
+    const second = cellValues[locationWin[1]];
+    const third = cellValues[locationWin[2]];
+
+    return first !== "" && first === second && second === third;
+  });
+
+  if (winIndex >= 0) {
+    const winValueIndex = locationWinList[winIndex][0];
+    const winValue = cellValues[winValueIndex];
+
+    return {
+      status:
+        winValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
+      winPositions: locationWinList[winIndex],
+    };
+  }
   // end
-
+  const isEndGame = cellValues.filter((x) => x === "").length === 0;
   // playing
-
   return {
-    status: GAME_STATUS.PLAYING,
+    status: isEndGame ? GAME_STATUS.ENDED : GAME_STATUS.PLAYING,
     winPositions: [],
   };
 }
