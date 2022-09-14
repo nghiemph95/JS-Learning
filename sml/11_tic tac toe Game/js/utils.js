@@ -36,12 +36,33 @@
 // }
 //
 
+import { GAME_STATUS } from "./constants";
+
 // Input: an array of 9 items
 // Output: an object as mentioned above
 export function checkGameStatus(cellValues) {
   // Write your code here ...
   // Please feel free to add more helper function if you want.
   // It's not required to write everything just in this function.
+  if (!Array.isArray(cellValues) || cellValues.length !== 9)
+    throw new Error("Invalid cell values");
+
+  // win
+  const locationWinList = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  // end
+
+  // playing
 
   return {
     status: GAME_STATUS.PLAYING,
