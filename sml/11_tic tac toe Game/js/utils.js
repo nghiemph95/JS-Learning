@@ -36,7 +36,7 @@
 // }
 //
 
-import { CELL_VALUE, GAME_STATUS } from "./constants";
+import { CELL_VALUE, GAME_STATUS } from "./constants.js";
 
 // Input: an array of 9 items
 // Output: an object as mentioned above
