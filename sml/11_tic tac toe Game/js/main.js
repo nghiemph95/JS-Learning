@@ -1,4 +1,4 @@
-import { TURN } from "./constants.js";
+import { CELL_VALUE, GAME_STATUS, TURN } from "./constants.js";
 import {
   getCellElementList,
   getCurrentTurnElement,
@@ -7,7 +7,7 @@ import {
 } from "./selectors.js";
 import { checkGameStatus } from "./utils.js";
 
-console.log(checkGameStatus(["X", "O", "O", "", "X", "", "", "O", "X"]));
+// console.log(checkGameStatus(["X", "O", "O", "", "X", "", "", "O", "X"]));
 
 /**
  * Global variables
@@ -39,9 +39,32 @@ function handleCellClick(cell, index) {
   //set selected cell
   cell.classList.add(currentTurn);
 
+  //update cellValues
+  cellValues[index] =
+    currentTurn === TURN.CIRCLE ? CELL_VALUE.CIRCLE : CELL_VALUE.CROSS;
+
   // toggle turn
   toggleTurn();
 
+  // check game status
+  const game = checkGameStatus(cellValues);
+  switch (game.status) {
+    case GAME_STATUS.ENDED: {
+      //update game status
+      //show replace buttong
+      break;
+    }
+    case GAME_STATUS.X_WIN:
+    case GAME_STATUS.O_WIN: {
+      //update game status
+      //show replay button
+      //highlight win cells
+      break;
+    }
+
+    default:
+    //playing
+  }
   console.log("click", cell, index);
 }
 
