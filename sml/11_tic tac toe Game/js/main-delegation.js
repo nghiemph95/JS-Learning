@@ -104,6 +104,7 @@ function handleCellClick(cell, index) {
   }
 }
 
+/** Áp dụng kỷ thuật Event-Delegation (sử dụng cơ chế Bubbling) */
 function initCellElementList() {
   // set index for each li element
   const liList = getCellElementList();
