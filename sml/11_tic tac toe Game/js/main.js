@@ -43,6 +43,12 @@ function showReplayButton() {
   if (replayButton) replayButton.classList.add("show");
 }
 
+function hideReplayButton() {
+  const replayButton = getReplayButtonElement();
+
+  if (replayButton) replayButton.classList.remove("show");
+}
+
 function highlightWinCells(winPosition) {
   if (!Array.isArray(winPosition) || winPosition.length !== 3)
     throw new Error("Invalid win position");
@@ -95,14 +101,47 @@ function handleCellClick(cell, index) {
     default:
     //playing
   }
-  console.log("click", cell, index);
 }
 
 function initCellElementList() {
   const cellElementList = getCellElementList();
   cellElementList.forEach((cell, index) => {
+    // Mỗi lần click nó sẽ tạo ra 1 inline-function, sau đó nó sẽ gọi hàm handleCellClick
     cell.addEventListener("click", () => handleCellClick(cell, index));
   });
+}
+
+function resetGame() {
+  console.log("click replay button");
+
+  // reset temp global variable
+  currentTurn = TURN.CROSS;
+  gameStatus = GAME_STATUS.PLAYING;
+  cellValues = cellValues.map(() => "");
+
+  // reset DOM elements
+  // reset game status
+  updateGameStatus(GAME_STATUS.PLAYING);
+  // reset currentTurn
+  const currentTurnElement = getCurrentTurnElement();
+  if (currentTurnElement) {
+    currentTurnElement.classList.remove(TURN.CIRCLE, TURN.CROSS);
+    currentTurnElement.classList.add(TURN.CROSS);
+  }
+  // reset gameboard
+  const cellElementList = getCellElementList();
+  for (const cellElement of cellElementList) {
+    cellElement.className = "";
+  }
+  // hide replay button
+  hideReplayButton();
+}
+
+function initReplayButton() {
+  const replayButton = getReplayButtonElement();
+  if (replayButton) {
+    replayButton.addEventListener("click", resetGame);
+  }
 }
 
 /**
@@ -125,4 +164,5 @@ function initCellElementList() {
   // bind click event for all li element
   initCellElementList();
   // bind click event for replay button
+  initReplayButton();
 })();
