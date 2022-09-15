@@ -1,4 +1,4 @@
-import { GAME_STATUS, TURN } from "./constants.js";
+import { CELL_VALUE, GAME_STATUS, TURN } from "./constants.js";
 import { getCellElementList, getCurrentTurnElement } from "./selectors.js";
 
 /** Global variable */
@@ -60,8 +60,8 @@ function initCellElementList() {
 }
 
 //Check game status
-function checkGameStatus(cellValues) {
-  if (!Array.isArray(cellValues) || cellValues.length !== 9)
+function checkGameStatus(cellValueList) {
+  if (!Array.isArray(cellValueList) || cellValueList.length !== 9)
     throw new Error("Invalid cell values");
 
   // win condition
@@ -79,16 +79,34 @@ function checkGameStatus(cellValues) {
   ];
 
   const indexToWin = indexToWinList.findIndex((caseWin) => {
-    const first = cellValues[caseWin[0]];
-    const second = cellValues[caseWin[1]];
-    const third = cellValues[caseWin[2]];
+    const first = cellValueList[caseWin[0]];
+    const second = cellValueList[caseWin[1]];
+    const third = cellValueList[caseWin[2]];
 
     return first !== "" && first === second && second === third;
   });
 
+  // if win match condition
   if (indexToWin >= 0) {
-    
+    const indexWinValue = indexToWinList[indexToWin][0];
+    const cellValue = cellValueList[indexWinValue]; // X or O
+
+    return {
+      status:
+        cellValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
+      winPosition: indexToWinList[indexToWin],
+    };
   }
+
+  // if end match condition
+  const indexToEnd =
+    cellValueList.filter((element) => element === "").length === 0;
+
+  // if playing match condition
+  return {
+    status: indexToEnd ? GAME_STATUS.ENDED : GAME_STATUS.PLAYING,
+    winPosition: [],
+  };
 }
 
 //main
@@ -96,3 +114,5 @@ function checkGameStatus(cellValues) {
   //bind click event for all cells (liElement)
   initCellElementList();
 })();
+
+console.log([1, 2, 3, 4].filter((e) => e === "").length === 0);
