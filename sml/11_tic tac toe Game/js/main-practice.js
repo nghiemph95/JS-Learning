@@ -46,8 +46,14 @@ function handleCellClick(cell, index) {
   // add selected cell
   cell.classList.add(currentTurn);
 
+  // update cellValues
+  cellValues[index] =
+    currentTurn === TURN.CIRCLE ? CELL_VALUE.CIRCLE : CELL_VALUE.CROSS;
+
   // toggle current turn
   toggleTurn();
+
+  //check game status
 }
 
 //Bind click event for all cells (liElements)
@@ -109,10 +115,14 @@ function checkGameStatus(cellValueList) {
   };
 }
 
+//Highlight win cells
+function highlightWinCells(winPosition) {
+  if (!Array.isArray(winPosition) || winPosition.length !== 3)
+    throw new Error("Invalid win position");
+}
+
 //main
 (() => {
   //bind click event for all cells (liElement)
   initCellElementList();
 })();
-
-console.log([1, 2, 3, 4].filter((e) => e === "").length === 0);
