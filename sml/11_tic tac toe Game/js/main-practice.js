@@ -59,6 +59,28 @@ function initCellElementList() {
   });
 }
 
+//Check game status
+function checkGameStatus(cellValues) {
+  if (!Array.isArray(cellValues) || cellValues.length !== 9)
+    throw new Error("Invalid cell values");
+
+  // win condition
+  const indexToWin = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  
+}
+
 //main
 (() => {
   //bind click event for all cells (liElement)
