@@ -23,6 +23,9 @@ let cellValues = new Array(9).fill("");
 //Handle cell clicks
 function handleCellClick(cell, index) {
   console.log("click", cell, index);
+
+  // add selected cell
+  cell.classList.add(currentTurn);
 }
 
 //Bind click event for all cells (liElements)
