@@ -24,6 +24,7 @@ export function getGameStatusElement() {
   return document.getElementById("gameStatus");
 }
 
+// lấy thẻ nút button replay
 export function getReplayButtonElement() {
   return document.getElementById("replayGame");
 }
