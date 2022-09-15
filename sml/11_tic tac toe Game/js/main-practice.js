@@ -65,7 +65,7 @@ function checkGameStatus(cellValues) {
     throw new Error("Invalid cell values");
 
   // win condition
-  const indexToWin = [
+  const indexToWinList = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -78,7 +78,17 @@ function checkGameStatus(cellValues) {
     [2, 4, 6],
   ];
 
-  
+  const indexToWin = indexToWinList.findIndex((caseWin) => {
+    const first = cellValues[caseWin[0]];
+    const second = cellValues[caseWin[1]];
+    const third = cellValues[caseWin[2]];
+
+    return first !== "" && first === second && second === third;
+  });
+
+  if (indexToWin >= 0) {
+    
+  }
 }
 
 //main
