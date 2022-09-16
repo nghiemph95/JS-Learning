@@ -60,11 +60,11 @@ function hideReplayButton() {
 }
 
 // Highlight win cells
-function highlightWinCells(winPosition) {
-  if (!Array.isArray(winPosition) || winPosition.length !== 3)
+function highlightWinCells(winPositions) {
+  if (!Array.isArray(winPositions) || winPositions.length !== 3)
     throw new Error("Invalid win position");
 
-  winPosition.forEach((position) => {
+  winPositions.forEach((position) => {
     getCellElementAtIdx(position).classList.add("win");
   });
 }
@@ -212,5 +212,5 @@ function initReplayButton() {
   //bind click event for all cells (liElement)
   initCellElementList();
   // bind click event for replay button
-  initReplayButton();
+  // initReplayButton();
 })();
