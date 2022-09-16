@@ -39,14 +39,6 @@ function toggleTurn() {
   }
 }
 
-// Update game status
-function updateGameStatus(newGameStatus) {
-  gameStatus = newGameStatus;
-
-  const gameStatusElement = getGameStatusElement();
-  if (gameStatusElement) gameStatusElement.textContent = newGameStatus;
-}
-
 // Show replay button
 function showReplayButton() {
   const replayButtonElement = getReplayButtonElement();
@@ -113,6 +105,14 @@ function handleCellClick(cell, index) {
     default:
     // playing
   }
+}
+
+// Update game status
+function updateGameStatus(newGameStatus) {
+  gameStatus = newGameStatus;
+
+  const gameStatusElement = getGameStatusElement();
+  if (gameStatusElement) gameStatusElement.textContent = newGameStatus;
 }
 
 //Bind click event for all cells (liElements)
@@ -212,5 +212,5 @@ function initReplayButton() {
   //bind click event for all cells (liElement)
   initCellElementList();
   // bind click event for replay button
-  // initReplayButton();
+  initReplayButton();
 })();
