@@ -105,7 +105,7 @@ function handleCellClick(cell, index) {
       // show replay button
       showReplayButton();
       // hightlight win cells
-      highlightWinCells(game.winPosition);
+      highlightWinCells(game.winPositions);
       break;
     }
 
@@ -158,7 +158,7 @@ function checkGameStatus(cellValueList) {
     return {
       status:
         cellValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
-      winPosition: indexToWinList[indexToWin],
+      winPositions: indexToWinList[indexToWin],
     };
   }
 
@@ -169,7 +169,7 @@ function checkGameStatus(cellValueList) {
   // if playing match condition
   return {
     status: indexToEnd ? GAME_STATUS.ENDED : GAME_STATUS.PLAYING,
-    winPosition: [],
+    winPositions: [],
   };
 }
 
