@@ -85,9 +85,9 @@ function checkGameStatus(cellValueList) {
   ];
 
   const indexToWin = indexToWinList.findIndex((caseWin) => {
-    const first = cellValueList[caseWin[0]];
-    const second = cellValueList[caseWin[1]];
-    const third = cellValueList[caseWin[2]];
+    const first = cellValueList[caseWin[0]]; // X or O
+    const second = cellValueList[caseWin[1]]; // X or O
+    const third = cellValueList[caseWin[2]]; // X or O
 
     return first !== "" && first === second && second === third;
   });
