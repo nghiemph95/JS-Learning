@@ -42,7 +42,7 @@ function toggleTurn() {
 // Update game status
 function updateGameStatus(newGameStatus) {
   gameStatus = newGameStatus;
-
+  console.log("gameStatus:", gameStatus);
   const gameStatusElement = getGameStatusElement();
   if (gameStatusElement) gameStatusElement.textContent = newGameStatus;
 }
@@ -75,7 +75,7 @@ function handleCellClick(cell, index) {
   const isClicked =
     cell.classList.contains(TURN.CIRCLE) || cell.classList.contains(TURN.CROSS);
   const isGameEnded = gameStatus !== GAME_STATUS.PLAYING;
-  console.log("isGameEnded", isGameEnded);
+  console.log("gameStatus !== GAME_STATUS.PLAYING", isGameEnded);
   if (isClicked || isGameEnded) return;
 
   // add selected cell
