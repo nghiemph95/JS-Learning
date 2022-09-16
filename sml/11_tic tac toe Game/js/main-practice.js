@@ -118,8 +118,7 @@ function initCellElementList() {
   const liElementCellList = getCellElementList();
 
   liElementCellList.forEach((cell, index) => {
-    if (gameStatus === GAME_STATUS.PLAYING)
-      cell.addEventListener("click", () => handleCellClick(cell, index));
+    cell.addEventListener("click", () => handleCellClick(cell, index));
   });
 }
 
