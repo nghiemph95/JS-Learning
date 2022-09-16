@@ -9,7 +9,6 @@ import {
 
 /** Global variable */
 let currentTurn = TURN.CROSS;
-let isEndGame = false;
 let gameStatus = GAME_STATUS.PLAYING;
 let cellValues = new Array(9).fill("");
 
@@ -79,7 +78,7 @@ function handleCellClick(cell, index) {
   if (isClicked || isGameEnded) return;
 
   // add selected cell
-  cell.classList.add(currentTurn);
+  cell.classList.add(currentTurn); // currentTurn = X
 
   // create cellValues
   cellValues[index] =
@@ -98,7 +97,15 @@ function handleCellClick(cell, index) {
       showReplayButton();
       break;
     }
-    case GAME_STATUS.X_WIN:
+    case GAME_STATUS.X_WIN: {
+      // update game status
+      updateGameStatus(game.status);
+      // show replay button
+      showReplayButton();
+      // hightlight win cells
+      highlightWinCells(game.winPositions);
+      break;
+    }
     case GAME_STATUS.O_WIN: {
       // update game status
       updateGameStatus(game.status);
