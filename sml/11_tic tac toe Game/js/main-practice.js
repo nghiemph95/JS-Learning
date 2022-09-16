@@ -39,6 +39,14 @@ function toggleTurn() {
   }
 }
 
+// Update game status
+function updateGameStatus(newGameStatus) {
+  gameStatus = newGameStatus;
+
+  const gameStatusElement = getGameStatusElement();
+  if (gameStatusElement) gameStatusElement.textContent = newGameStatus;
+}
+
 // Show replay button
 function showReplayButton() {
   const replayButtonElement = getReplayButtonElement();
@@ -63,11 +71,11 @@ function highlightWinCells(winPositions) {
 
 //Handle cell clicks
 function handleCellClick(cell, index) {
-
   // check cell is already cross/circle
   const isClicked =
     cell.classList.contains(TURN.CIRCLE) || cell.classList.contains(TURN.CROSS);
   const isGameEnded = gameStatus !== GAME_STATUS.PLAYING;
+  console.log("isGameEnded", isGameEnded);
   if (isClicked || isGameEnded) return;
 
   // add selected cell
@@ -104,14 +112,6 @@ function handleCellClick(cell, index) {
     default:
     // playing
   }
-}
-
-// Update game status
-function updateGameStatus(newGameStatus) {
-  gameStatus = newGameStatus;
-
-  const gameStatusElement = getGameStatusElement();
-  if (gameStatusElement) gameStatusElement.textContent = newGameStatus;
 }
 
 //Bind click event for all cells (liElements)
@@ -174,7 +174,6 @@ function checkGameStatus(cellValueList) {
 }
 
 function resetGame() {
-
   // reset temp global variable
   currentTurn = TURN.CROSS;
   gameStatus = GAME_STATUS.PLAYING;
