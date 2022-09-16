@@ -97,15 +97,7 @@ function handleCellClick(cell, index) {
       showReplayButton();
       break;
     }
-    case GAME_STATUS.X_WIN: {
-      // update game status
-      updateGameStatus(game.status);
-      // show replay button
-      showReplayButton();
-      // hightlight win cells
-      highlightWinCells(game.winPositions);
-      break;
-    }
+    case GAME_STATUS.X_WIN:
     case GAME_STATUS.O_WIN: {
       // update game status
       updateGameStatus(game.status);
