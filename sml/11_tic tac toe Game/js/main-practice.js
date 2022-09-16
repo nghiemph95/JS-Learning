@@ -63,7 +63,6 @@ function highlightWinCells(winPositions) {
 
 //Handle cell clicks
 function handleCellClick(cell, index) {
-  console.log("click", cell, index);
 
   // check cell is already cross/circle
   const isClicked =
@@ -175,7 +174,6 @@ function checkGameStatus(cellValueList) {
 }
 
 function resetGame() {
-  console.log("click replay button");
 
   // reset temp global variable
   currentTurn = TURN.CROSS;
