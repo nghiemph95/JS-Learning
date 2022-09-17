@@ -18,7 +18,7 @@ let cellValues = new Array(9).fill("");
 
 // Hàm handle sự kiện click
 function handleCellClick(cell, index) {
-  console.log("click");
+  console.log("click", cell, index);
 }
 
 // Gắn sự kiện click cho các ô
