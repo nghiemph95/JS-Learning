@@ -9,12 +9,24 @@
  */
 
 import { GAME_STATUS, TURN } from "./constants.js";
-import { getCellElementList } from "./selectors.js";
+import { getCellElementList, getCurrentTurnElement } from "./selectors.js";
 
 /** Global variable */
 let currentTurn = TURN.CROSS;
 let gameStatus = GAME_STATUS.PLAYING;
 let cellValues = new Array(9).fill("");
+
+// Hàm nhận biết và chuyển đổi X khi O và người lại
+function changeTurn() {
+  currentTurn = currentTurn === TURN.CIRCLE ? TURN.CROSS : TURN.CIRCLE;
+
+  // cập nhật turn X/O to DOM element
+  const currentTurnElement = getCurrentTurnElement();
+  if (currentTurnElement) {
+    currentTurnElement.classList.remove(TURN.CIRCLE, TURN.CROSS);
+    currentTurnElement.classList.add(currentTurn);
+  }
+}
 
 // Hàm handle sự kiện click
 function handleCellClick(cell, index) {
@@ -22,6 +34,9 @@ function handleCellClick(cell, index) {
 
   // turn đầu tiên sẽ là X
   cell.classList.add(currentTurn);
+
+  // chuyển đổi X sang O và ngược lại
+  changeTurn();
 }
 
 // Gắn sự kiện click cho các ô
