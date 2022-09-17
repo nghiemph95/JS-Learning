@@ -19,6 +19,9 @@ let cellValues = new Array(9).fill("");
 // Hàm handle sự kiện click
 function handleCellClick(cell, index) {
   console.log("click", cell, index);
+
+  // turn đầu tiên sẽ là X
+  cell.classList.add(currentTurn);
 }
 
 // Gắn sự kiện click cho các ô
