@@ -32,6 +32,11 @@ function changeTurn() {
 function handleCellClick(cell, index) {
   console.log("click", cell, index);
 
+  // Nếu ô đã được click thì sẽ không cho click nữa
+  const isClicked =
+    cell.classList.contains(TURN.CROSS) || cell.classList.contains(TURN.CIRCLE);
+  if (isClicked) return;
+
   // turn đầu tiên sẽ là X
   cell.classList.add(currentTurn);
 
