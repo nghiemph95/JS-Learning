@@ -53,6 +53,8 @@ function initCellEventClick() {
   });
 }
 
+// Hàm kiểm tra tính thắng thua, 
+
 /** run game */
 (() => {
   //Click event to cells
