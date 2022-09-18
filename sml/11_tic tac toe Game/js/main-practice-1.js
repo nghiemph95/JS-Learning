@@ -8,7 +8,7 @@
  *  - Không cho click những ô còn lại sau khi win
  */
 
-import { GAME_STATUS, TURN } from "./constants.js";
+import { CELL_VALUE, GAME_STATUS, TURN } from "./constants.js";
 import { getCellElementList, getCurrentTurnElement } from "./selectors.js";
 
 /** Global variable */
@@ -80,9 +80,21 @@ function checkGameStatus(cellValueList) {
 
     return first !== "" && first === second && second === third;
   });
-  console.log(winLocationIndex);
+
+  // lấy ra giá trị của cell đó là X hoặc O
+  if (winLocationIndex >= 0) {
+    const indexWinValue = winLocationIndexList[winLocationIndex][0];
+    const cellValue = cellValueList[indexWinValue]; // X hoặc là O
+
+    return {
+      status:
+        cellValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
+      winPositions: winLocationIndexList[winLocationIndex],
+    };
+  }
 }
-console.log(checkGameStatus(["O", "O", "O", "", "X", "", "", "O", "X"]));
+
+// console.log(checkGameStatus(["X", "O", "O", "", "X", "", "", "O", "X"]));
 
 /** run game */
 (() => {
