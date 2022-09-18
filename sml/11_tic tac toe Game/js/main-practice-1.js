@@ -53,7 +53,36 @@ function initCellEventClick() {
   });
 }
 
-// Hàm kiểm tra tính thắng thua,
+// Hàm kiểm tra tính thắng thua, kết thúc game khi nào, chơi lại
+// Truyền vào một array gồm 9 phần tử
+function checkGameStatus(cellValueList) {
+  if (!Array.isArray(cellValueList) || cellValueList.length !== 9) return;
+
+  // vị trí của các trường hợp win
+  const winLocationIndexList = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  // kiểm tra tại vị trí win là X hay O
+  const winLocationIndex = winLocationIndexList.findIndex((winLocation) => {
+    const first = cellValueList[winLocation[0]];
+    const second = cellValueList[winLocation[1]];
+    const third = cellValueList[winLocation[2]];
+
+    return first !== "" && first === second && second === third;
+  });
+  console.log(winLocationIndex);
+}
+console.log(checkGameStatus(["O", "O", "O", "", "X", "", "", "O", "X"]));
 
 /** run game */
 (() => {
