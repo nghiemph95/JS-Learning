@@ -20,7 +20,7 @@ let cellValues = new Array(9).fill("");
 function changeTurn() {
   currentTurn = currentTurn === TURN.CIRCLE ? TURN.CROSS : TURN.CIRCLE;
 
-  // cập nhật turn X/O to DOM element
+  // cập nhật turn X/O to DOM element (Hiển thị trên màn hình đang là turn nào)
   const currentTurnElement = getCurrentTurnElement();
   if (currentTurnElement) {
     currentTurnElement.classList.remove(TURN.CIRCLE, TURN.CROSS);
@@ -53,7 +53,7 @@ function initCellEventClick() {
   });
 }
 
-// Hàm kiểm tra tính thắng thua, 
+// Hàm kiểm tra tính thắng thua,
 
 /** run game */
 (() => {
