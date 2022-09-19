@@ -1,4 +1,5 @@
 import { GAME_STATUS, PAIRS_COUNT } from './constants.js';
+import { getColorListElement } from './selectors.js';
 import { getRandomColorPairs } from './utils.js';
 
 // Global variables
@@ -16,7 +17,7 @@ let gameState = GAME_STATUS.PLAYING;
 function initColors() {
   // random 8 colors
   const colorList = getRandomColorPairs(PAIRS_COUNT); // 16 colors
-  
+
   // bind to li > div.overlay
   const liList = getColorElementList();
   liList.forEach((liElement, index) => {
@@ -25,7 +26,17 @@ function initColors() {
   });
 }
 
+function attachEventForColorList() {
+  const ulElement = getColorListElement();
+
+  ulElement.addEventListener('click', (event) => {
+    console.log(event.target);
+  });
+}
+
 //main
 (() => {
   initColors();
+
+  attachEventForColorList();
 })();
