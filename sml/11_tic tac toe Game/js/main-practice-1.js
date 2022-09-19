@@ -58,7 +58,7 @@ function initCellEventClick() {
 function checkGameStatus(cellValueList) {
   if (!Array.isArray(cellValueList) || cellValueList.length !== 9) return;
 
-  // vị trí của các trường hợp win
+  // vị trí của các trường hợp win và phải được điền đủ 3 cell
   const winLocationIndexList = [
     [0, 1, 2],
     [3, 4, 5],
@@ -74,6 +74,7 @@ function checkGameStatus(cellValueList) {
 
   // kiểm tra tại vị trí win là X hay O
   const winLocationIndex = winLocationIndexList.findIndex((winLocation) => {
+    //Nếu fill đủ 3 vị trí và cả 3 có giá trị giống nhau thì return ra index
     const first = cellValueList[winLocation[0]];
     const second = cellValueList[winLocation[1]];
     const third = cellValueList[winLocation[2]];
