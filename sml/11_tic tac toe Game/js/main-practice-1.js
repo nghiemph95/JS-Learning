@@ -145,7 +145,7 @@ function checkGameStatus(cellValueList) {
     return first !== "" && first === second && second === third;
   });
 
-  console.log("winLocationIndex", winLocationIndex);
+  // console.log("winLocationIndex", winLocationIndex);
 
   //win
   // lấy ra giá trị của cell đó là X hoặc O
