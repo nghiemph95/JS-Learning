@@ -9,7 +9,13 @@
  */
 
 import { CELL_VALUE, GAME_STATUS, TURN } from "./constants.js";
-import { getCellElementList, getCurrentTurnElement } from "./selectors.js";
+import {
+  getCellElementAtIdx,
+  getCellElementList,
+  getCurrentTurnElement,
+  getGameStatusElement,
+  getReplayButtonElement,
+} from "./selectors.js";
 
 /** Global variable */
 let currentTurn = TURN.CROSS;
@@ -28,6 +34,26 @@ function changeTurn() {
   }
 }
 
+// Cập nhật gameStatus khi game END hoặc WIN
+function updateGameStatus(newGameStatus) {
+  gameStatus = newGameStatus;
+  const gameStatusElement = getGameStatusElement();
+  gameStatusElement.textContent = newGameStatus;
+}
+
+// khi game end hoặc win, show replay button
+function showReplayButton() {
+  const replayButtonElement = getReplayButtonElement();
+  replayButtonElement.classList.add("show");
+}
+
+// khi WIN, highlight cell
+function highlightWinCells(winPositions) {
+  winPositions.forEach((position) => {
+    getCellElementAtIdx(position).classList.add("win");
+  });
+}
+
 // Hàm handle sự kiện click
 function handleCellClick(cell, index) {
   console.log("click", cell, index);
@@ -42,6 +68,35 @@ function handleCellClick(cell, index) {
 
   // chuyển đổi X sang O và ngược lại
   changeTurn();
+
+  // khởi tạo cellValues
+  cellValues[index] =
+    currentTurn === TURN.CIRCLE ? CELL_VALUE.CIRCLE : CELL_VALUE.CROSS;
+
+  // gắn hàm checkStatus vào handleClick
+  const game = checkGameStatus(cellValues);
+  switch (game.status) {
+    case GAME_STATUS.ENDED: {
+      // update game status
+      updateGameStatus(game.status);
+      // show replay button
+      showReplayButton();
+      break;
+    }
+    case GAME_STATUS.X_WIN:
+    case GAME_STATUS.O_WIN: {
+      // update game status
+      updateGameStatus(game.status);
+      // show replay button
+      showReplayButton();
+      // hightlight win cells
+      highlightWinCells(game.winPositions);
+      break;
+    }
+
+    default:
+    // playing
+  }
 }
 
 // Gắn sự kiện click cho các ô
@@ -84,20 +139,30 @@ function checkGameStatus(cellValueList) {
 
   console.log("winLocationIndex", winLocationIndex);
 
+  //win
   // lấy ra giá trị của cell đó là X hoặc O
   if (winLocationIndex >= 0) {
-    const indexWinValue = winLocationIndexList[winLocationIndex][0];
+    const indexWinValue = winLocationIndexList[winLocationIndex][0]; // [0,3,6] -> 0
     const cellValue = cellValueList[indexWinValue]; // X hoặc là O
-    console.log(winLocationIndexList[winLocationIndex]);
-    // return {
-    //   status:
-    //     cellValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
-    //   winPositions: winLocationIndexList[winLocationIndex],
-    // };
+    // console.log(winLocationIndexList[winLocationIndex]);
+
+    return {
+      status:
+        cellValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
+      winPositions: winLocationIndexList[winLocationIndex],
+    };
   }
+
+  //end
+  const indexToEnd = cellValueList.filter((e) => e === "").length === 0;
+
+  return {
+    status: indexToEnd ? GAME_STATUS.ENDED : GAME_STATUS.PLAYING,
+    winPositions: [],
+  };
 }
 
-console.log(checkGameStatus(["X", "O", "O", "X", "", "", "X", "O", ""]));
+// console.log(checkGameStatus(["X", "O", "O", "X", "", "", "X", "O", ""]));
 
 /** run game */
 (() => {

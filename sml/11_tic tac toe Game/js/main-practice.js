@@ -41,7 +41,7 @@ function toggleTurn() {
 // Update game status
 function updateGameStatus(newGameStatus) {
   gameStatus = newGameStatus;
-  console.log("gameStatus:", gameStatus);
+
   const gameStatusElement = getGameStatusElement();
   if (gameStatusElement) gameStatusElement.textContent = newGameStatus;
 }
