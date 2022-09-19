@@ -61,7 +61,9 @@ function handleCellClick(cell, index) {
   // Nếu ô đã được click thì sẽ không cho click nữa
   const isClicked =
     cell.classList.contains(TURN.CROSS) || cell.classList.contains(TURN.CIRCLE);
-  if (isClicked) return;
+
+  const isEnd = gameStatus !== GAME_STATUS.PLAYING;
+  if (isClicked || isEnd) return;
 
   // turn đầu tiên sẽ là X
   cell.classList.add(currentTurn);
