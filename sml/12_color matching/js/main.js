@@ -11,4 +11,4 @@ let gameState = GAME_STATUS.PLAYING
 // 3. Check win logic
 // 4. Add timer
 // 5. Handle replay click
-console.log(getRandomColorPairs(2))
+console.log(getRandomColorPairs(4))

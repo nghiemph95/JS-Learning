@@ -1,3 +1,15 @@
+function shuffle(arr) {
+  if (!Array.isArray(arr) || arr.length <= 2) return arr
+
+  for (let i = arr.length - 1; i > 1; i--) {
+    const j = Math.floor(Math.random() * i)
+
+    let temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+  }
+}
+
 export const getRandomColorPairs = (count) => {
   // receive count --> return count * 2 random colors
   // using lib: https://github.com/davidmerfield/randomColor
@@ -16,7 +28,10 @@ export const getRandomColorPairs = (count) => {
     colorList.push(color)
   }
 
+  // double current color list
   const fullColorList = [...colorList, ...colorList]
+  // shuffle
+  shuffle(fullColorList)
 
   return fullColorList
 }
