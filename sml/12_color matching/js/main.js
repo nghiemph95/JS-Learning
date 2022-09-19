@@ -11,16 +11,17 @@ let gameState = GAME_STATUS.PLAYING;
 // 3. Check win logic
 // 4. Add timer
 // 5. Handle replay click
-console.log(getRandomColorPairs(16));
+// console.log(getRandomColorPairs(16));
 
 function initColors() {
   // random 8 colors
   const colorList = getRandomColorPairs(PAIRS_COUNT); // 16 colors
+  
   // bind to li > div.overlay
   const liList = getColorElementList();
   liList.forEach((liElement, index) => {
     const overlayElement = liElement.querySelector('.overlay');
-    overlayElement.style.backgroundColor = colorList[index];
+    if (overlayElement) overlayElement.style.backgroundColor = colorList[index];
   });
 }
 
