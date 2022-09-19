@@ -48,7 +48,7 @@ function showReplayButton() {
 }
 
 // hide replay button  khi bấm nút replay
-function showReplayButton() {
+function hideReplayButton() {
   const replayButtonElement = getReplayButtonElement();
   replayButtonElement.classList.remove("show");
 }
@@ -62,7 +62,7 @@ function highlightWinCells(winPositions) {
 
 // Hàm handle sự kiện click
 function handleCellClick(cell, index) {
-  console.log("click", cell, index);
+  // console.log("click", cell, index);
 
   // Nếu ô đã được click thì sẽ không cho click nữa
   const isClicked =
@@ -208,5 +208,5 @@ function initReplayButton() {
   initCellEventClick();
 
   // add sự kiện replay button
-  intiReplayButton();
+  initReplayButton();
 })();
