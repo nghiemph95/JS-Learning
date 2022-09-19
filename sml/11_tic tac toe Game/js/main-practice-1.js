@@ -82,20 +82,22 @@ function checkGameStatus(cellValueList) {
     return first !== "" && first === second && second === third;
   });
 
+  console.log("winLocationIndex", winLocationIndex);
+
   // lấy ra giá trị của cell đó là X hoặc O
   if (winLocationIndex >= 0) {
     const indexWinValue = winLocationIndexList[winLocationIndex][0];
     const cellValue = cellValueList[indexWinValue]; // X hoặc là O
-
-    return {
-      status:
-        cellValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
-      winPositions: winLocationIndexList[winLocationIndex],
-    };
+    console.log(winLocationIndexList[winLocationIndex]);
+    // return {
+    //   status:
+    //     cellValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
+    //   winPositions: winLocationIndexList[winLocationIndex],
+    // };
   }
 }
 
-// console.log(checkGameStatus(["X", "O", "O", "", "X", "", "", "O", "X"]));
+console.log(checkGameStatus(["X", "O", "O", "X", "", "", "X", "O", ""]));
 
 /** run game */
 (() => {
