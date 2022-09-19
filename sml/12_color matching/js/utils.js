@@ -6,5 +6,17 @@ export const getRandomColorPairs = (count) => {
 
   const hueList = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'monochrome']
 
-  return colorList
+  //random "count" color
+  for (let i = 0; i < count; i++) {
+    const color = window.randomColor({
+      luminosity: 'dark',
+      hue: hueList[i % hueList.length],
+    })
+
+    colorList.push(color)
+  }
+
+  const fullColorList = [...colorList, ...colorList]
+
+  return fullColorList
 }
