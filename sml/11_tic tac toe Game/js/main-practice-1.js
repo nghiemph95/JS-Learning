@@ -47,6 +47,12 @@ function showReplayButton() {
   replayButtonElement.classList.add("show");
 }
 
+// hide replay button  khi bấm nút replay
+function showReplayButton() {
+  const replayButtonElement = getReplayButtonElement();
+  replayButtonElement.classList.remove("show");
+}
+
 // khi WIN, highlight cell
 function highlightWinCells(winPositions) {
   winPositions.forEach((position) => {
@@ -166,8 +172,41 @@ function checkGameStatus(cellValueList) {
 
 // console.log(checkGameStatus(["X", "O", "O", "X", "", "", "X", "O", ""]));
 
+// Ham reset game
+function resetGame() {
+  // reset global variable
+  currentTurn = TURN.CROSS;
+  gameStatus = GAME_STATUS.PLAYING;
+  cellValues = cellValues.map(() => "");
+
+  // reset Game status
+  updateGameStatus(GAME_STATUS.PLAYING);
+
+  // reset current turn
+  const currentTurnElement = getCurrentTurnElement();
+  currentTurnElement.classList.remove(TURN.CIRCLE, TURN.CROSS);
+  currentTurnElement.classList.add(TURN.CROSS);
+
+  // reset cell to empty
+  const cellElement = getCellElementList();
+  cellElement.forEach((element) => (element.className = ""));
+
+  // hiden replay button
+  hideReplayButton();
+}
+
+// Gắn sự kiện cho nút replay button
+function initReplayButton() {
+  const replayButton = getReplayButtonElement();
+
+  replayButton.addEventListener("click", resetGame);
+}
+
 /** run game */
 (() => {
   //Click event to cells
   initCellEventClick();
+
+  // add sự kiện replay button
+  intiReplayButton();
 })();
