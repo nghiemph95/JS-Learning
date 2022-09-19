@@ -12,7 +12,7 @@ let gameState = GAME_STATUS.PLAYING;
 // 3. Check win logic
 // 4. Add timer
 // 5. Handle replay click
-// console.log(getRandomColorPairs(16));
+console.log(getRandomColorPairs(PAIRS_COUNT));
 
 function initColors() {
   // random 8 colors
