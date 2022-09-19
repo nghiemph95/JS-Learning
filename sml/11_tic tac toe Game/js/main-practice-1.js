@@ -74,12 +74,12 @@ function handleCellClick(cell, index) {
   // turn đầu tiên sẽ là X
   cell.classList.add(currentTurn);
 
-  // chuyển đổi X sang O và ngược lại
-  changeTurn();
-
   // khởi tạo cellValues
   cellValues[index] =
     currentTurn === TURN.CIRCLE ? CELL_VALUE.CIRCLE : CELL_VALUE.CROSS;
+
+  // chuyển đổi X sang O và ngược lại
+  changeTurn();
 
   // gắn hàm checkStatus vào handleClick
   const game = checkGameStatus(cellValues);
@@ -119,7 +119,8 @@ function initCellEventClick() {
 // Hàm kiểm tra tính thắng thua, kết thúc game khi nào, chơi lại
 // Truyền vào một array gồm 9 phần tử
 function checkGameStatus(cellValueList) {
-  if (!Array.isArray(cellValueList) || cellValueList.length !== 9) return;
+  if (!Array.isArray(cellValueList) || cellValueList.length !== 9)
+    throw new Error("Invalid");
 
   // vị trí của các trường hợp win và phải được điền đủ 3 cell
   const winLocationIndexList = [
