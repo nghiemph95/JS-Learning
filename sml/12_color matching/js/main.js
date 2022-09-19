@@ -19,24 +19,25 @@ function initColors() {
   const colorList = getRandomColorPairs(PAIRS_COUNT); // 16 colors
 
   // bind to li > div.overlay
-  const liList = getColorElementList();
+  const liList = getColorElementList(); // 16 liElement
+
   liList.forEach((liElement, index) => {
     const overlayElement = liElement.querySelector('.overlay');
     if (overlayElement) overlayElement.style.backgroundColor = colorList[index];
   });
 }
 
-function attachEventForColorList() {
-  const ulElement = getColorListElement();
+// function attachEventForColorList() {
+//   const ulElement = getColorListElement();
 
-  ulElement.addEventListener('click', (event) => {
-    console.log(event.target);
-  });
-}
+//   ulElement.addEventListener('click', (event) => {
+//     console.log(event.target);
+//   });
+// }
 
 //main
 (() => {
   initColors();
 
-  attachEventForColorList();
+//   attachEventForColorList();
 })();
