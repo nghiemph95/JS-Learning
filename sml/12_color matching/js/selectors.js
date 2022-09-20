@@ -17,3 +17,8 @@ export function getColorBackground() {
 export function getColorListElement() {
   return document.getElementById('colorList')
 }
+
+// lấy những thẻ li ko có class là active
+export function getInActiveColorList() {
+  return document.querySelectorAll('#colorList > li:not(.active)')
+}
