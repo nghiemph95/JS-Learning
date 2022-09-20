@@ -14,12 +14,19 @@ let gameState = GAME_STATUS.PLAYING
 // 5. Handle replay click
 console.log(getRandomColorPairs(PAIRS_COUNT))
 
+// gắn class active cho các liElement
+function handleColorClick(liElement) {
+  if (!liElement) return
+
+  liElement.classList.add('active')
+}
+
 function initColors() {
   // random 8 colors
-  const colorList = getRandomColorPairs(PAIRS_COUNT) // 16 colors
+  const colorList = getRandomColorPairs(PAIRS_COUNT) // 16 colors được generated
 
   // bind to li > div.overlay
-  const liList = getColorElementList() // 16 liElement
+  const liList = getColorElementList() // 16 ô liElement
 
   liList.forEach((liElement, index) => {
     const overlayElement = liElement.querySelector('.overlay')
@@ -31,7 +38,7 @@ function attachEventForColorList() {
   const ulElement = getColorListElement()
 
   ulElement.addEventListener('click', (event) => {
-    console.log(event.target)
+    handleColorClick(event.target)
   })
 }
 
