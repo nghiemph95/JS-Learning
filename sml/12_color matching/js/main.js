@@ -36,12 +36,11 @@ function handleColorClick(liElement) {
   const isMatch = firstColor === secondColor
 
   if (isMatch) {
-    // kiểm tra đã win chưa, đã đủ 16 ô hay chưa
+    // kiểm tra đã win chưa, đã đủ 16 ô hay chưa (tìm những thằng ko có trạng thái active)
     const isWin = getInActiveColorList().length === 0
 
     if (isWin) {
       // hiển thị nút replay
-      
       // hiển thị YOU WIN
     }
 
