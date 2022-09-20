@@ -41,6 +41,7 @@ function handleColorClick(liElement) {
 
     if (isWin) {
       // hiển thị nút replay
+      
       // hiển thị YOU WIN
     }
 
@@ -53,6 +54,11 @@ function handleColorClick(liElement) {
 
   setTimeout(() => {
     console.log('timeout run')
+    /** sau khi click 3 lần thì
+     * lần 1: không trigger setTimeout
+     * lần 2: trigger setTimeout (ở lần 2 khi trigger setTimeout nó sẽ vô tình clear seletions = [])
+     * lần 3: trigger setTimeout (dẫn đến ở lần thứ 3 -> get error)
+     */
     selections[0].classList.remove('active')
     selections[1].classList.remove('active')
 
