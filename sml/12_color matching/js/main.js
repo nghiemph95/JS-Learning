@@ -37,6 +37,7 @@ function initColors() {
 function attachEventForColorList() {
   const ulElement = getColorListElement()
 
+  // sử dụng kỹ thuật event delegation để add sự kiên click cho thằng cha
   ulElement.addEventListener('click', (event) => {
     handleColorClick(event.target)
   })
