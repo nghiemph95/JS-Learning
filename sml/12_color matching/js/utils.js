@@ -10,7 +10,7 @@ function shuffle(arr) {
   }
 }
 
-export const getRandomColorPairs = (count) => {
+export const getRandomColorPoairs = (count) => {
   // receive count --> return count * 2 random colors
   // using lib: https://github.com/davidmerfield/randomColor
 
