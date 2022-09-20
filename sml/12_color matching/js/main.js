@@ -4,7 +4,7 @@ import { getRandomColorPairs } from './utils.js'
 
 // Global variables
 let selections = []
-let gameState = GAME_STATUS.PLAYING
+let gameStatus = GAME_STATUS.PLAYING
 
 // TODOs
 // 1. Generating colors using https://github.com/davidmerfield/randomColor
@@ -16,12 +16,17 @@ console.log(getRandomColorPairs(PAIRS_COUNT))
 
 // gắn class active cho các liElement
 function handleColorClick(liElement) {
-  if (!liElement) return
+  // không cho click khi game ở trạng thái blocking hoặc finished
+  const shouldBlockClick = [GAME_STATUS.BLOCKING, GAME_STATUS.FINISHED].includes(gameStatus)
+  if (!liElement || shouldBlockClick) return
 
+  // hiện màu khi click vào các ô
   liElement.classList.add('active')
 
   // sau mỗi lần click lưu các thông tin vào 1 mảng tạm
   selections.push(liElement)
+
+  console.log('cell click', selections)
   // nếu click 1 lần thì chưa làm gì cả, chừng nào click 2 lần thì mới tiếp tục check
   if (selections.length < 2) return
 
@@ -32,16 +37,30 @@ function handleColorClick(liElement) {
 
   if (isMatch) {
     // kiểm tra đã win chưa, đã đủ 16 ô hay chưa
+    const isWin = getInActiveColorList().length === 0
+
+    if (isWin) {
+      // hiển thị nút replay
+      // hiển thị YOU WIN
+    }
 
     return
   }
 
   // trường hợp không match
   // xóa bỏ class-active cho 2 li-element đang đc click
-  selections[0].classList.remove('active')
-  selections[1].classList.remove('active')
-  // reset lại mảng rỗng cho selections cho lượt kế tiếp
-  selections = []
+  gameStatus = GAME_STATUS.BLOCKING
+
+  setTimeout(() => {
+    console.log('timeout run')
+    selections[0].classList.remove('active')
+    selections[1].classList.remove('active')
+
+    // reset lại mảng rỗng cho selections cho lượt kế tiếp
+    selections = []
+
+    gameStatus = GAME_STATUS.PLAYING
+  }, 500)
 }
 
 function initColors() {
