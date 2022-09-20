@@ -28,10 +28,10 @@ export const getRandomColorPairs = (count) => {
     colorList.push(color);
   }
 
-  // double current color list
-  const fullColorList = [...colorList, ...colorList];
-  // shuffle
-  shuffle(fullColorList);
+  // // double current color list
+  // const fullColorList = [...colorList, ...colorList];
+  // // shuffle
+  // shuffle(fullColorList);
 
-  return fullColorList;
+  return colorList;
 };

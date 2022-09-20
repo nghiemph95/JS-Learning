@@ -1,6 +1,6 @@
 import { GAME_STATUS, PAIRS_COUNT } from './constants.js';
 import { getColorListElement } from './selectors.js';
-import { getRandomColorPairs } from './utils';
+import { getRandomColorPairs } from './utils.js';
 
 // Global variables
 let selections = [];
