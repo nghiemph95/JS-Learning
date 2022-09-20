@@ -59,6 +59,7 @@ function handleColorClick(liElement) {
     // reset lại mảng rỗng cho selections cho lượt kế tiếp
     selections = []
 
+    // reset lại trạng thái game về playing sau khi setTimeout được thực thi
     gameStatus = GAME_STATUS.PLAYING
   }, 500)
 }
