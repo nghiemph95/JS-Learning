@@ -33,8 +33,3 @@ export function getReplayButtonElement() {
 export function getCellListElement() {
   return document.getElementById("cellList");
 }
-
-// lấy những thẻ li ko có class là active
-export function getInActiveColorList() {
-  return document.querySelectorAll("#colorList > li:not(.active)");
-}

@@ -1,5 +1,5 @@
 import { GAME_STATUS, PAIRS_COUNT } from './constants.js'
-import { getColorListElement, getColorElementList } from './selectors.js'
+import { getColorListElement, getColorElementList, getInActiveColorList } from './selectors.js'
 import { getRandomColorPairs } from './utils.js'
 
 // Global variables
@@ -12,7 +12,7 @@ let gameStatus = GAME_STATUS.PLAYING
 // 3. Check win logic
 // 4. Add timer
 // 5. Handle replay click
-console.log(getRandomColorPairs(PAIRS_COUNT))
+// console.log(getRandomColorPairs(PAIRS_COUNT))
 
 // gắn class active cho các liElement
 function handleColorClick(liElement) {
@@ -26,7 +26,7 @@ function handleColorClick(liElement) {
   // sau mỗi lần click lưu các thông tin vào 1 mảng tạm
   selections.push(liElement)
 
-  console.log('cell click', selections)
+  // console.log('cell click', selections)
   // nếu click 1 lần thì chưa làm gì cả, chừng nào click 2 lần thì mới tiếp tục check
   if (selections.length < 2) return
 
@@ -40,7 +40,9 @@ function handleColorClick(liElement) {
     const isWin = getInActiveColorList().length === 0
 
     if (isWin) {
+      console.log('win')
       // hiển thị nút replay
+
       // hiển thị YOU WIN
     }
 
@@ -52,7 +54,7 @@ function handleColorClick(liElement) {
   gameStatus = GAME_STATUS.BLOCKING
 
   setTimeout(() => {
-    console.log('timeout run')
+    // console.log('timeout run')
     /** sau khi click 3 lần thì
      * lần 1: không trigger setTimeout
      * lần 2: trigger setTimeout (ở lần 2 khi trigger setTimeout nó sẽ vô tình clear seletions = [])
