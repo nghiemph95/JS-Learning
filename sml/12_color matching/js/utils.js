@@ -52,3 +52,33 @@ export function setTimerText(text) {
   const timerElement = getTimerElement()
   if (timerElement) timerElement.textContent = text
 }
+
+export function createTimer({ seconds, onChange, onFinish }) {
+  let intervalId = null
+
+  // sử dụng closure
+  function start() {
+    // trường hợp cho chắc thì trước khi chạy, cần phải clear trước
+    clear()
+    // để đảm bảo không thay đổi tham số đầu vào, mình cần gán 1 giá trị để hàm có thể chạy từ đó
+    let currentSecond = seconds
+    // khi start cứ sau 1s nó sẽ gọi hàm setInterval
+    intervalId = setInterval(() => {
+      onChange?.(currentSecond)
+
+      currentSecond--
+      if (currentSecond < 0) {
+        clear()
+        onFinish?.()
+      }
+    }, 1000)
+  }
+  function clear() {
+    clearInterval(intervalId)
+  }
+
+  return {
+    start,
+    clear,
+  }
+}
