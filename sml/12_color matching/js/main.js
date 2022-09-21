@@ -130,6 +130,8 @@ function resetGame() {
   setTimerText('')
   // re generate color
   initColors()
+  // sau khi reset game cũng phải startTimer
+  startTimer()
 }
 
 function attachEventForPlayAgainButton() {
@@ -140,6 +142,9 @@ function attachEventForPlayAgainButton() {
   playAgainButton.addEventListener('click', resetGame)
 }
 
+//Hàm startTimer
+function startTimer() {}
+
 //main
 ;(() => {
   initColors()
@@ -147,4 +152,6 @@ function attachEventForPlayAgainButton() {
   attachEventForColorList()
 
   attachEventForPlayAgainButton()
+
+  startTimer()
 })()
