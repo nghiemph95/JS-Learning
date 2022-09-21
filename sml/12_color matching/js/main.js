@@ -1,4 +1,4 @@
-import { GAME_STATUS, PAIRS_COUNT } from './constants.js'
+import { GAME_STATUS, GAME_TIME, PAIRS_COUNT } from './constants.js'
 import {
   getColorListElement,
   getColorElementList,
@@ -6,6 +6,7 @@ import {
   getPlayAgainButton,
 } from './selectors.js'
 import {
+  createTimer,
   getRandomColorPairs,
   hidePlayAgainButton,
   setTimerText,
@@ -15,6 +16,11 @@ import {
 // Global variables
 let selections = []
 let gameStatus = GAME_STATUS.PLAYING
+let timer = createTimer({
+  seconds: 5,
+  onChange: (second) => console.log('change', second),
+  onFinish: () => console.log('finished'),
+})
 
 // TODOs
 // 1. Generating colors using https://github.com/davidmerfield/randomColor
@@ -143,7 +149,9 @@ function attachEventForPlayAgainButton() {
 }
 
 //Hàm startTimer
-function startTimer() {}
+function startTimer() {
+  timer.start()
+}
 
 //main
 ;(() => {

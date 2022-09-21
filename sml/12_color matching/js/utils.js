@@ -74,6 +74,8 @@ export function createTimer({ seconds, onChange, onFinish }) {
       }
     }, 1000)
   }
+
+  
   function clear() {
     clearInterval(intervalId)
   }
