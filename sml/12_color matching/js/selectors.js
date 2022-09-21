@@ -1,3 +1,4 @@
+// lấy ra thẻ li
 export function getColorElementList() {
   return document.querySelectorAll('#colorList > li')
 }
@@ -14,6 +15,7 @@ export function getColorBackground() {
   return document.querySelector('.color-background')
 }
 
+// lấy ra thẻ ul
 export function getColorListElement() {
   return document.getElementById('colorList')
 }
