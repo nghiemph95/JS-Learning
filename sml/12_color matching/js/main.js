@@ -18,7 +18,8 @@ let gameStatus = GAME_STATUS.PLAYING
 function handleColorClick(liElement) {
   // không cho click khi game ở trạng thái blocking hoặc finished
   const shouldBlockClick = [GAME_STATUS.BLOCKING, GAME_STATUS.FINISHED].includes(gameStatus)
-  if (!liElement || shouldBlockClick) return
+  const isClicked = liElement.classList.contains('active')
+  if (!liElement || isClicked || shouldBlockClick) return
 
   // hiện màu khi click vào các ô
   liElement.classList.add('active')
@@ -45,6 +46,9 @@ function handleColorClick(liElement) {
       showPlayAgainButton()
       // hiển thị YOU WIN
       setTimerText('YOU WIN! 🌟')
+
+      // update game status
+      gameStatus = GAME_STATUS.FINISHED
     }
 
     selections = []
