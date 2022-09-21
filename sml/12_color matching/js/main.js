@@ -1,6 +1,6 @@
 import { GAME_STATUS, PAIRS_COUNT } from './constants.js'
 import { getColorListElement, getColorElementList, getInActiveColorList } from './selectors.js'
-import { getRandomColorPairs } from './utils.js'
+import { getRandomColorPairs, setTimerText, showPlayAgainButton } from './utils.js'
 
 // Global variables
 let selections = []
@@ -42,10 +42,12 @@ function handleColorClick(liElement) {
     if (isWin) {
       console.log('win')
       // hiển thị nút replay
-
+      showPlayAgainButton()
       // hiển thị YOU WIN
+      setTimerText('YOU WIN! 🌟')
     }
 
+    selections = []
     return
   }
 
