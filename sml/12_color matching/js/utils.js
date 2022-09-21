@@ -53,6 +53,7 @@ export function setTimerText(text) {
   if (timerElement) timerElement.textContent = text
 }
 
+// hàm createTimer
 export function createTimer({ seconds, onChange, onFinish }) {
   let intervalId = null
 
