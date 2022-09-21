@@ -1,6 +1,16 @@
 import { GAME_STATUS, PAIRS_COUNT } from './constants.js'
-import { getColorListElement, getColorElementList, getInActiveColorList } from './selectors.js'
-import { getRandomColorPairs, setTimerText, showPlayAgainButton } from './utils.js'
+import {
+  getColorListElement,
+  getColorElementList,
+  getInActiveColorList,
+  getPlayAgainButton,
+} from './selectors.js'
+import {
+  getRandomColorPairs,
+  hidePlayAgainButton,
+  setTimerText,
+  showPlayAgainButton,
+} from './utils.js'
 
 // Global variables
 let selections = []
@@ -103,9 +113,38 @@ function attachEventForColorList() {
   })
 }
 
+//reset game
+function resetGame() {
+  // reset global variable
+  selections = []
+  gameStatus = GAME_STATUS.PLAYING
+  // reset DOM element
+  // - xóa class active cho các ô
+  const colorElementList = getColorElementList()
+  colorElementList.forEach((element) => {
+    element.classList.remove('active')
+  })
+  // - xóa button playagain
+  hidePlayAgainButton()
+  // - xóa textTimer YOU WIN
+  setTimerText('')
+  // re generate color
+  initColors()
+}
+
+function attachEventForPlayAgainButton() {
+  const playAgainButton = getPlayAgainButton()
+
+  if (!playAgainButton) return
+
+  playAgainButton.addEventListener('click', resetGame)
+}
+
 //main
 ;(() => {
   initColors()
 
   attachEventForColorList()
+
+  attachEventForPlayAgainButton()
 })()
