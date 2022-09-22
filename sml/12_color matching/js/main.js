@@ -33,7 +33,7 @@ function handleTimerFinish() {
   // kết thúc game
   gameStatus = GAME_STATUS.FINISHED;
 
-  setTimerText('Game Over!');
+  setTimerText('Over!');
 }
 
 // TODOs
