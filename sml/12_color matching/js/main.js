@@ -107,7 +107,9 @@ function handleColorClick(liElement) {
     selections = [];
 
     // reset lại trạng thái game về playing sau khi setTimeout được thực thi
-    gameStatus = GAME_STATUS.PLAYING;
+    if (gameStatus !== GAME_STATUS.FINISHED) {
+      gameStatus = GAME_STATUS.PLAYING;
+    }
   }, 500);
 }
 
