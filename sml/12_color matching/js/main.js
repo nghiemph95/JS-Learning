@@ -33,7 +33,10 @@ function handleTimerFinish() {
   // kết thúc game
   gameStatus = GAME_STATUS.FINISHED;
 
-  setTimerText('Over!');
+  setTimerText('Game Over! 😭');
+
+  // hiển thị nút replay
+  showPlayAgainButton();
 }
 
 // TODOs
