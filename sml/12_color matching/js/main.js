@@ -1,10 +1,7 @@
-import { GAME_STATUS, GAME_TIME, PAIRS_COUNT } from './constants.js';
+import { GAME_STATUS, PAIRS_COUNT } from './constants.js';
 import {
-  getColorListElement,
-  getColorElementList,
-  getInActiveColorList,
-  getPlayAgainButton,
-  getColorBackground,
+  getColorElementList, getColorListElement, getInActiveColorList,
+  getPlayAgainButton
 } from './selectors.js';
 import {
   createTimer,
@@ -12,7 +9,7 @@ import {
   hidePlayAgainButton,
   setBackgroundColor,
   setTimerText,
-  showPlayAgainButton,
+  showPlayAgainButton
 } from './utils.js';
 
 // Global variables
