@@ -17,19 +17,19 @@ import {
 let selections = [];
 let gameStatus = GAME_STATUS.PLAYING;
 let timer = createTimer({
-  seconds: 5,
+  seconds: GAME_TIME,
   onChange: handleTimerChange,
   onFinish: handleTimerFinish,
 });
 
 function handleTimerChange(second) {
-  console.log('change', second);
+  // console.log('change', second);
   // hiển thị timerText, đếm giờ countdown
   setTimerText(`0${second}`.slice(-2)); // lấy 2 chữ số
 }
 
 function handleTimerFinish() {
-  console.log('finished');
+  // console.log('finished');
   // kết thúc game
   gameStatus = GAME_STATUS.FINISHED;
 
@@ -74,7 +74,7 @@ function handleColorClick(liElement) {
     const isWin = getInActiveColorList().length === 0;
 
     if (isWin) {
-      console.log('win');
+      // console.log('win');
       // hiển thị nút replay
       showPlayAgainButton();
       // hiển thị YOU WIN
