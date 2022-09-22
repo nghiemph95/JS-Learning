@@ -4,11 +4,13 @@ import {
   getColorElementList,
   getInActiveColorList,
   getPlayAgainButton,
+  getColorBackground,
 } from './selectors.js';
 import {
   createTimer,
   getRandomColorPairs,
   hidePlayAgainButton,
+  setBackgroundColor,
   setTimerText,
   showPlayAgainButton,
 } from './utils.js';
@@ -17,7 +19,7 @@ import {
 let selections = [];
 let gameStatus = GAME_STATUS.PLAYING;
 let timer = createTimer({
-  seconds: GAME_TIME,
+  seconds: 5,
   onChange: handleTimerChange,
   onFinish: handleTimerFinish,
 });
@@ -72,6 +74,9 @@ function handleColorClick(liElement) {
   if (isMatch) {
     // kiểm tra đã win chưa, đã đủ 16 ô hay chưa (tìm những thằng ko có trạng thái active)
     const isWin = getInActiveColorList().length === 0;
+
+    // khi 2 màu match nhau, background color cũng thay đổi theo
+    setBackgroundColor(firstColor);
 
     if (isWin) {
       // console.log('win');
@@ -158,6 +163,8 @@ function resetGame() {
   initColors();
   // sau khi reset game cũng phải startTimer
   startTimer();
+  // reset về background color
+  setBackgroundColor('goldenrod');
 }
 
 function attachEventForPlayAgainButton() {
