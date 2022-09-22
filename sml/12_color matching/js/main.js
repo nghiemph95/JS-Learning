@@ -35,7 +35,7 @@ function handleTimerFinish() {
 
   setTimerText('Game Over! 😭');
 
-  // hiển thị nút replay
+  // hiển thị nút replay sau khi game over
   showPlayAgainButton();
 }
 
