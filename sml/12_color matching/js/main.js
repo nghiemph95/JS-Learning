@@ -90,7 +90,7 @@ function handleColorClick(liElement) {
   }
 
   // trường hợp không match
-  // xóa bỏ class-active cho 2 li-element đang đc click
+  // xóa bỏ class-active cho 2 li-element đang đc click, đồng thời không cho tiếp tục click
   gameStatus = GAME_STATUS.BLOCKING;
 
   setTimeout(() => {
