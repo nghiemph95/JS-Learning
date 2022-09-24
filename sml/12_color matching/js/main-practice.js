@@ -24,13 +24,19 @@ function initColor() {
   });
 }
 
+// hàm kiểm tra tính thắng thua
+function checkWinLogic(liElement) {}
+
 // hàm handle màu sắc trong liElement
 function handleColorClick(liElement) {
-  //validate
+  //validation
   if (!liElement) return;
 
   // hiện màu khi click vào thẻ li
   liElement.classList.add('active');
+
+  // kiểm tra tính thắng thua
+  checkWinLogic(liElement);
 }
 
 // hàm add sự kiện click cho liElement
