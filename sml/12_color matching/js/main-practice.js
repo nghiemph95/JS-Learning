@@ -4,4 +4,28 @@
 // 3. Check win logic
 // 4. Add timer
 // 5. Handle replay click
-// console.log(getRandomColorPairs(PAIRS_COUNT)
+
+import { PAIRS_COUNT } from './constants.js';
+import { getColorElementList } from './selectors.js';
+import { getRandomColorPairs } from './utils-practice.js';
+
+// Hàm khỏi tạo màu sắc, mỗi lần refresh hay load lại trang sẽ gen ra 1 bảng màu khác
+function initColor() {
+  //mảng 16 màu sau khi được generate
+  const finalColorList = getRandomColorPairs(PAIRS_COUNT);
+  console.log(finalColorList);
+  // gắn màu vô từng thẻ li
+  const liList = getColorElementList();
+
+  liList.forEach((liElement, index) => {
+    // query class overlay
+    const overlayElement = liElement.querySelector('.overlay');
+    overlayElement.style.backgroundColor = finalColorList[index];
+  });
+}
+
+//main
+(() => {
+  // khởi tại màu sắc
+  initColor();
+})();

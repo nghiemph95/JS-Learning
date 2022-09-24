@@ -1,3 +1,10 @@
+// hàm shuffle colorList
+function shuffle(finalColorList) {
+  if (!Array.isArray(finalColorList) || finalColorList.length <= 2) return finalColorList;
+
+  // shuffle algorithm
+}
+
 // hàm random color sử dụng thư viện randomColor
 export function getRandomColorPairs(colorCount) {
   const colorList = [];
@@ -17,6 +24,8 @@ export function getRandomColorPairs(colorCount) {
 
   // nhân đôi màu để được mỗi cặp màu tương ứng
   const finalColorList = [...colorList, ...colorList];
+  // shuffle finalColorList
+  shuffle(finalColorList);
 
   return finalColorList;
 }
