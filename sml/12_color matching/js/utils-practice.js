@@ -3,6 +3,13 @@ function shuffle(finalColorList) {
   if (!Array.isArray(finalColorList) || finalColorList.length <= 2) return finalColorList;
 
   // shuffle algorithm
+  for (let i = finalColorList.length - 1; i > 1; i--) {
+    const j = Math.floor(Math.random() * i);
+
+    let temp = finalColorList[i];
+    finalColorList[i] = finalColorList[j];
+    finalColorList[j] = temp;
+  }
 }
 
 // hàm random color sử dụng thư viện randomColor
@@ -29,3 +36,5 @@ export function getRandomColorPairs(colorCount) {
 
   return finalColorList;
 }
+
+console.log(Math.floor(Math.random() * 8));
