@@ -1,4 +1,4 @@
-// lấy ra thẻ li
+// query các thẻ li của các ô màu
 export function getColorElementList() {
   return document.querySelectorAll('#colorList > li');
 }
