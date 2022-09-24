@@ -6,7 +6,7 @@
 // 5. Handle replay click
 
 import { PAIRS_COUNT } from './constants.js';
-import { getColorElementList } from './selectors.js';
+import { getColorElementList, getColorListElement } from './selectors.js';
 import { getRandomColorPairs } from './utils-practice.js';
 
 // Hàm khỏi tạo màu sắc, mỗi lần refresh hay load lại trang sẽ gen ra 1 bảng màu khác
@@ -24,8 +24,28 @@ function initColor() {
   });
 }
 
+// hàm handle màu sắc trong liElement
+function handleColorClick(liElement) {
+  console.log('color');
+}
+
+// hàm add sự kiện click cho liElement
+function createClickEventForLiElement() {
+  const ulElement = getColorListElement();
+
+  // sử dụng kỷ thuật event delegation nhằm add sự kiện click cho thằng cha
+  ulElement.addEventListener('click', (event) => {
+    if (event.target.tagName !== 'LI') return;
+
+    handleColorClick(event.target); //liElement
+  });
+}
+
 //main
 (() => {
-  // khởi tại màu sắc
+  // khởi tạo màu sắc
   initColor();
+
+  // tạo sự kiện click cho các liElement
+  createClickEventForLiElement();
 })();
