@@ -36,5 +36,3 @@ export function getRandomColorPairs(colorCount) {
 
   return finalColorList;
 }
-
-console.log(Math.floor(Math.random() * 8));

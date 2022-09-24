@@ -26,7 +26,11 @@ function initColor() {
 
 // hàm handle màu sắc trong liElement
 function handleColorClick(liElement) {
-  console.log('color');
+  //validate
+  if (!liElement) return;
+
+  // hiện màu khi click vào thẻ li
+  liElement.classList.add('active');
 }
 
 // hàm add sự kiện click cho liElement
