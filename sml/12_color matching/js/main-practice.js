@@ -9,15 +9,19 @@ import { PAIRS_COUNT } from './constants.js';
 import { getColorElementList, getColorListElement } from './selectors.js';
 import { getRandomColorPairs } from './utils-practice.js';
 
+// Khai báo biến global
+let tempSelected = [];
+
 // Hàm khỏi tạo màu sắc, mỗi lần refresh hay load lại trang sẽ gen ra 1 bảng màu khác
 function initColor() {
   //mảng 16 màu sau khi được generate
   const finalColorList = getRandomColorPairs(PAIRS_COUNT);
-  console.log(finalColorList);
   // gắn màu vô từng thẻ li
   const liList = getColorElementList();
 
   liList.forEach((liElement, index) => {
+    // tạo data color cho từng liElement
+    liElement.dataset.color = finalColorList[index];
     // query class overlay
     const overlayElement = liElement.querySelector('.overlay');
     overlayElement.style.backgroundColor = finalColorList[index];
@@ -28,7 +32,16 @@ function initColor() {
 function checkWinLogic(liElement) {
   if (!liElement) return;
 
-  
+  /** check before click */
+
+  /** check after click */
+  // lưu thông tin click vào mảng tạm để kiểm tra
+  tempSelected.push(liElement);
+
+  // kiểm tra sau 2 lần click có trùng hoặc ko
+  if (tempSelected.length < 2) return;
+
+  const firstClick = tempSelected[0];
 }
 
 // hàm handle màu sắc trong liElement
