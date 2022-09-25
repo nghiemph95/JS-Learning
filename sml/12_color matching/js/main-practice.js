@@ -6,8 +6,18 @@
 // 5. Handle replay click
 
 import { GAME_STATUS, PAIRS_COUNT } from './constants.js';
-import { getColorElementList, getColorListElement, getInActiveColorList } from './selectors.js';
-import { getRandomColorPairs, showReplayButton, showText } from './utils-practice.js';
+import {
+  getColorElementList,
+  getColorListElement,
+  getInActiveColorList,
+  getPlayAgainButton,
+} from './selectors.js';
+import {
+  getRandomColorPairs,
+  hideReplayButton,
+  showReplayButton,
+  showText,
+} from './utils-practice.js';
 
 // Khai báo biến global
 let tempSelected = [];
@@ -110,6 +120,34 @@ function createClickEventForLiElement() {
   });
 }
 
+// hàm reset game
+function resetGame() {
+  console.log('tesst');
+
+  // reset biến toàn cục
+  tempSelected = [];
+  gameStatus = GAME_STATUS.PLAYING;
+  // reset DOM
+  // xóa class active ở các ô
+  getColorElementList().forEach((element) => {
+    element.classList.remove('active');
+  });
+
+  // xóa playagain button
+  hideReplayButton();
+  // xóa text you win
+  showText('');
+  // re-generate màu sắc
+  initColor();
+}
+
+// hàm tạo sự kiện click cho replay button
+function createEventForPlayAgainButton() {
+  const playAgainButton = getPlayAgainButton();
+
+  playAgainButton.addEventListener('click', resetGame);
+}
+
 //main
 (() => {
   // khởi tạo màu sắc
@@ -117,4 +155,7 @@ function createClickEventForLiElement() {
 
   // tạo sự kiện click cho các liElement
   createClickEventForLiElement();
+
+  // tạo sự kiện nút playagain
+  createEventForPlayAgainButton();
 })();
