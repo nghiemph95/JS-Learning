@@ -5,12 +5,13 @@
 // 4. Add timer
 // 5. Handle replay click
 
-import { PAIRS_COUNT } from './constants.js';
+import { GAME_STATUS, PAIRS_COUNT } from './constants.js';
 import { getColorElementList, getColorListElement } from './selectors.js';
 import { getRandomColorPairs } from './utils-practice.js';
 
 // Khai báo biến global
 let tempSelected = [];
+let gameStatus = GAME_STATUS.PLAYING;
 
 // Hàm khỏi tạo màu sắc, mỗi lần refresh hay load lại trang sẽ gen ra 1 bảng màu khác
 function initColor() {
@@ -33,15 +34,47 @@ function checkWinLogic(liElement) {
   if (!liElement) return;
 
   /** check before click */
+  // kiểm tra trạng thái của game
+  const blockClick = [GAME_STATUS.BLOCKING, GAME_STATUS.FINISHED].includes(gameStatus);
+  // const isClicked = liElement.classList.contains('active');
+  if (blockClick) return;
 
   /** check after click */
   // lưu thông tin click vào mảng tạm để kiểm tra
   tempSelected.push(liElement);
 
   // kiểm tra sau 2 lần click có trùng hoặc ko
+  // trường hợp matching
   if (tempSelected.length < 2) return;
 
-  const firstClick = tempSelected[0];
+  const firstClicked = tempSelected[0].dataset.color;
+  const secondClicked = tempSelected[1].dataset.color;
+  const isMatch = firstClicked === secondClicked;
+
+  if (isMatch) {
+    // do something
+
+    // reset mảng tạm và không làm gì nữa
+    tempSelected = [];
+    return;
+  }
+
+  // trường hợp không matching
+  // chăn không cho click ô thứ 3
+  gameStatus = GAME_STATUS.BLOCKING;
+  console.log(gameStatus);
+  // xóa bỏ class active với 2 liElement khong match
+  setTimeout(() => {
+    tempSelected[0].classList.remove('active');
+    tempSelected[1].classList.remove('active');
+
+    // reset mảng tạm cho lượt check kế tiếp
+    tempSelected = [];
+
+    // cập nhật game status
+    gameStatus = GAME_STATUS.PLAYING;
+    console.log(gameStatus);
+  }, 500);
 }
 
 // hàm handle màu sắc trong liElement
