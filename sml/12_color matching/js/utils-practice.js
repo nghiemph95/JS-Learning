@@ -53,3 +53,33 @@ export function hideReplayButton() {
 export function showText(text) {
   getTimerElement().textContent = text;
 }
+
+// countdown
+export function createCountdown({ seconds, onChange, onFinish }) {
+  let intervalId = null;
+  // sử dụng closure
+  function startTime() {
+    resetTime();
+    //truyền tham số thời gian đầu vào, tránh sử dụng tham số hàm
+    let inputSecond = seconds;
+    // sử dụng hàm interval để countdown
+    intervalId = setInterval(() => {
+      onChange?.(inputSecond);
+
+      inputSecond--;
+      if (inputSecond < 0) {
+        resetTime();
+        onFinish?.();
+      }
+    }, 1000);
+  }
+
+  function resetTime() {
+    clearInterval(intervalId);
+  }
+
+  return {
+    startTime,
+    resetTime,
+  };
+}

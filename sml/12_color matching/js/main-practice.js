@@ -122,8 +122,6 @@ function createClickEventForLiElement() {
 
 // hàm reset game
 function resetGame() {
-  console.log('tesst');
-
   // reset biến toàn cục
   tempSelected = [];
   gameStatus = GAME_STATUS.PLAYING;
@@ -158,4 +156,7 @@ function createEventForPlayAgainButton() {
 
   // tạo sự kiện nút playagain
   createEventForPlayAgainButton();
+
+  // countdown timer
+  countDown();
 })();
