@@ -5,7 +5,7 @@
 // 4. Add timer
 // 5. Handle replay click
 
-import { GAME_STATUS, PAIRS_COUNT } from './constants.js';
+import { GAME_STATUS, GAME_TIME, PAIRS_COUNT } from './constants.js';
 import {
   getColorElementList,
   getColorListElement,
@@ -13,6 +13,7 @@ import {
   getPlayAgainButton,
 } from './selectors.js';
 import {
+  createCountdown,
   getRandomColorPairs,
   hideReplayButton,
   showReplayButton,
@@ -22,6 +23,26 @@ import {
 // Khai báo biến global
 let tempSelected = [];
 let gameStatus = GAME_STATUS.PLAYING;
+let game = createCountdown({
+  seconds: 3,
+  onChange: handleTimeChange,
+  onFinish: handleTimeFinish,
+});
+
+function handleTimeChange(second) {
+  // hiển thị thời gian đếm ngược
+  showText(`0${second}`.slice(-2));
+}
+
+function handleTimeFinish() {
+  // sự kiện kết thúc game
+
+  showText('GAME OVER!');
+
+  gameStatus = GAME_STATUS.FINISHED;
+
+  showReplayButton();
+}
 
 // Hàm khỏi tạo màu sắc, mỗi lần refresh hay load lại trang sẽ gen ra 1 bảng màu khác
 function initColor() {
@@ -137,6 +158,8 @@ function resetGame() {
   showText('');
   // re-generate màu sắc
   initColor();
+  // reset countdown
+  countDown();
 }
 
 // hàm tạo sự kiện click cho replay button
@@ -144,6 +167,11 @@ function createEventForPlayAgainButton() {
   const playAgainButton = getPlayAgainButton();
 
   playAgainButton.addEventListener('click', resetGame);
+}
+
+// hàm count down
+function countDown() {
+  game.startTime();
 }
 
 //main
