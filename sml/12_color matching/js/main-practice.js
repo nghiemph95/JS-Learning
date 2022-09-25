@@ -73,7 +73,6 @@ function checkWinLogic(liElement) {
 
     // cập nhật game status
     gameStatus = GAME_STATUS.PLAYING;
-    console.log(gameStatus);
   }, 500);
 }
 
