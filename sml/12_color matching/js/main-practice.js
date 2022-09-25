@@ -39,6 +39,9 @@ function checkWinLogic(liElement) {
   // const isClicked = liElement.classList.contains('active');
   if (blockClick) return;
 
+  // hiện màu khi click vào thẻ li
+  liElement.classList.add('active');
+
   /** check after click */
   // lưu thông tin click vào mảng tạm để kiểm tra
   tempSelected.push(liElement);
@@ -82,7 +85,7 @@ function handleColorClick(liElement) {
   if (!liElement) return;
 
   // hiện màu khi click vào thẻ li
-  liElement.classList.add('active');
+  // liElement.classList.add('active');
 
   // kiểm tra tính thắng thua
   checkWinLogic(liElement);
