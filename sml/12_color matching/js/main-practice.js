@@ -6,8 +6,8 @@
 // 5. Handle replay click
 
 import { GAME_STATUS, PAIRS_COUNT } from './constants.js';
-import { getColorElementList, getColorListElement } from './selectors.js';
-import { getRandomColorPairs } from './utils-practice.js';
+import { getColorElementList, getColorListElement, getInActiveColorList } from './selectors.js';
+import { getRandomColorPairs, showReplayButton, showText } from './utils-practice.js';
 
 // Khai báo biến global
 let tempSelected = [];
@@ -55,7 +55,17 @@ function checkWinLogic(liElement) {
   const isMatch = firstClicked === secondClicked;
 
   if (isMatch) {
-    // do something
+    // kiểm tra 16 ô đã match hết chưa
+    const isWin = getInActiveColorList().length === 0;
+
+    if (isWin) {
+      // hiển thị nút replay
+      showReplayButton();
+      // hiển thị youwin
+      showText('YOU WIN !');
+      // update game status
+      gameStatus = GAME_STATUS.FINISHED;
+    }
 
     // reset mảng tạm và không làm gì nữa
     tempSelected = [];
@@ -83,9 +93,6 @@ function checkWinLogic(liElement) {
 function handleColorClick(liElement) {
   //validation
   if (!liElement) return;
-
-  // hiện màu khi click vào thẻ li
-  // liElement.classList.add('active');
 
   // kiểm tra tính thắng thua
   checkWinLogic(liElement);

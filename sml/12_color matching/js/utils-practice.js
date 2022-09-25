@@ -1,3 +1,5 @@
+import { getPlayAgainButton, getTimerElement } from './selectors.js';
+
 // hàm shuffle colorList
 function shuffle(finalColorList) {
   if (!Array.isArray(finalColorList) || finalColorList.length <= 2) return finalColorList;
@@ -35,4 +37,19 @@ export function getRandomColorPairs(colorCount) {
   shuffle(finalColorList);
 
   return finalColorList;
+}
+
+// hàm hiển thị nút replay
+export function showReplayButton() {
+  getPlayAgainButton().classList.add('show');
+}
+
+// hàm hide nút replay
+export function hideReplayButton() {
+  getPlayAgainButton().classList.remove('show');
+}
+
+// hiển thị text
+export function showText(text) {
+  getTimerElement().textContent = text;
 }
