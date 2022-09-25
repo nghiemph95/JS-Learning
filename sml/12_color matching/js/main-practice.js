@@ -25,7 +25,11 @@ function initColor() {
 }
 
 // hàm kiểm tra tính thắng thua
-function checkWinLogic(liElement) {}
+function checkWinLogic(liElement) {
+  if (!liElement) return;
+
+  
+}
 
 // hàm handle màu sắc trong liElement
 function handleColorClick(liElement) {
