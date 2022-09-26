@@ -1,4 +1,4 @@
-import { getPlayAgainButton, getTimerElement } from './selectors.js';
+import { getColorBackground, getPlayAgainButton, getTimerElement } from './selectors.js';
 
 // hàm shuffle colorList
 function shuffle(finalColorList) {
@@ -82,4 +82,10 @@ export function createCountdown({ seconds, onChange, onFinish }) {
     startTime,
     resetTime,
   };
+}
+
+// hàm set background color khi matching
+export function setBackgroundColor(color) {
+  const currentColor = getColorBackground();
+  currentColor.style.backgroundColor = color;
 }

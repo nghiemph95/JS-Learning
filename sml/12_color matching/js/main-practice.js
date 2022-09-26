@@ -16,6 +16,7 @@ import {
   createCountdown,
   getRandomColorPairs,
   hideReplayButton,
+  setBackgroundColor,
   showReplayButton,
   showText,
 } from './utils-practice.js';
@@ -24,7 +25,7 @@ import {
 let tempSelected = [];
 let gameStatus = GAME_STATUS.PLAYING;
 let game = createCountdown({
-  seconds: 3,
+  seconds: 15,
   onChange: handleTimeChange,
   onFinish: handleTimeFinish,
 });
@@ -88,6 +89,9 @@ function checkWinLogic(liElement) {
   if (isMatch) {
     // kiểm tra 16 ô đã match hết chưa
     const isWin = getInActiveColorList().length === 0;
+
+    // set background color khi 2 màu trùng nhau
+    setBackgroundColor(firstClicked);
 
     if (isWin) {
       // hiển thị nút replay
@@ -160,6 +164,8 @@ function resetGame() {
   initColor();
   // reset countdown
   countDown();
+  // reset backgroundcolor
+  setBackgroundColor('goldenrod');
 }
 
 // hàm tạo sự kiện click cho replay button
