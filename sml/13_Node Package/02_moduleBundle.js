@@ -1,6 +1,11 @@
 /** Module:
  * Nếu các file JS import lần nhau thì nó là 1 module
- * ESM: ECMAScript Modules
+ * Common modules types:
+ * - CommonJS (require khi viết NodeJS)
+ * - AMD
+ * - UMD
+ * - ESM: ECMAScript Modules (synctax export/import)
+ * - Native ESM: Tức là viết import/export trên trình duyệt vẫn hiểu
  */
 
 // Minify: Code sẽ biến thành 1 hàng, bỏ qua khoảng trắng...
@@ -17,6 +22,17 @@
  * - Webpack: công cụ sử dụng để quản lý các module JS, nó đóng gói tất cả các mã nguồn
  * của chương trình cũng như CSS, hình ảnh, font,... .Assets chính là tên để gọi những thứ
  * đóng gói này và chúng đc webpack đóng gói thành file hoặc 1 vài file.
+ * 
+ * - Concepts:
+ * + Entry: đưa vào 1 file JS, trong file JS sẽ có import này kia -> build ra 1 dạng cây dạng dependency graph
+ * + Output: biết dc các file entry đã phân tích đc r thì cần tạo các file hay folder ntn thì cần output
+ * + Loader: Webpack chỉ hiểu JS và JSON File nên vs các file khác CSS,... thì nó cần loader để nó hiểu được
+ * + Plugin: Sau khi loader để ra đc các bundle thì cần config theo dạo minify, uglify,...
+ */
+
+/** Nhược điểm Webpack:
+ * sau khi sửa 1 cái j đó thì nó sẽ re-bundle lại 
+ * nên nếu app lớn thì việc này sẽ tốn nhiều thời gian
  */
 
 /**
