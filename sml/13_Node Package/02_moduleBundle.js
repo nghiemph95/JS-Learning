@@ -58,3 +58,19 @@
  * trong lần đầu tải trang.
  * - Có thực hiện tree shaking(có thể remove dead code, không còn sử dụng).
  */
+
+
+/** Khác nhau giữa Bundle based dev server (Webpack) và Native ESM based dev server (Snowpack)
+ * 
+ * Bundle based dev server (Webpack):
+ * - Mỗi lần build nó sẽ phân tích ra các route rồi -> build ra module . Sau đó mới bundle đóng gói lại và 
+ * sau đó sử dụng webpack dev server để nó serve cái bundle này và khi đó server ready để truy cập
+ * - Nhược điểm: mỗi lần thay đổi file thì phải build và phải bundle lại
+ * 
+ * Native ESM based dev server (Snowpack):
+ * - Xịn hơn là: Mới vào server đã ready luôn (bởi vì nó chỉ build code lên thôi)
+ * - Sau đó nó load request lên 1 trang html nào đó (entry)
+ * - Trong đó nó sẽ có các script để load những module JS khác
+ * - Trong cái module lại có các import/export nào đó mà trình duyệt có thể tự hiểu và tự đi fetch những file JS tương ứng
+ * ** Mỗi khi thay đổi các file thì nó chỉ có host reload đúng cái module chứa cái file đó thôi
+*/
