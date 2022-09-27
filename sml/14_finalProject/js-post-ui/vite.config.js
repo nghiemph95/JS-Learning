@@ -1,10 +1,10 @@
-const { resolve } = require("path");
-const { defineConfig } = require("vite");
+import { resolve } from "path";
+import { defineConfig } from "vite";
 
-module.exports = defineConfig({
+export default defineConfig({
   build: {
     rollupOptions: {
-      inputL: {
+      input: {
         main: resolve(__dirname, "index.html"),
         postDetail: resolve(__dirname, "post-detail.html"),
         addEditPost: resolve(__dirname, "add-edit-post.html"),
