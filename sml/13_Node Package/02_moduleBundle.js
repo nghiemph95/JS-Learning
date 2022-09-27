@@ -38,8 +38,8 @@
 /**
  * Hiện nay với sự phát triển như vũ bão của Javascript đặc biệt
  * là các đoạn mã code được viết sẵn như ReactJS, AngularJS,... giúp giảm thiểu code và
- * các CSS giúp nâng cao trải nghiệm người dùng khiến cho bộ nhớ và
- * các module JS trong ứng dụng không thể kiểm soát và gây tình trạng phình website.
+ *các CSS giúp nâng cao trải nghiệm người dùng khiến cho bộ nhớ và
+ *các module JS trong ứng dụng không thể kiểm soát và gây tình trạng phình website.
  * Lúc này, vấn đề xảy ra là sắp xếp các mã nguồn như thế nào để dễ quản lý và truy xuất dữ liệu.
  * Chính vì vậy, việc sử dụng Webpack nhằm giúp cải thiện tình trạng bừa bãi và
  * quá tải là một sự lựa chọn đúng đắn.
