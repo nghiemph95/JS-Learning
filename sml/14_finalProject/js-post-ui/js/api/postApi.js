@@ -4,7 +4,7 @@ const postApi = {
   getAll(params) {
     // param có dạng object nên axios sẽ hỗ trợ chuyển trừ object thành chuỗi
     const url = "/posts";
-    return axiosClient.get(url, { params });
+    return axiosClient.get(url, { params }); // key vs value the same
   },
 
   getById(id) {
