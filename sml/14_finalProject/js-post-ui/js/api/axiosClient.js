@@ -32,10 +32,18 @@ axiosClient.interceptors.response.use(
     return response.data;
   },
   function (error) {
-    console.log("axiosClient - response error", error);
+    console.log("axiosClient - response error", error.response);
+    if (!error.response)
+      throw new Error("Network error. Please try again later.");
+
+    if (error.response.status === 401) {
+      // clear token and logout
+      window.location.assign("/login.html");
+    }
+
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
-    return Promise.reject(error);
+    return Promise.reject(error); // Nếu không có dòng này, hàm sẽ hiểu là đã handle error xong rồi và ngầm hiểu là success
   }
 );
 

@@ -7,8 +7,8 @@ const postApi = {
      * paramSerializer bằng cách sử dụng stringify, truyền vào là 1 object params
      * stringify(params, {arrayFormat: 'brackets'})
      */
-    const url = "/posts";
-    return axiosClient.get(url, { params, baseURL: "https://abc.com" }); // key vs value the same
+    const url = "/private/posts";
+    return axiosClient.get(url, { params }); // key vs value the same
   },
 
   getById(id) {
