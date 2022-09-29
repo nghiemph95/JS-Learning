@@ -29,7 +29,7 @@ const postApi = {
   updateFormData(data) {
     const url = `/posts/${data.id}`;
     return axiosClient.patch(url, data, {
-      header: { "Content-Type": "multipart/form-data" }, // có thể overwrite bất cứ thứ gì
+      headers: { "Content-Type": "multipart/form-data" }, // có thể overwrite bất cứ thứ gì
     });
   },
 
