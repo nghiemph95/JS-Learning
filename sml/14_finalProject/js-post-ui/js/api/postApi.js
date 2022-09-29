@@ -26,6 +26,13 @@ const postApi = {
     return axiosClient.patch(url, data);
   },
 
+  updateFormData(data) {
+    const url = `/posts/${data.id}`;
+    return axiosClient.patch(url, data, {
+      header: { "Content-Type": "multipart/form-data" }, // có thể overwrite bất cứ thứ gì
+    });
+  },
+
   remove() {
     const url = `/posts/${id}`;
     return axiosClient.delete(url);
