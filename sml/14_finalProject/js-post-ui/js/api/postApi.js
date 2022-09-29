@@ -3,6 +3,10 @@ import axiosClient from "./axiosClient";
 const postApi = {
   getAll(params) {
     // param có dạng object nên axios sẽ hỗ trợ chuyển trừ object thành chuỗi
+    /** Cách thức chuyển từ object params -> chuỗi sử dụng cơ chế
+     * paramSerializer bằng cách sử dụng stringify, truyền vào là 1 object params
+     * stringify(params, {arrayFormat: 'brackets'})
+     */
     const url = "/posts";
     return axiosClient.get(url, { params }); // key vs value the same
   },
