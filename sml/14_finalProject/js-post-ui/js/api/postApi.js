@@ -8,7 +8,7 @@ const postApi = {
      * stringify(params, {arrayFormat: 'brackets'})
      */
     const url = "/posts";
-    return axiosClient.get(url, { params }); // key vs value the same
+    return axiosClient.get(url, { params, baseURL: "https://abc.com" }); // key vs value the same
   },
 
   getById(id) {

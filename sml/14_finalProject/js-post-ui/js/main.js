@@ -10,7 +10,9 @@ async function main() {
     };
     const response = await postApi.getAll(queryParams);
     console.log(response);
-  } catch (error) {}
+  } catch (error) {
+    console.log("get all failed", error);
+  }
 
   await postApi.updateFormData({
     id: "lea2aa9l7x3a5tg",
