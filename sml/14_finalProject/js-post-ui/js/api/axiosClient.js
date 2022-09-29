@@ -1,4 +1,4 @@
-// create instant
+// create custom instant
 import axios from "axios";
 
 const axiosClient = axios.create({
