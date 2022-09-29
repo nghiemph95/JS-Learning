@@ -1,5 +1,10 @@
 import axiosClient from "./axiosClient";
 
+// import: default import, named import
+// export: default export, named export
+// default: can use your name -> have one default export ONLY
+// named export: use exactly name -> have multipile export
+
 const postApi = {
   getAll(params) {
     // param có dạng object nên axios sẽ hỗ trợ chuyển trừ object thành chuỗi
