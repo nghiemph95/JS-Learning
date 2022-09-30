@@ -16,7 +16,6 @@ function createPostElement(post) {
     setTextContent(liElement, '[data-id="title"]', post.title);
     setTextContent(liElement, '[data-id="description"]', post.description);
     setTextContent(liElement, '[data-id="author"]', post.author);
-
     setImageContent(liElement, '[data-id="thumbnail"]', post.imageUrl);
     // attach event
 
