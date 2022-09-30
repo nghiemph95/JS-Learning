@@ -86,6 +86,7 @@ function initPagination() {
   if (nextLink) nextLink.addEventListener("click", handleNextClick);
 }
 
+// set url default 
 function initDefaultUrl() {
   const url = new URL(window.location);
 
