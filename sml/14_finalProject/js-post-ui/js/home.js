@@ -1,5 +1,5 @@
 import postApi from "./api/postApi";
-import { setTextContent } from "./utils";
+import { setImageContent, setTextContent } from "./utils";
 
 function createPostElement(post) {
   if (!post) return;
@@ -17,8 +17,7 @@ function createPostElement(post) {
     setTextContent(liElement, '[data-id="description"]', post.description);
     setTextContent(liElement, '[data-id="author"]', post.author);
 
-    const thumbnailElement = liElement.querySelector('[data-id="thumbnail"]');
-    if (thumbnailElement) thumbnailElement.src = post.imageUrl;
+    setImageContent(liElement, '[data-id="thumbnail"]', post.imageUrl);
     // attach event
 
     return liElement;
