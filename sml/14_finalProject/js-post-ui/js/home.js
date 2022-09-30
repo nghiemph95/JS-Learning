@@ -1,5 +1,5 @@
 import postApi from "./api/postApi";
-import { setImageContent, setTextContent } from "./utils";
+import { setImageContent, setTextContent, truncateText } from "./utils";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -18,7 +18,11 @@ function createPostElement(post) {
 
   // update template (title, description, author, thumbnail)
   setTextContent(liElement, '[data-id="title"]', post.title);
-  setTextContent(liElement, '[data-id="description"]', post.description);
+  setTextContent(
+    liElement,
+    '[data-id="description"]',
+    truncateText(post.description, 100)
+  );
   setTextContent(liElement, '[data-id="author"]', post.author);
   setImageContent(liElement, '[data-id="thumbnail"]', post.imageUrl);
   setTextContent(
