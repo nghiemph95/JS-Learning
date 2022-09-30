@@ -22,6 +22,9 @@ function createPostElement(post) {
 
     const authorElement = liElement.querySelector('[data-id="author"]');
     if (authorElement) authorElement.textContent = post.author;
+
+    const thumbnailElement = liElement.querySelector('[data-id="thumbnail"]');
+    if (thumbnailElement) thumbnailElement.src = post.imageUrl;
     // attach event
 
     return liElement;
