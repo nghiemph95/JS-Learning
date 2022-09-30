@@ -49,11 +49,30 @@ function renderPostList(postList) {
   });
 }
 
+// hàm handle nút prev click
+function handlePrevClick(e) {
+  e.preventDefault();
+  console.log("prev click");
+}
+// hàm handle nút next click
+function handleNextClick(e) {
+  e.preventDefault();
+  console.log("next click");
+}
+
 // khởi tạo sự kiện click cho prev/next
 function initPagination() {
   // bind click event for prev/next link
   const ulPagination = document.getElementById("pagination");
   if (!ulPagination) return;
+
+  // gắn click event cho nút prev
+  const prevLink = ulPagination.firstElementChild?.firstElementChild;
+  if (prevLink) prevLink.addEventListener("click", handlePrevClick);
+
+  // gắn click event cho nut next
+  const nextLink = ulPagination.lastElementChild?.lastElementChild;
+  if (nextLink) nextLink.addEventListener("click", handleNextClick);
 }
 
 (async () => {
