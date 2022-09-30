@@ -30,8 +30,6 @@ function createPostElement(post) {
     '[data-id="timeSpan"]',
     dayjs(post.updateAt).fromNow()
   );
-
-  // calculate time stamp
   // attach event
 
   return liElement;
