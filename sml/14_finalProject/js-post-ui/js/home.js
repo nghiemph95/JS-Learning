@@ -3,14 +3,31 @@ import postApi from "./api/postApi";
 function createPostElement(post) {
   if (!post) return;
 
-  // find and clone template
-  const postTemplate = document.getElementById("postTemplate");
-  if (!postTemplate) return;
+  try {
+    // find and clone template
+    const postTemplate = document.getElementById("postTemplate");
+    if (!postTemplate) return;
 
-  const liElement = postTemplate.content.firstElementChild.cloneNode(true);
-  // update template (title, description, author, thumbnail)
+    const liElement = postTemplate.content.firstElementChild.cloneNode(true);
+    if (!liElement) return;
 
-  // attach event
+    // update template (title, description, author, thumbnail)
+    const titleElement = liElement.querySelector('[data-id="title"]');
+    if (titleElement) titleElement.textContent = post.title;
+
+    const descriptionElement = liElement.querySelector(
+      '[data-id="description"]'
+    );
+    if (descriptionElement) descriptionElement.textContent = post.description;
+
+    const authorElement = liElement.querySelector('[data-id="author"]');
+    if (authorElement) authorElement.textContent = post.author;
+    // attach event
+
+    return liElement;
+  } catch (error) {
+    console.log("failed to create post item", error);
+  }
 }
 
 function renderPostList(postList) {
