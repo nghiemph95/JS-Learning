@@ -49,8 +49,17 @@ function renderPostList(postList) {
   });
 }
 
+// khởi tạo sự kiện click cho prev/next
+function initPagination() {
+  // bind click event for prev/next link
+  const ulPagination = document.getElementById("pagination");
+  if (!ulPagination) return;
+}
+
 (async () => {
   try {
+    initPagination();
+
     const queryParams = {
       _page: 1,
       _limit: 6,
