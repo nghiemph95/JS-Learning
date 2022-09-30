@@ -49,6 +49,17 @@ function renderPostList(postList) {
   });
 }
 
+// lấy thông tin param
+function handleFilterChange(filterName, filterValue) {
+  // update query param
+  const url = new URL(window.location);
+  url.searchParams(filterName, filterValue);
+  history.pushState({}, "", url);
+
+  // fetch API
+  // rerender postlist
+}
+
 // hàm handle nút prev click
 function handlePrevClick(e) {
   e.preventDefault();
@@ -75,14 +86,24 @@ function initPagination() {
   if (nextLink) nextLink.addEventListener("click", handleNextClick);
 }
 
+function initDefaultUrl() {
+  const url = new URL(window.location);
+
+  // update search param
+  if (!url.searchParams.get("_page")) url.searchParams.set("_page", 1);
+  if (!url.searchParams.get("_limit")) url.searchParams.set("_limit", 6);
+
+  //update lại url
+  history.pushState({}, "", url);
+}
+
 (async () => {
   try {
     initPagination();
+    initDefaultUrl();
 
-    const queryParams = {
-      _page: 1,
-      _limit: 6,
-    };
+    const queryParams = new URLSearchParams(window.location.search);
+    //set default query param
     const { data, pagination } = await postApi.getAll(queryParams);
     // khi error xảy ra ở catch của createPostElement() thì nó sẽ vô tình đẩy tới đây và nó hiểu là success
     renderPostList(data);
