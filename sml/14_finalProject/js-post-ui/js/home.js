@@ -101,7 +101,8 @@ function initDefaultUrl() {
   try {
     initPagination();
     initDefaultUrl();
-
+    
+    //lấy dữ liệu từ param
     const queryParams = new URLSearchParams(window.location.search);
     //set default query param
     const { data, pagination } = await postApi.getAll(queryParams);

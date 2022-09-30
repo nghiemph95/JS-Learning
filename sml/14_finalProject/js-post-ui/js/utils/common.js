@@ -13,7 +13,6 @@ export function setImageContent(parent, selector, imageUrl) {
     element.src = imageUrl;
 
     element.addEventListener("error", () => {
-      console.log("load image error");
       element.src = "https://via.placeholder.com/1368x400?text=thumbnail";
     });
   }
