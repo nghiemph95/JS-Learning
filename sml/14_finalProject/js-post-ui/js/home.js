@@ -1,4 +1,5 @@
 import postApi from "./api/postApi";
+import { setTextContent } from "./utils";
 
 function createPostElement(post) {
   if (!post) return;
@@ -12,16 +13,9 @@ function createPostElement(post) {
     if (!liElement) return;
 
     // update template (title, description, author, thumbnail)
-    const titleElement = liElement.querySelector('[data-id="title"]');
-    if (titleElement) titleElement.textContent = post.title;
-
-    const descriptionElement = liElement.querySelector(
-      '[data-id="description"]'
-    );
-    if (descriptionElement) descriptionElement.textContent = post.description;
-
-    const authorElement = liElement.querySelector('[data-id="author"]');
-    if (authorElement) authorElement.textContent = post.author;
+    setTextContent(liElement, '[data-id="title"]', post.title);
+    setTextContent(liElement, '[data-id="description"]', post.description);
+    setTextContent(liElement, '[data-id="author"]', post.author);
 
     const thumbnailElement = liElement.querySelector('[data-id="thumbnail"]');
     if (thumbnailElement) thumbnailElement.src = post.imageUrl;
