@@ -2,6 +2,7 @@ import postApi from "./api/postApi";
 import { setImageContent, setTextContent, truncateText } from "./utils";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { getUlPagination } from "./utils/selectors";
 
 // use from now function
 dayjs.extend(relativeTime);
@@ -57,7 +58,7 @@ function renderPagination(pagination) {
   const totalPages = Math.ceil(_totalRows / _limit);
 
   // lưu Page và tổng số page vào ulPagination
-  const ulPagination = document.getElementById("pagination");
+  const ulPagination = getUlPagination();
   if (ulPagination) {
     ulPagination.dataset.page = _page;
     ulPagination.dataset.totalPages = totalPages;
@@ -99,7 +100,7 @@ function handleNextClick(e) {
 // khởi tạo sự kiện click cho prev/next
 function initPagination() {
   // bind click event for prev/next link
-  const ulPagination = document.getElementById("pagination");
+  const ulPagination = getUlPagination();
   if (!ulPagination) return;
 
   // gắn click event cho nút prev
