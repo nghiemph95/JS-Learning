@@ -42,9 +42,7 @@ function createPostElement(post) {
 }
 
 function renderPostList(postList) {
-  console.log(postList);
-
-  if (!Array.isArray(postList) || postList.length === 0) return;
+  if (!Array.isArray(postList)) return;
 
   const ulElement = document.getElementById("postList");
   if (!ulElement) return;
@@ -88,6 +86,10 @@ async function handleFilterChange(filterName, filterValue) {
     // update query param
     const url = new URL(window.location);
     url.searchParams.set(filterName, filterValue);
+
+    // reset page khi search
+    if (filterName === "title_like") url.searchParams.set("_page", 1);
+
     history.pushState({}, "", url);
 
     //set default query param
