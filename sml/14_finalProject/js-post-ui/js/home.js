@@ -7,6 +7,7 @@ import {
 } from "./utils";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import debounce from "lodash.debounce";
 
 // use from now function
 dayjs.extend(relativeTime);
@@ -160,10 +161,11 @@ function initSearch() {
   // set default value from query params
   // title_like
 
-  searchInput.addEventListener("input", (event) => {
-    //trigger search
-    console.log(event.target.value);
-  });
+  const debounceSearch = debounce(
+    (event) => handleFilterChange("title_like", event.target.value),
+    500
+  );
+  searchInput.addEventListener("input", debounceSearch);
 }
 
 (async () => {
