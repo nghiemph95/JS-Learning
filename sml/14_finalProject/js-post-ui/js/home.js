@@ -1,8 +1,12 @@
 import postApi from "./api/postApi";
-import { setImageContent, setTextContent, truncateText } from "./utils";
+import {
+  getUlPagination,
+  setImageContent,
+  setTextContent,
+  truncateText,
+} from "./utils";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { getUlPagination } from "./utils/selectors";
 
 // use from now function
 dayjs.extend(relativeTime);
@@ -44,6 +48,9 @@ function renderPostList(postList) {
   const ulElement = document.getElementById("postList");
   if (!ulElement) return;
 
+  // xóa post list hiện tại khi chuyển pagination
+  ulElement.textContent = "";
+
   postList.forEach((post) => {
     const liElement = createPostElement(post);
     ulElement.appendChild(liElement);
@@ -75,26 +82,43 @@ function renderPagination(pagination) {
 }
 
 // lấy thông tin param
-function handleFilterChange(filterName, filterValue) {
+async function handleFilterChange(filterName, filterValue) {
   // update query param
   const url = new URL(window.location);
   url.searchParams(filterName, filterValue);
   history.pushState({}, "", url);
 
-  // fetch API
-
-  // rerender postlist
+  //set default query param
+  const { data, pagination } = await postApi.getAll(url.searchParams);
+  // lấy dữ liệu mới nhất render lại post list của mình
+  renderPostList(data);
+  renderPagination(pagination);
 }
 
 // hàm handle nút prev click
 function handlePrevClick(e) {
   e.preventDefault();
   console.log("prev click");
+  const ulPagination = getUlPagination();
+  if (!ulPagination) return;
+
+  const currentPage = Number.parseInt(ulPagination.dataset.page) || 1;
+  if (currentPage <= 1) return;
+
+  handleFilterChange("_page", currentPage - 1);
 }
 // hàm handle nút next click
 function handleNextClick(e) {
   e.preventDefault();
   console.log("next click");
+  const ulPagination = getUlPagination();
+  if (!ulPagination) return;
+
+  const currentPage = Number.parseInt(ulPagination.dataset.page) || 1;
+  const currentTotalPage = Number.parseInt(ulPagination.dataset.totalPages);
+  if (currentPage >= currentTotalPage) return;
+
+  handleFilterChange("_page", currentPage + 1);
 }
 
 // khởi tạo sự kiện click cho prev/next
