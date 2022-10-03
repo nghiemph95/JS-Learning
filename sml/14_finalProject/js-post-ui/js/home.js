@@ -57,6 +57,7 @@ function handleFilterChange(filterName, filterValue) {
   history.pushState({}, "", url);
 
   // fetch API
+  
   // rerender postlist
 }
 
