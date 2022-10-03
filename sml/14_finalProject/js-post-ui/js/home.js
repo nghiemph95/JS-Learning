@@ -83,16 +83,20 @@ function renderPagination(pagination) {
 
 // lấy thông tin param
 async function handleFilterChange(filterName, filterValue) {
-  // update query param
-  const url = new URL(window.location);
-  url.searchParams.set(filterName, filterValue);
-  history.pushState({}, "", url);
+  try {
+    // update query param
+    const url = new URL(window.location);
+    url.searchParams.set(filterName, filterValue);
+    history.pushState({}, "", url);
 
-  //set default query param
-  const { data, pagination } = await postApi.getAll(url.searchParams);
-  // lấy dữ liệu mới nhất render lại post list của mình
-  renderPostList(data);
-  renderPagination(pagination);
+    //set default query param
+    const { data, pagination } = await postApi.getAll(url.searchParams);
+    // lấy dữ liệu mới nhất render lại post list của mình
+    renderPostList(data);
+    renderPagination(pagination);
+  } catch (error) {
+    console.log("failed to fetch post lists.", error);
+  }
 }
 
 // hàm handle nút prev click
@@ -153,7 +157,7 @@ function initDefaultUrl() {
     // găn sự kiện click cho prev/next
     initPagination();
 
-    // mặc định default url
+    // mặc định default url (Trường hợp _page và _limit không có)
     initDefaultUrl();
 
     //lấy dữ liệu từ param
