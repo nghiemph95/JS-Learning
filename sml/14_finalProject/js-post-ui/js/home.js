@@ -152,6 +152,20 @@ function initDefaultUrl() {
   history.pushState({}, "", url);
 }
 
+// hàm search
+function initSearch() {
+  const searchInput = document.getElementById("searchInput");
+  if (!searchInput) return;
+
+  // set default value from query params
+  // title_like
+
+  searchInput.addEventListener("input", (event) => {
+    //trigger search
+    console.log(event.target.value);
+  });
+}
+
 (async () => {
   try {
     // găn sự kiện click cho prev/next
@@ -159,6 +173,9 @@ function initDefaultUrl() {
 
     // mặc định default url (Trường hợp _page và _limit không có)
     initDefaultUrl();
+
+    // hàm sự kiên search
+    initSearch();
 
     //lấy dữ liệu từ param
     const queryParams = new URLSearchParams(window.location.search);
