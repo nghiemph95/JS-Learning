@@ -49,6 +49,30 @@ function renderPostList(postList) {
   });
 }
 
+function renderPagination(pagination) {
+  if (!pagination) return;
+
+  // tính tổng số Page đc phân trang
+  const { _page, _limit, _totalRows } = pagination;
+  const totalPages = Math.ceil(_totalRows / _limit);
+
+  // lưu Page và tổng số page vào ulPagination
+  const ulPagination = document.getElementById("pagination");
+  if (ulPagination) {
+    ulPagination.dataset.page = _page;
+    ulPagination.dataset.totalPages = totalPages;
+  }
+
+  // gắn điều kiện để disable/enable prev/next link
+  _page <= 1
+    ? ulPagination.firstElementChild?.classList.add("disabled")
+    : ulPagination.firstElementChild?.classList.remove("disabled");
+
+  _page >= totalPages
+    ? ulPagination.lastElementChild?.classList.add("disabled")
+    : ulPagination.lastElementChild?.classList.remove("disabled");
+}
+
 // lấy thông tin param
 function handleFilterChange(filterName, filterValue) {
   // update query param
@@ -57,7 +81,7 @@ function handleFilterChange(filterName, filterValue) {
   history.pushState({}, "", url);
 
   // fetch API
-  
+
   // rerender postlist
 }
 
@@ -87,7 +111,7 @@ function initPagination() {
   if (nextLink) nextLink.addEventListener("click", handleNextClick);
 }
 
-// set url default 
+// set url default
 function initDefaultUrl() {
   const url = new URL(window.location);
 
@@ -103,13 +127,14 @@ function initDefaultUrl() {
   try {
     initPagination();
     initDefaultUrl();
-    
+
     //lấy dữ liệu từ param
     const queryParams = new URLSearchParams(window.location.search);
     //set default query param
     const { data, pagination } = await postApi.getAll(queryParams);
     // khi error xảy ra ở catch của createPostElement() thì nó sẽ vô tình đẩy tới đây và nó hiểu là success
     renderPostList(data);
+    renderPagination(pagination);
   } catch (error) {
     console.log("get all failed", error);
   }
