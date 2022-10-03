@@ -85,7 +85,7 @@ function renderPagination(pagination) {
 async function handleFilterChange(filterName, filterValue) {
   // update query param
   const url = new URL(window.location);
-  url.searchParams(filterName, filterValue);
+  url.searchParams.set(filterName, filterValue);
   history.pushState({}, "", url);
 
   //set default query param
@@ -98,7 +98,7 @@ async function handleFilterChange(filterName, filterValue) {
 // hàm handle nút prev click
 function handlePrevClick(e) {
   e.preventDefault();
-  console.log("prev click");
+
   const ulPagination = getUlPagination();
   if (!ulPagination) return;
 
@@ -110,7 +110,7 @@ function handlePrevClick(e) {
 // hàm handle nút next click
 function handleNextClick(e) {
   e.preventDefault();
-  console.log("next click");
+
   const ulPagination = getUlPagination();
   if (!ulPagination) return;
 
@@ -150,7 +150,10 @@ function initDefaultUrl() {
 
 (async () => {
   try {
+    // găn sự kiện click cho prev/next
     initPagination();
+
+    // mặc định default url
     initDefaultUrl();
 
     //lấy dữ liệu từ param
