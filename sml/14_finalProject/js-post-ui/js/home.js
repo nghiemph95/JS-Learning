@@ -22,7 +22,7 @@ async function handleFilterChange(filterName, filterValue) {
     const { data, pagination } = await postApi.getAll(url.searchParams);
     // lấy dữ liệu mới nhất render lại post list của mình
     renderPostList(data);
-    renderPagination(pagination);
+    renderPagination("pagination", pagination);
   } catch (error) {
     console.log("failed to fetch post lists.", error);
   }
@@ -67,7 +67,7 @@ async function handleFilterChange(filterName, filterValue) {
     const { data, pagination } = await postApi.getAll(queryParams);
     // khi error xảy ra ở catch của createPostElement() thì nó sẽ vô tình đẩy tới đây và nó hiểu là success
     renderPostList(data);
-    renderPagination(pagination);
+    renderPagination("pagination", pagination);
   } catch (error) {
     console.log("get all failed", error);
   }

@@ -1,12 +1,12 @@
-export function renderPagination(pagination) {
-  if (!pagination) return;
+export function renderPagination(elementId, pagination) {
+  if (!pagination || !elementId) return;
 
   // tính tổng số Page đc phân trang
   const { _page, _limit, _totalRows } = pagination;
   const totalPages = Math.ceil(_totalRows / _limit);
 
   // lưu Page và tổng số page vào ulPagination
-  const ulPagination = getUlPagination();
+  const ulPagination = document.getElementById(elementId);
   if (ulPagination) {
     ulPagination.dataset.page = _page;
     ulPagination.dataset.totalPages = totalPages;
@@ -20,32 +20,6 @@ export function renderPagination(pagination) {
   _page >= totalPages
     ? ulPagination.lastElementChild?.classList.add("disabled")
     : ulPagination.lastElementChild?.classList.remove("disabled");
-}
-
-// hàm handle nút prev click
-export function handlePrevClick(e) {
-  e.preventDefault();
-
-  const ulPagination = getUlPagination();
-  if (!ulPagination) return;
-
-  const currentPage = Number.parseInt(ulPagination.dataset.page) || 1;
-  if (currentPage <= 1) return;
-
-  handleFilterChange("_page", currentPage - 1);
-}
-// hàm handle nút next click
-export function handleNextClick(e) {
-  e.preventDefault();
-
-  const ulPagination = getUlPagination();
-  if (!ulPagination) return;
-
-  const currentPage = Number.parseInt(ulPagination.dataset.page) || 1;
-  const currentTotalPage = Number.parseInt(ulPagination.dataset.totalPages);
-  if (currentPage >= currentTotalPage) return;
-
-  handleFilterChange("_page", currentPage + 1);
 }
 
 // khởi tạo sự kiện click cho prev/next
