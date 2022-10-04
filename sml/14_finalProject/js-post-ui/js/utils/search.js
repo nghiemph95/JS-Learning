@@ -1,17 +1,18 @@
+/** Pure function - Dump function */
 // hàm search
-export function initSearch() {
-  const searchInput = document.getElementById("searchInput");
+export function initSearch({ elementId, defaultParams, onChange }) {
+  const searchInput = document.getElementById(elementId);
   if (!searchInput) return;
 
   // set default value from query params
   // title_like
-  const queryParams = new URLSearchParams(window.location.search);
-  if (queryParams.get("title_like")) {
-    searchInput.value = queryParams.get("title_like");
+  if (defaultParams && defaultParams.get("title_like")) {
+    searchInput.value = defaultParams.get("title_like");
   }
 
   const debounceSearch = debounce(
-    (event) => handleFilterChange("title_like", event.target.value),
+    // khi nào có truyền vô hàm onChange thì mới gọi lên hàm cha, ko thì thôi
+    (event) => onChange?.(event.target.value),
     500
   );
   searchInput.addEventListener("input", debounceSearch);
