@@ -143,17 +143,6 @@ function initPagination() {
   if (nextLink) nextLink.addEventListener("click", handleNextClick);
 }
 
-// set url default
-function initDefaultUrl() {
-  const url = new URL(window.location);
-
-  // update search param
-  if (!url.searchParams.get("_page")) url.searchParams.set("_page", 1);
-  if (!url.searchParams.get("_limit")) url.searchParams.set("_limit", 6);
-
-  //update lại url
-  history.pushState({}, "", url);
-}
 
 // hàm search
 function initSearch() {
@@ -176,17 +165,25 @@ function initSearch() {
 
 (async () => {
   try {
-    // găn sự kiện click cho prev/next
-    initPagination();
+    const url = new URL(window.location);
 
+    // update search param, mặc định param truyền vào _page, _limit
+    if (!url.searchParams.get("_page")) url.searchParams.set("_page", 1);
+    if (!url.searchParams.get("_limit")) url.searchParams.set("_limit", 6);
+
+    //update lại url
+    history.pushState({}, "", url);
     // mặc định default url (Trường hợp _page và _limit không có)
-    initDefaultUrl();
+    const queryParams = url.searchParams;
+
+    // găn sự kiện click cho prev/next
+    initPagination(queryParams);
 
     // hàm sự kiên search
-    initSearch();
+    initSearch(queryParams);
 
     //lấy dữ liệu từ param
-    const queryParams = new URLSearchParams(window.location.search);
+    // const queryParams = new URLSearchParams(window.location.search);
     //set default query param
     const { data, pagination } = await postApi.getAll(queryParams);
     // khi error xảy ra ở catch của createPostElement() thì nó sẽ vô tình đẩy tới đây và nó hiểu là success
