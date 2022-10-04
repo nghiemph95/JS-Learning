@@ -58,7 +58,7 @@ async function handleFilterChange(filterName, filterValue) {
       // truyền vào param ban đầu
       defaultParams: queryParams,
       // khi có thay đổi, hàm sẽ báo lên cho cha xử lý
-      onChange: (value) => handleFilterChange("title_liek", value),
+      onChange: (value) => handleFilterChange("title_like", value),
     });
 
     //lấy dữ liệu từ param
