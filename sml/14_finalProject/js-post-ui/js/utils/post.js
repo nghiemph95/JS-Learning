@@ -29,7 +29,13 @@ export function createPostElement(post) {
     '[data-id="timeSpan"]',
     dayjs(post.updateAt).fromNow()
   );
-  // attach event
+
+  // gắn sự kiện cho từng thẻ div của post (div.post-item)
+  const divElement = liElement.firstElementChild;
+  if (divElement)
+    divElement.addEventListener("click", () => {
+      window.location.assign(`/post-detail.html?id=${post.id}`);
+    });
 
   return liElement;
 }
@@ -37,7 +43,7 @@ export function createPostElement(post) {
 export function renderPostList(elementId, postList) {
   if (!Array.isArray(postList)) return;
 
-  const ulElement = document.getElementById(elementId);
+  const ulElement = document.getElementById(elementId); //elementId = 'postList'
   if (!ulElement) return;
 
   // xóa post list hiện tại khi chuyển pagination
