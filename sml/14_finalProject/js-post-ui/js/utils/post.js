@@ -34,10 +34,10 @@ export function createPostElement(post) {
   return liElement;
 }
 
-export function renderPostList(postList) {
+export function renderPostList(elementId, postList) {
   if (!Array.isArray(postList)) return;
 
-  const ulElement = document.getElementById("postList");
+  const ulElement = document.getElementById(elementId);
   if (!ulElement) return;
 
   // xóa post list hiện tại khi chuyển pagination
