@@ -42,7 +42,14 @@ async function handleFilterChange(filterName, filterValue) {
     const queryParams = url.searchParams;
 
     // găn sự kiện click cho prev/next
-    initPagination(queryParams);
+    initPagination({
+      // truyền vào id cho thẻ ul
+      elementId: "pagination",
+      // truyền vào param ban đầu
+      defaultParams: queryParams,
+      // khi có thay đổi, hàm sẽ báo lên cho cha xử lý
+      onChange: (page) => handleFilterChange("_page", page),
+    });
 
     // hàm sự kiên search
     initSearch(queryParams);
