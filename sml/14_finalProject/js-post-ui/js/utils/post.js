@@ -5,7 +5,7 @@ import { setImageContent, setTextContent, truncateText } from "./common";
 // use from now function
 dayjs.extend(relativeTime);
 
-function createPostElement(post) {
+export function createPostElement(post) {
   if (!post) return;
 
   // find and clone template
@@ -34,7 +34,7 @@ function createPostElement(post) {
   return liElement;
 }
 
-function renderPostList(postList) {
+export function renderPostList(postList) {
   if (!Array.isArray(postList)) return;
 
   const ulElement = document.getElementById("postList");
