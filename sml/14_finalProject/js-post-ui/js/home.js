@@ -52,7 +52,14 @@ async function handleFilterChange(filterName, filterValue) {
     });
 
     // hàm sự kiên search
-    initSearch(queryParams);
+    initSearch({
+      // truyền vào id cho thẻ ul
+      elementId: "searchInput",
+      // truyền vào param ban đầu
+      defaultParams: queryParams,
+      // khi có thay đổi, hàm sẽ báo lên cho cha xử lý
+      onChange: (value) => handleFilterChange("title_liek", value),
+    });
 
     //lấy dữ liệu từ param
     // const queryParams = new URLSearchParams(window.location.search);
