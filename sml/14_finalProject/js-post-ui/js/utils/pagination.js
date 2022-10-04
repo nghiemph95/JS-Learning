@@ -49,16 +49,35 @@ export function handleNextClick(e) {
 }
 
 // khởi tạo sự kiện click cho prev/next
-export function initPagination() {
+export function initPagination({ elementId, defaultParams, onChange }) {
   // bind click event for prev/next link
-  const ulPagination = getUlPagination();
+  const ulPagination = document.getElementById(elementId);
   if (!ulPagination) return;
+
+  // set current active page
+  // TODO: use default params
 
   // gắn click event cho nút prev
   const prevLink = ulPagination.firstElementChild?.firstElementChild;
-  if (prevLink) prevLink.addEventListener("click", handlePrevClick);
+  if (prevLink)
+    prevLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      const currentPage = Number.parseInt(ulPagination.dataset.page) || 1;
+      if (currentPage <= 1) return;
+
+      onChange?.(currentPage - 1);
+    });
 
   // gắn click event cho nut next
   const nextLink = ulPagination.lastElementChild?.lastElementChild;
-  if (nextLink) nextLink.addEventListener("click", handleNextClick);
+  if (nextLink)
+    nextLink.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const currentPage = Number.parseInt(ulPagination.dataset.page) || 1;
+      const currentTotalPage = Number.parseInt(ulPagination.dataset.totalPages);
+      if (currentPage >= currentTotalPage) return;
+
+      onChange?.(currentPage + 1);
+    });
 }
