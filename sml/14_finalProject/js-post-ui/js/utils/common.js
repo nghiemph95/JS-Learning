@@ -38,7 +38,7 @@ export function setEditPageLink(parent, selector, text) {
 
   const editPageLink = parent.getElementById(selector);
   if (editPageLink) {
-    // editPageLink.href = `/add-edit-post.html?id=${text}`;
+    editPageLink.href = `/add-edit-post.html?id=${text}`;
     editPageLink.innerHTML = '<i class="fas fa-edit"></i> Edit Post';
   }
 }
