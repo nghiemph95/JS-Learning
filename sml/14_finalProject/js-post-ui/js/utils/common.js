@@ -27,7 +27,7 @@ export function setHeroImage(parent, selector, imageUrl) {
 
     heroImage.addEventListener("error", () => {
       console.log("load image error ->> use default placeholder");
-      heroImage.style.backgroundImage =
+      heroImage.src =
         "https://via.placeholder.com/1368x400?text=thumbnail";
     });
   }
