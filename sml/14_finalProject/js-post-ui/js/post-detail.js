@@ -2,21 +2,6 @@ import dayjs from "dayjs";
 import postApi from "./api/postApi";
 import { setEditPageLink, setHeroImage, setTextContent } from "./utils";
 
-// id="goToEditPageLink
-// id="postHeroImage
-// id="postDetailTitle
-// id="postDetailAuthor
-// id="postDetailTimeSpan
-// id="postDetailDescription
-
-// author: "Freddie Zieme";
-// createdAt: 1662885819124;
-// description: "dolor fuga animi dolore voluptatum aliquam qui doloremque quibusdam similique et officiis sit alias rerum et dolorem necessitatibus rerum quisquam iusto nostrum ut officiis inventore velit voluptates possimus laudantium rerum dolores aut sint velit nisi odio laborum ut tempora nisi hic omnis consequatur et atque voluptas possimus officia voluptatum animi";
-// id: "lea2aa9l7x3a5tg";
-// imageUrl: "https://picsum.photos/id/624/1368/400";
-// title: "Iure aperiam unde";
-// updatedAt: 1662885819124;
-
 function renderPostDetail(post) {
   if (!post) return;
 
