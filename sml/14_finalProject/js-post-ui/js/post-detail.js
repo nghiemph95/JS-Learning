@@ -29,7 +29,12 @@ function renderPostDetail(post) {
 }
 
 (async () => {
-  registerLightbox();
+  registerLightbox({
+    modalId: "lightbox",
+    imgSelector: 'img[data-id="lightboxImg"]',
+    prevSelector: 'button[data-id="lightboxPrev"]',
+    nextSelector: 'button[data-id="lightboxNext"]',
+  });
   try {
     // lấy được ra post id từ URL
     const searchParams = new URLSearchParams(window.location.search);
