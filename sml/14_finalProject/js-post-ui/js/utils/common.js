@@ -27,8 +27,19 @@ export function setHeroImage(parent, selector, imageUrl) {
 
     heroImage.addEventListener("error", () => {
       console.log("load image error ->> use default placeholder");
-      heroImage.src = "https://via.placeholder.com/1368x400?text=thumbnail";
+      heroImage.style.backgroundImage =
+        "https://via.placeholder.com/1368x400?text=thumbnail";
     });
+  }
+}
+
+export function setEditPageLink(parent, selector, text) {
+  if (!parent) return;
+
+  const editPageLink = parent.getElementById(selector);
+  if (editPageLink) {
+    // editPageLink.href = `/add-edit-post.html?id=${text}`;
+    editPageLink.innerHTML = '<i class="fas fa-edit"></i> Edit Post';
   }
 }
 

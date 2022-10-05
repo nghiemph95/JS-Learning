@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import postApi from "./api/postApi";
-import { setHeroImage, setTextContent } from "./utils";
+import { setEditPageLink, setHeroImage, setTextContent } from "./utils";
 
 // id="goToEditPageLink
 // id="postHeroImage
@@ -35,6 +35,7 @@ function renderPostDetail(post) {
   // render hero image
   setHeroImage(document, "postHeroImage", post.imageUrl);
   // render edit page link
+  setEditPageLink(document, "goToEditPageLink", post.id);
 }
 
 (async () => {
