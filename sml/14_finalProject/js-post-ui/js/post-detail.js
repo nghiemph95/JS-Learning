@@ -1,6 +1,11 @@
 import dayjs from "dayjs";
 import postApi from "./api/postApi";
-import { setEditPageLink, setHeroImage, setTextContent } from "./utils";
+import {
+  registerLightbox,
+  setEditPageLink,
+  setHeroImage,
+  setTextContent,
+} from "./utils";
 
 function renderPostDetail(post) {
   if (!post) return;
@@ -24,6 +29,7 @@ function renderPostDetail(post) {
 }
 
 (async () => {
+  registerLightbox();
   try {
     // lấy được ra post id từ URL
     const searchParams = new URLSearchParams(window.location.search);
