@@ -45,7 +45,7 @@ export function registerLightbox({
     // hiển thị hình được chọn taij index
     showImageAtIndex(currentIndex);
 
-    // hiển thị model
+    // hiển thị modal element
     showModel(modalElement);
     console.log("album click", { target, imgList, currentIndex });
   });
