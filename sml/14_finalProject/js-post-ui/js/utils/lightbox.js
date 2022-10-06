@@ -13,11 +13,13 @@ export function registerLightbox({
   const modalElement = document.getElementById(modalId);
   if (!modalElement) return;
 
+  // check nếu modalElement đã được registered
+  if (modalElement.dataset.registerd) return;
+
   // lấy ra các selectors
   const imageElement = modalElement.querySelector(imgSelector);
   const prevButton = modalElement.querySelector(prevSelector);
   const nextButton = modalElement.querySelector(nextSelector);
-
   if (!imageElement || !prevButton || !nextButton) return;
 
   // lightbox variable
@@ -61,4 +63,7 @@ export function registerLightbox({
     currentIndex = (currentIndex + 1) % imgList.length;
     showImageAtIndex(currentIndex);
   });
+
+  // set true flag khi có 1 hình đã click vào 1 hình bất kì
+  modalElement.dataset.registerd = "true";
 }
