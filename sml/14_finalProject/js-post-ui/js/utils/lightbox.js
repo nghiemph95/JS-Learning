@@ -45,13 +45,20 @@ export function registerLightbox({
     // hiển thị hình được chọn taij index
     showImageAtIndex(currentIndex);
 
-    // hiển thị modal element
+    // chỉ show modal chỉ đúng lúc click vào hình
     showModel(modalElement);
     console.log("album click", { target, imgList, currentIndex });
   });
 
-  // handle nút prev/next click chuyển hình
-  prevButton.addEventListener("click", () => {});
+  // handle nút prev click chuyển hình (0->2->1->0->2->1)
+  prevButton.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgList.length) % imgList.length;
+    showImageAtIndex(currentIndex);
+  });
 
-  nextButton.addEventListener("click", () => {});
+  // handle nút next click chuyển hình (0->1->2->0->1->2)
+  nextButton.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgList.length;
+    showImageAtIndex(currentIndex);
+  });
 }
