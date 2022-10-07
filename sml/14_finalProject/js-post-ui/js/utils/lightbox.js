@@ -44,7 +44,7 @@ export function registerLightbox({
     // xác định hình click trong album đang nằm ở index nào
     currentIndex = [...imgList].findIndex((x) => x === target);
 
-    // hiển thị hình được chọn taij index
+    // hiển thị hình được chọn tai index
     showImageAtIndex(currentIndex);
 
     // chỉ show modal chỉ đúng lúc click vào hình
