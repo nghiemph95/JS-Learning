@@ -36,7 +36,7 @@ function renderPostDetail(post) {
     nextSelector: 'button[data-id="lightboxNext"]',
   });
   try {
-    // lấy được ra post id từ URL
+    // lấy được ra post id từ URLL
     const searchParams = new URLSearchParams(window.location.search);
     const postId = searchParams.get("id"); // id của bài post, từng thẻ li.div.post-item
     if (!postId) return;
