@@ -22,7 +22,7 @@ function renderPostDetail(post) {
     "#postDetailTimeSpan",
     dayjs(post.updatedAt).format(" - DD/MM/YYYY HH:mm")
   );
-  // render hero image
+  // render hero imageeee
   setHeroImage(document, "postHeroImage", post.imageUrl);
   // render edit page link
   setEditPageLink(document, "goToEditPageLink", post.id);
