@@ -30,7 +30,7 @@ export function createPostElement(post) {
     dayjs(post.updateAt).fromNow()
   );
 
-  // gắn sự kiện cho từng thẻ div của post (div.post-item)
+  // gắn sự kiện cho từng thẻ div của post (div.post-item  )
   const divElement = liElement.firstElementChild;
   if (divElement)
     divElement.addEventListener("click", () => {
