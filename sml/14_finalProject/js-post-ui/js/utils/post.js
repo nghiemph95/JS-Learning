@@ -34,14 +34,17 @@ export function createPostElement(post) {
   const divElement = liElement.firstElementChild;
   if (divElement)
     divElement.addEventListener("click", () => {
-      window.location.assign(`/post-detail.html?id=${post.id}`);
+      console.log("parent click");
+      // window.location.assign(`/post-detail.html?id=${post.id}`);
     });
 
   // gắn sự kiện click vô nút edit trong mỗi bài post
   const editButton = liElement.querySelector('[data-id="edit"]');
   if (editButton)
-    editButton.addEventListener("click", () => {
+    editButton.addEventListener("click", (e) => {
       console.log("click");
+      // prevent event bubbling to parent
+      e.stopPropagation();
     });
 
   return liElement;
