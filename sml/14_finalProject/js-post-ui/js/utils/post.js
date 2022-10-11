@@ -33,7 +33,7 @@ export function createPostElement(post) {
   // gắn sự kiện cho từng thẻ div của post (div.post-item  )
   const divElement = liElement.firstElementChild;
   if (divElement)
-    divElement.addEventListener("click", () => {
+    divElement.addEventListener("click", (event) => {
       // if event triggered from menu -> ignore
       const menu = liElement.querySelector('[data-id="menu"]');
       if (menu && menu.contains(event.target)) return; //event.target chính là click
@@ -48,7 +48,7 @@ export function createPostElement(post) {
     editButton.addEventListener("click", (e) => {
       console.log("click");
       // prevent event bubbling to parent
-      e.stopPropagation();
+      // e.stopPropagation();
       // window.location.assign(`/add-edit-post.html?id=${post.id}`);
     });
 
