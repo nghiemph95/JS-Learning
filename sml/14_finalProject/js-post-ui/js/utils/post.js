@@ -37,6 +37,13 @@ export function createPostElement(post) {
       window.location.assign(`/post-detail.html?id=${post.id}`);
     });
 
+  // gắn sự kiện click vô nút edit trong mỗi bài post
+  const editButton = liElement.querySelector('[data-id="edit"]');
+  if (editButton)
+    editButton.addEventListener("click", () => {
+      console.log("click");
+    });
+
   return liElement;
 }
 
