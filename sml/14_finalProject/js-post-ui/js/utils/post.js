@@ -34,6 +34,10 @@ export function createPostElement(post) {
   const divElement = liElement.firstElementChild;
   if (divElement)
     divElement.addEventListener("click", () => {
+      // if event triggered from menu -> ignore
+      const menu = liElement.querySelector('[data-id="menu"]');
+      if (menu && menu.contains(event.target)) return; //event.target chính là click
+
       console.log("parent click");
       // window.location.assign(`/post-detail.html?id=${post.id}`);
     });
@@ -45,6 +49,7 @@ export function createPostElement(post) {
       console.log("click");
       // prevent event bubbling to parent
       e.stopPropagation();
+      // window.location.assign(`/add-edit-post.html?id=${post.id}`);
     });
 
   return liElement;
