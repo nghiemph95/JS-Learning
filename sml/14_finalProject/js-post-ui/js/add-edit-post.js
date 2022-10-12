@@ -6,12 +6,14 @@ import postApi from "./api/postApi";
     const searchParams = new URLSearchParams(window.location.search);
     const postId = searchParams.get("id");
 
-    let defaultValues = {
-      title: "",
-      description: "",
-      author: "",
-      imageUrl: "",
-    };
+    let defaultValues = Boolean(postId)
+      ? await postApi.getById(postId)
+      : {
+          title: "",
+          description: "",
+          author: "",
+          imageUrl: "",
+        };
 
     if (postId) {
       defaultValues = await postApi.getById(postId);
