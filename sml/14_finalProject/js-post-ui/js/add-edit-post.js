@@ -6,7 +6,7 @@ import postApi from "./api/postApi";
     const searchParams = new URLSearchParams(window.location.search);
     const postId = searchParams.get("id");
 
-    let defaultValues = Boolean(postId)
+    const defaultValues = Boolean(postId)
       ? await postApi.getById(postId)
       : {
           title: "",
@@ -14,10 +14,6 @@ import postApi from "./api/postApi";
           author: "",
           imageUrl: "",
         };
-
-    if (postId) {
-      defaultValues = await postApi.getById(postId);
-    }
 
     console.log("id:", postId);
     console.log("mode: ", postId ? "edit" : "add");
