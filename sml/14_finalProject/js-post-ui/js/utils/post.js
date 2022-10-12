@@ -47,7 +47,7 @@ export function createPostElement(post) {
   if (editButton)
     editButton.addEventListener("click", (e) => {
       // console.log("click");
-      // prevent event bubbling to parent
+      // prevent event bubbling to parenttt
       // e.stopPropagation();
       window.location.assign(`/add-edit-post.html?id=${post.id}`);
     });
