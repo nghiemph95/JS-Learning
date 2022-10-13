@@ -8,7 +8,17 @@ function setFormValues(form, defaultValues) {
   setHeroImage(document, "postHeroImage", defaultValues?.imageUrl);
 }
 
-function getFormValues(form) {}
+function getFormValues(form) {
+  const formValues = {};
+
+  //S1: query each input and add to values object
+  ["title", "author", "description", "imageUrl"].forEach((element) => {
+    const field = form.querySelector(`[name="${element}"]`);
+    if (field) formValues[element] = field.value;
+  });
+
+  return formValues;
+}
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId);
