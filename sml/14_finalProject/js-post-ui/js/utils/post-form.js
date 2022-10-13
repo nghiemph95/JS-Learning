@@ -17,6 +17,8 @@ function getFormValues(form) {
     if (field) formValues[element] = field.value;
   });
 
+  //S2: using form data
+
   return formValues;
 }
 
