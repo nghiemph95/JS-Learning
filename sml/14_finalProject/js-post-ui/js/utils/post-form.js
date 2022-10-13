@@ -1,9 +1,11 @@
-import { setFieldValue } from "./common";
+import { setFieldValue, setHeroImage } from "./common";
 
 function setFormValues(form, defaultValues) {
   setFieldValue(form, '[name="title"]', defaultValues?.title);
   setFieldValue(form, '[name="author"]', defaultValues?.author);
   setFieldValue(form, '[name="description"]', defaultValues?.description);
+  setFieldValue(form, '[name="imageUrl"]', defaultValues?.imageUrl); // hidden field
+  setHeroImage(document, "postHeroImage", defaultValues?.imageUrl);
 }
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
