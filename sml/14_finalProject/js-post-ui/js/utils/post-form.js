@@ -12,18 +12,22 @@ function getFormValues(form) {
   const formValues = {};
 
   //S1: query each input and add to values object
-  ["title", "author", "description", "imageUrl"].forEach((element) => {
-    const field = form.querySelector(`[name="${element}"]`);
-    if (field) formValues[element] = field.value;
-  });
+//   ["title", "author", "description", "imageUrl"].forEach((element) => {
+//     const field = form.querySelector(`[name="${element}"]`);
+//     if (field) formValues[element] = field.value;
+//   });
 
   //S2: using form data
+  const data = new FormData(form);
+  for (const [key, value] of data) {
+    formValues[key] = value;
+  }
 
   return formValues;
 }
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
-  const form = documesnt.getElementById(formId);
+  const form = document.getElementById(formId);
   if (!formId) return;
 
   // tạo form value (thằng cha cho giá trị gì thì set giá trị đó)
