@@ -27,8 +27,7 @@ export function setHeroImage(parent, selector, imageUrl) {
 
     heroImage.addEventListener("error", () => {
       console.log("load image error ->> use default placeholder");
-      heroImage.src =
-        "https://via.placeholder.com/1368x400?text=thumbnail";
+      heroImage.src = "https://via.placeholder.com/1368x400?text=thumbnail";
     });
   }
 }
@@ -47,4 +46,11 @@ export function truncateText(text, maxLength) {
   if (text.length <= maxLength) return text;
 
   return `${text.slice(0, maxLength - 1)}...`;
+}
+
+export function setFieldValue(form, selector, value) {
+  if (!form) return;
+
+  const field = form.querySelector(selector);
+  if (field) field.value = value;
 }
