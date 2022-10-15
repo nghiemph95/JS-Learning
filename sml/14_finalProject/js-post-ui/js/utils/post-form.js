@@ -27,6 +27,7 @@ function getFormValues(form) {
 }
 
 //hàm có nhiệm vụ trả về error message, nếu ko có error message thì trả về empty message
+//validation(4)
 function getTitleError(form) {
   const titleElement = form.querySelector('[name="title"]');
   if (!titleElement) return;
@@ -34,27 +35,28 @@ function getTitleError(form) {
   //required
   // at least two words
 
-  //kiểm tra xe đã nhập dữ liệu chưa (valueMissing = true tức là chưa)
+  //kiểm tra xe đã nhập dữ liệu chưa (valueMissing = true tức là chưa) -validation(5)
   if (titleElement.validity.valueMissing) {
     return "Please enter title";
   }
   return "";
 }
 
-//hàm trả về true/false
+//hàm trả về true/false - validation(2)
 function validatePostForm(form, formValues) {
-  //lấy thông tin error
+  //lấy thông tin error - validation(3)
   const errors = {
     title: getTitleError(form),
     // title: getAuthorError(form),
     //...
   };
 
-  //gắn error mess lên dom
+  //gắn error mess lên dom - validation(6)
   for (const key in errors) {
     const element = form.querySelector(`[name="${key}"]`);
     if (element) {
       // gắn error theo key(title, author, description,...) lên thẻ input
+      // validation(7): gắn "Please enter title vô cái setCustomValidity"
       element.setCustomValidity(errors[key]);
       //cập nhật cho thẻ div.invalid-feedback
       setTextContent(element.parentElement, ".invalid-feedback", errors[key]);
@@ -88,6 +90,7 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     // nếu validation valid thì trigger submit
     // nếu không thì show errors
 
-    if (!validatePostForm(form, formValues)) console.log('aaaaaaaa');
+    //validation(1)
+    if (!validatePostForm(form, formValues)) console.log("aaaaaaaa");
   });
 }
