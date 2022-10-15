@@ -34,7 +34,7 @@ function validatePostForm(form, formValues) {
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
-  if (!formId) return;
+  if (!form) return;
 
   // tạo form value (thằng cha cho giá trị gì thì set giá trị đó)
   console.log("form", form);
