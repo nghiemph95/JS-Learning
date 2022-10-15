@@ -50,9 +50,11 @@ function validatePostForm(form, formValues) {
       setTextContent(element.parentElement, ".invalid-feedback", errors[key]);
     }
   }
-  //gắn was-validated class to form element(HTML)
 
-  return false;
+  //gắn was-validated class to form element(HTML) để show lên cái error message
+  const isValid = form.checkValidity();
+  if (!isValid) form.classList.add("was-validated");
+  return isValid;
 }
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
@@ -60,7 +62,7 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
   if (!form) return;
 
   // tạo form value (thằng cha cho giá trị gì thì set giá trị đó)
-  console.log("form", form);
+  console.log("form: ", form);
   setFormValues(form, defaultValues);
 
   // gắn sự kiện submit cho form
@@ -71,7 +73,7 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
 
     // get form values
     const formValues = getFormValues(form);
-    console.log(formValues);
+    console.log("formValues: ", formValues);
     // validation
     // nếu validation valid thì trigger submit
     // nếu không thì show errors
