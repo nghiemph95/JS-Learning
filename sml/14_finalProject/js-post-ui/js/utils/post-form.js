@@ -33,12 +33,16 @@ function getTitleError(form) {
   if (!titleElement) return;
 
   //required
-  // at least two words
-
   //kiểm tra xe đã nhập dữ liệu chưa (valueMissing = true tức là chưa) -validation(5)
   if (titleElement.validity.valueMissing) {
     return "Please enter title";
   }
+
+  // at least two words
+  if (
+    titleElement.value.split(" ").filter((x) => !!x && x.length >= 3).length < 2
+  )
+    return "Please enter at least two words of 3 characters";
   return "";
 }
 
@@ -58,13 +62,14 @@ function validatePostForm(form, formValues) {
       // gắn error theo key(title, author, description,...) lên thẻ input
       // validation(7): gắn "Please enter title vô cái setCustomValidity"
       element.setCustomValidity(errors[key]);
-      //cập nhật cho thẻ div.invalid-feedback
+      //cập nhật cho thẻ div.invalid-feedback - validation(8)
       setTextContent(element.parentElement, ".invalid-feedback", errors[key]);
     }
   }
 
   //gắn was-validated class to form element(HTML) để show lên cái error message
   const isValid = form.checkValidity(); //checkValidity bằng false/true
+  // sau khi chạy hết vòng for bên trên nó sẽ add class: was-validated - validation(9)
   if (!isValid) form.classList.add("was-validated");
   return isValid;
 }
@@ -91,6 +96,6 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     // nếu không thì show errors
 
     //validation(1)
-    if (!validatePostForm(form, formValues)) console.log("aaaaaaaa");
+    if (!validatePostForm(form, formValues)) return;
   });
 }
