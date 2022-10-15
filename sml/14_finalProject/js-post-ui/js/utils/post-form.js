@@ -69,7 +69,7 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log("submit form");
+    console.log("submit form success!");
 
     // get form values
     const formValues = getFormValues(form);
