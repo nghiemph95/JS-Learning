@@ -28,6 +28,14 @@ function getFormValues(form) {
 
 //hàm có nhiệm vụ trả về error message, nếu ko có error message thì trả về empty message
 function getTitleError(form) {
+  const titleElement = form.querySelector('[name="title"]');
+  if (!titleElement) return;
+
+  //required
+  // at least two words
+  if (titleElement.validity.valueMissing) {
+    return "Please enter title";
+  }
   return "";
 }
 
@@ -78,6 +86,6 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     // nếu validation valid thì trigger submit
     // nếu không thì show errors
 
-    if (!validatePostForm(form, formValues)) return;
+    if (!validatePostForm(form, formValues)) console.log('aaaaaaaa');
   });
 }
