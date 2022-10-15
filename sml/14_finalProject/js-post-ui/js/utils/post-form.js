@@ -33,6 +33,8 @@ function getTitleError(form) {
 
   //required
   // at least two words
+
+  //kiểm tra xe đã nhập dữ liệu chưa (valueMissing = true tức là chưa)
   if (titleElement.validity.valueMissing) {
     return "Please enter title";
   }
@@ -60,7 +62,7 @@ function validatePostForm(form, formValues) {
   }
 
   //gắn was-validated class to form element(HTML) để show lên cái error message
-  const isValid = form.checkValidity();
+  const isValid = form.checkValidity(); //checkValidity bằng false/true
   if (!isValid) form.classList.add("was-validated");
   return isValid;
 }
