@@ -26,13 +26,14 @@ function getFormValues(form) {
   return formValues;
 }
 
+//hàm trả về true/false
 function validatePostForm(form, formValues) {
   
 }
 
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
-  const form = document.getElementById(formId);
+  const form = document.getElementById(formId); //formId = 'postForm'
   if (!formId) return;
 
   // tạo form value (thằng cha cho giá trị gì thì set giá trị đó)
@@ -51,5 +52,7 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     // validation
     // nếu validation valid thì trigger submit
     // nếu không thì show errors
+
+    if (!validatePostForm)
   });
 }
