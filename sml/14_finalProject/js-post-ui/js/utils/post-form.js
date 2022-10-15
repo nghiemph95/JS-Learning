@@ -1,4 +1,4 @@
-import { setFieldValue, setHeroImage } from "./common";
+import { setFieldValue, setHeroImage, setTextContent } from "./common";
 
 function setFormValues(form, defaultValues) {
   setFieldValue(form, '[name="title"]', defaultValues?.title);
@@ -12,10 +12,10 @@ function getFormValues(form) {
   const formValues = {};
 
   //S1: query each input and add to values object
-//   ["title", "author", "description", "imageUrl"].forEach((element) => {
-//     const field = form.querySelector(`[name="${element}"]`);
-//     if (field) formValues[element] = field.value;
-//   });
+  //   ["title", "author", "description", "imageUrl"].forEach((element) => {
+  //     const field = form.querySelector(`[name="${element}"]`);
+  //     if (field) formValues[element] = field.value;
+  //   });
 
   //S2: using form data
   const data = new FormData(form);
@@ -26,11 +26,34 @@ function getFormValues(form) {
   return formValues;
 }
 
-//hàm trả về true/false
-function validatePostForm(form, formValues) {
-  
+//hàm có nhiệm vụ trả về error message, nếu ko có error message thì trả về empty message
+function getTitleError(form) {
+  return "";
 }
 
+//hàm trả về true/false
+function validatePostForm(form, formValues) {
+  //lấy thông tin error
+  const errors = {
+    title: getTitleError(form),
+    // title: getAuthorError(form),
+    //...
+  };
+
+  //gắn error mess lên dom
+  for (const key in errors) {
+    const element = form.querySelector(`[name="${key}"]`);
+    if (element) {
+      // gắn error theo key(title, author, description,...) lên thẻ input
+      element.setCustomValidity(errors[key]);
+      //cập nhật cho thẻ div.invalid-feedback
+      setTextContent(element.parentElement, ".invalid-feedback", errors[key]);
+    }
+  }
+  //gắn was-validated class to form element(HTML)
+
+  return false;
+}
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
@@ -53,6 +76,6 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     // nếu validation valid thì trigger submit
     // nếu không thì show errors
 
-    if (!validatePostForm)
+    if (!validatePostForm(form, formValues)) return;
   });
 }
