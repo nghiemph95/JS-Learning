@@ -26,6 +26,11 @@ function getFormValues(form) {
   return formValues;
 }
 
+function validatePostForm(form, formValues) {
+  
+}
+
+
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId);
   if (!formId) return;
