@@ -107,10 +107,18 @@ async function validatePostForm(form, formValues) {
     console.log(error.name); //error
     console.log(error.inner); //mảng
 
+    const errorLog = {};
+
     if (error.name === "ValidationError" && Array.isArray(error.inner)) {
       for (const validationError of error.inner) {
         const name = validationError.path;
+
+        // bỏ qua nếu đã log error của 1 field nào đó và không cho log tiếp error của field đó lần nữa
+        if (errorLog[name]) continue; //bỏ qua nếu tồn tại errorLog[name]
+
+        // set field error and mark as logged
         setFieldError(form, name, validatePostForm.message);
+        errorLog[name] = true;
       }
     }
   }
