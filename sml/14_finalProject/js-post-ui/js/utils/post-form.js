@@ -107,9 +107,11 @@ async function validatePostForm(form, formValues) {
     console.log(error.name); //error
     console.log(error.inner); //mảng
 
-    for (const validationError of error.inner) {
-      const name = validationError.path;
-      setFieldError(form, name, validatePostForm.message);
+    if (error.name === "ValidationError" && Array.isArray(error.inner)) {
+      for (const validationError of error.inner) {
+        const name = validationError.path;
+        setFieldError(form, name, validatePostForm.message);
+      }
     }
   }
 
