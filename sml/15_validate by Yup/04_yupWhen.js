@@ -2,6 +2,9 @@ import * as yup from "yup";
 
 (async () => {
   const schema = yup.object().shape({
+    //check spam
+    checkSpam: yup.boolean(),
+    isSpecial: yup.boolean(),
     //check title
     title: yup
       .string()
@@ -15,11 +18,27 @@ import * as yup from "yup";
           );
         }
       )
-      .test("should-not-spam", 'Please not use "spam" in title', (value) => {
-        return !value.includes("spam");
+      // test spam sẽ phụ thuộc vào checkSpam
+      .when(["checkSpam", "isSpecial"], {
+        is: true,
+        then: yup
+          .string() //number or string or ...
+          .test(
+            "should-not-spam",
+            'Please not use "spam" in title',
+            (value) => {
+              return !value.includes("spam");
+            }
+          ),
       }),
+
     //check age
-    age: yup.number().required("please enter age").min(10, "mis is ten"),
+    age: yup
+      .number()
+      .required("please enter age")
+      .min(10, "mis is ten")
+      // khi nhập sai kiểu dữ liệu đã khai báo thì typeError sẽ bắt đúng kiểu dữ liệu
+      .typeError("Please enter a valid number"),
     //check email
     email: yup.string().required().email("please enter a valide email"),
     //check password
@@ -38,6 +57,7 @@ import * as yup from "yup";
     await schema.validate(
       {
         //demo test
+        checkSpam: true,
         title: "easy",
         age: 10,
         email: "abc@abc.com",
