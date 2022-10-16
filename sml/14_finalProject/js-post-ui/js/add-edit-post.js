@@ -1,7 +1,7 @@
 import postApi from "./api/postApi";
 import { initPostForm } from "./utils";
 
-// MAIN
+// MAINNN
 (async () => {
   try {
     const searchParams = new URLSearchParams(window.location.search);
