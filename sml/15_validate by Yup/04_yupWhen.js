@@ -2,6 +2,7 @@ import * as yup from "yup";
 
 (async () => {
   const schema = yup.object().shape({
+    //check title
     title: yup
       .string()
       .required("please enter title")
@@ -36,6 +37,7 @@ import * as yup from "yup";
   try {
     await schema.validate(
       {
+        //demo test
         title: "easy",
         age: 10,
         email: "abc@abc.com",
