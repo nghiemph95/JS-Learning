@@ -27,5 +27,3 @@ import { initPostForm } from "./utils";
     console.log("failed to fetch post details:", error);
   }
 })();
-
-console.log(100 / 3);
