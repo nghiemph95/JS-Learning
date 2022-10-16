@@ -1,4 +1,4 @@
-import { setFieldValue, setHeroImage, setTextContent } from "./common";
+import { setFieldValue, setHeroImage, setTextContent } from ".";
 import * as yup from "yup";
 
 function setFormValues(form, defaultValues) {
@@ -102,6 +102,7 @@ async function validatePostForm(form, formValues) {
 
     //validate với schema đã định nghĩa bên trên
     const schema = getPostSchema();
+    console.log("schema", schema);
     await schema.validate(formValues, { abortEarly: false });
   } catch (error) {
     // console.log(error.name); //error
