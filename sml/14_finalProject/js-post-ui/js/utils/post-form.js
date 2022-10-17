@@ -66,6 +66,7 @@ function getPostSchema() {
 
 function setFieldError(form, name, error) {
   const element = form.querySelector(`[name="${name}"]`);
+  console.log("setFiedlError -> Element", element);
   if (element) {
     // gắn error theo key(title, author, description,...) lên thẻ input
     // validation(7): gắn "Please enter title vô cái setCustomValidity"
