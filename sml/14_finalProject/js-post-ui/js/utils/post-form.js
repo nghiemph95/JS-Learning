@@ -120,6 +120,7 @@ async function validatePostForm(form, formValues) {
 
         // set field error and mark as logged
         setFieldError(form, name, validationError.message);
+        console.log(validationError.message);
         errorLog[name] = true;
       }
     }
