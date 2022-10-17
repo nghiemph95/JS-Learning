@@ -60,13 +60,12 @@ function getPostSchema() {
         (value) =>
           value.split(" ").filter((x) => !!x && x.length >= 3).length >= 2
       ),
-    description: yup.string(),
+    description: yup.string().required("Please input description"),
   });
 }
 
 function setFieldError(form, name, error) {
-  const element = form.querySelector(`[name="${name}"]`);
-  console.log("setFiedlError -> Element", element);
+  const element = form.querySelector(`[name="${name}"]`); //name: ["title", "author", "description"]
   if (element) {
     // gắn error theo key(title, author, description,...) lên thẻ input
     // validation(7): gắn "Please enter title vô cái setCustomValidity"
@@ -99,11 +98,12 @@ async function validatePostForm(form, formValues) {
 
   try {
     //reset previous errors
-    ["title", "author"].forEach((name) => setFieldError(form, name, ""));
+    ["title", "author", "description"].forEach((name) =>
+      setFieldError(form, name, "")
+    );
 
     //validate với schema đã định nghĩa bên trên
     const schema = getPostSchema();
-    console.log("schema", schema);
     await schema.validate(formValues, { abortEarly: false });
   } catch (error) {
     // console.log(error.name); //error
@@ -119,8 +119,7 @@ async function validatePostForm(form, formValues) {
         if (errorLog[name]) continue; //bỏ qua nếu tồn tại errorLog[name]
 
         // set field error and mark as logged
-        setFieldError(form, name, validatePostForm.message);
-        console.log("validatePostForm", validationError.message);
+        setFieldError(form, name, validationError.message);
         errorLog[name] = true;
       }
     }
