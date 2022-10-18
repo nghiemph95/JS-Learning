@@ -106,9 +106,6 @@ async function validatePostForm(form, formValues) {
     const schema = getPostSchema();
     await schema.validate(formValues, { abortEarly: false });
   } catch (error) {
-    // console.log(error.name); //error
-    // console.log(error.inner); //mảng
-
     const errorLog = {};
 
     if (error.name === "ValidationError" && Array.isArray(error.inner)) {
