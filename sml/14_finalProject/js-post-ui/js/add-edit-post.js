@@ -1,6 +1,12 @@
 import postApi from "./api/postApi";
 import { initPostForm } from "./utils";
 
+// function handlePostFormSubmit(formValues) {
+//   console.log("submit from parent", formValues);
+
+//   // call api
+// }
+
 // MAINNN
 (async () => {
   try {
@@ -20,7 +26,7 @@ import { initPostForm } from "./utils";
       formId: "postForm",
       defaultValues,
       onSubmit: (formValues) => {
-        console.log("submit", formValues);
+        console.log("submit from parent", formValues);
       },
     });
   } catch (error) {
