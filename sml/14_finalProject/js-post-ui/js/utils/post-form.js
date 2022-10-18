@@ -138,10 +138,8 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
   setFormValues(form, defaultValues);
 
   // gắn sự kiện submit cho form
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-
-    console.log("submit form success!");
 
     // get form values
     const formValues = getFormValues(form);
@@ -152,9 +150,12 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
 
     //validation(1)
     // trường hợp hàm validatePostForm bên trên là async thì ở đây
-    // phải set await để đợi cái hàm validatePostForm chạy xong 
+    // phải set await để đợi cái hàm validatePostForm chạy xong
     // tại vì khi đó cái if sẽ là 1 promise, mà promise là truthy
     // nên cái if này sẽ ko bh thỏa
-    if (!validatePostForm(form, formValues)) return;
+    const isValid = await validatePostForm(form, formValues);
+    if (!isValid) return;
+
+    onSubmit?.(formValues);
   });
 }
