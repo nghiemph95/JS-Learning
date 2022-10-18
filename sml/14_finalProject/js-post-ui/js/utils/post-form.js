@@ -151,6 +151,10 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     // nếu không thì show errors
 
     //validation(1)
+    // trường hợp hàm validatePostForm bên trên là async thì ở đây
+    // phải set await để đợi cái hàm validatePostForm chạy xong 
+    // tại vì khi đó cái if sẽ là 1 promise, mà promise là truthy
+    // nên cái if này sẽ ko bh thỏa
     if (!validatePostForm(form, formValues)) return;
   });
 }
