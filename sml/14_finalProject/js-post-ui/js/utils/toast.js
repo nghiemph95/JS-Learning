@@ -8,6 +8,7 @@ export const toast = {
       duration: 5000,
       gravity: "top",
       position: "right",
+      close: true,
       style: {
         background: "#29b6f6",
       },
@@ -19,6 +20,7 @@ export const toast = {
       duration: 5000,
       gravity: "top",
       position: "right",
+      close: true,
       style: {
         background: "#66bb6a",
       },
@@ -30,6 +32,7 @@ export const toast = {
       duration: 5000,
       gravity: "top",
       position: "right",
+      close: true,
       style: {
         background: "#f44336",
       },
