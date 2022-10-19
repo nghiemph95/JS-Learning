@@ -7,6 +7,8 @@ function handlePostFormSubmit(formValues) {
   // call api
   try {
     // check if is add/edit mode
+    // S1: dựa vào searchParam (check id)
+    // S2: kiểm tra có id hay ko trong formValues
     // call API
     // show success message
     // redirect to detail page
