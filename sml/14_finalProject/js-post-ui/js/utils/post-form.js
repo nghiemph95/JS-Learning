@@ -143,7 +143,7 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
 
     // get form values
     const formValues = getFormValues(form);
-    // lấy formId từ defaultValude
+    // lấy formId từ defaultValude gắn cho formValues
     formValues.id = defaultValues.id;
     console.log("formValues: ", formValues);
     // validation

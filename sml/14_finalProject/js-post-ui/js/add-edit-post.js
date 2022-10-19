@@ -24,6 +24,7 @@ async function handlePostFormSubmit(formValues) {
 
     // show success message
     // redirect to detail page
+    window.location.assign(`/post-detail.html?id=${savePost.id}`);
     console.log("redirect to", savePost.id);
   } catch (error) {
     console.log("failed to save post", error);
