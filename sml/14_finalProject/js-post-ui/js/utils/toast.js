@@ -11,8 +11,7 @@ export const toast = {
       style: {
         background: "#29b6f6",
       },
-    }),
-      showToast();
+    }).showToast();
   },
   success(message) {
     Toastify({
@@ -23,8 +22,7 @@ export const toast = {
       style: {
         background: "#66bb6a",
       },
-    }),
-      showToast();
+    }).showToast();
   },
   error(message) {
     Toastify({
@@ -35,7 +33,6 @@ export const toast = {
       style: {
         background: "#f44336",
       },
-    }),
-      showToast();
+    }).showToast();
   },
 };
