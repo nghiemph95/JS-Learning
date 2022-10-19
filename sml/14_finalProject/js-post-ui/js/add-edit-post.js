@@ -1,11 +1,19 @@
 import postApi from "./api/postApi";
 import { initPostForm } from "./utils";
 
-// function handlePostFormSubmit(formValues) {
-//   console.log("submit from parent", formValues);
+function handlePostFormSubmit(formValues) {
+  console.log("submit from parent", formValues);
 
-//   // call api
-// }
+  // call api
+  try {
+    // check if is add/edit mode
+    // call API
+    // show success message
+    // redirect to detail page
+  } catch (error) {
+    console.log("failed to save post", error);
+  }
+}
 
 // MAINNN
 (async () => {
@@ -25,9 +33,7 @@ import { initPostForm } from "./utils";
     initPostForm({
       formId: "postForm",
       defaultValues,
-      onSubmit: (formValues) => {
-        console.log("submit from parent", formValues);
-      },
+      onSubmit: handlePostFormSubmit,
     });
   } catch (error) {
     console.log("failed to fetch post details:", error);
