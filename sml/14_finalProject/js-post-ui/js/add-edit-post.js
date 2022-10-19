@@ -2,7 +2,7 @@ import postApi from "./api/postApi";
 import { initPostForm, toast } from "./utils";
 
 async function handlePostFormSubmit(formValues) {
-  console.log("submit from parent", formValues);
+  // console.log("submit from parent", formValues);
 
   // call api
   try {
@@ -26,10 +26,8 @@ async function handlePostFormSubmit(formValues) {
     toast.success("Save post successfully!");
 
     // redirect to detail page
-    window.location.assign(`/post-detail.html?id=${savePost.id}`);
-    console.log("redirect to", savePost.id);
+    // window.location.assign(`/post-detail.html?id=${savePost.id}`);
   } catch (error) {
-    console.log("failed to save post", error);
     toast.error(`Error: ${error.message}`);
   }
 }
