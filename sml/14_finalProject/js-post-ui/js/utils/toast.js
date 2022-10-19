@@ -1,0 +1,41 @@
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+
+export const toast = {
+  info(message) {
+    Toastify({
+      text: message,
+      duration: 5000,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#29b6f6",
+      },
+    }),
+      showToast();
+  },
+  success(message) {
+    Toastify({
+      text: message,
+      duration: 5000,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#66bb6a",
+      },
+    }),
+      showToast();
+  },
+  error(message) {
+    Toastify({
+      text: message,
+      duration: 5000,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#f44336",
+      },
+    }),
+      showToast();
+  },
+};
