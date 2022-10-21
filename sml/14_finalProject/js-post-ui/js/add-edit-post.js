@@ -55,6 +55,6 @@ async function handlePostFormSubmit(formValues) {
       onSubmit: handlePostFormSubmit,
     });
   } catch (error) {
-    console.log("failed to fetch post details:", error);
+    console.log("failed to fetch post detailss:", error);
   }
 })();
