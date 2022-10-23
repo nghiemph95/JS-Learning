@@ -26,9 +26,9 @@ async function handlePostFormSubmit(formValues) {
     toast.success("Save post successfully!");
 
     // redirect to detail page
-    setTimeout(() => {
-      window.location.assign(`/post-detail.html?id=${savePost.id}`);
-    }, 1500);
+    // setTimeout(() => {
+    //   window.location.assign(`/post-detail.html?id=${savePost.id}`);
+    // }, 1500);
   } catch (error) {
     toast.error(`Error: ${error.message}`);
   }

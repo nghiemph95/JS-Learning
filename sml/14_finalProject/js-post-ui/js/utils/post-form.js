@@ -129,6 +129,18 @@ async function validatePostForm(form, formValues) {
   return isValid;
 }
 
+// enable cái button Save
+function showLoading(form) {
+  const button = form.querySelector('[name="submit"]');
+  if (button) {
+    button.disable = true;
+    button.textContent = "Saving...";
+  }
+}
+
+// disable button Save
+function hideLoading(form) {}
+
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
   if (!form) return;
@@ -142,6 +154,7 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     event.preventDefault();
 
     // show loading/disabled button
+    showLoading(form);
 
     // get form values
     const formValues = getFormValues(form);
@@ -163,6 +176,9 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     if (!isValid) return;
 
     //truyền formValues vào onSubmit
-    onSubmit?.(formValues);
+    await onSubmit?.(formValues);
+
+    // sau khi submit xong thi hideloading
+    hideLoading(form);
   });
 }
