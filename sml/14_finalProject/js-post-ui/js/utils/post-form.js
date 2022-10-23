@@ -1,4 +1,4 @@
-import { setFieldValue, setHeroImage, setTextContent } from ".";
+import { setFieldValue, setHeroImage, setTextContent, randomNumber } from ".";
 import * as yup from "yup";
 
 function setFormValues(form, defaultValues) {
@@ -61,6 +61,10 @@ function getPostSchema() {
           value.split(" ").filter((x) => !!x && x.length >= 3).length >= 2
       ),
     description: yup.string().required("Please input description"),
+    imageUrl: yup
+      .string()
+      .required("Please random a background image")
+      .url("Please enter imageUrl"),
   });
 }
 
@@ -98,7 +102,7 @@ async function validatePostForm(form, formValues) {
 
   try {
     //reset previous errors
-    ["title", "author", "description"].forEach((name) =>
+    ["title", "author", "description", "imageUrl"].forEach((name) =>
       setFieldError(form, name, "")
     );
 
@@ -154,7 +158,9 @@ function initRandomImage(form) {
     randomButton.addEventListener("click", () => {
       //randomID
       // build URL
-      const imageUrl = "";
+      const imageUrl = `https://picsum.photos/id/${randomNumber(
+        1000
+      )}/1368/400`;
 
       // set imageUrl input + background
       setFieldValue(form, '[name="imageUrl"]', imageUrl); // hidden field
