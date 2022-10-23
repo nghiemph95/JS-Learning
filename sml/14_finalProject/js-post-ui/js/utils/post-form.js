@@ -133,13 +133,19 @@ async function validatePostForm(form, formValues) {
 function showLoading(form) {
   const button = form.querySelector('[name="submit"]');
   if (button) {
-    button.disable = true;
+    button.disabled = true;
     button.textContent = "Saving...";
   }
 }
 
 // disable button Save
-function hideLoading(form) {}
+function hideLoading(form) {
+  const button = form.querySelector('[name="submit"]');
+  if (button) {
+    button.disabled = false;
+    button.textContent = "Save";
+  }
+}
 
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
