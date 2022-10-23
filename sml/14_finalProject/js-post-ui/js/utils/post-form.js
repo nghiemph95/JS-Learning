@@ -147,6 +147,22 @@ function hideLoading(form) {
   }
 }
 
+// khởi tạo sự kiện randomImage
+function initRandomImage(form) {
+  const randomButton = document.getElementById("postChangeImage");
+  if (randomButton) {
+    randomButton.addEventListener("click", () => {
+      //randomID
+      // build URL
+      const imageUrl = "";
+
+      // set imageUrl input + background
+      setFieldValue(form, '[name="imageUrl"]', imageUrl); // hidden field
+      setHeroImage(document, "postHeroImage", imageUrl);
+    });
+  }
+}
+
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
   if (!form) return;
@@ -154,8 +170,11 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
   let submitting = false;
 
   // tạo form value (thằng cha cho giá trị gì thì set giá trị đó)
-  console.log("form: ", form);
+  // console.log("form: ", form);
   setFormValues(form, defaultValues);
+
+  // khởi tạo sự kiện randomImage
+  initRandomImage(form);
 
   // gắn sự kiện submit cho form
   form.addEventListener("submit", async (event) => {
