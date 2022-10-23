@@ -151,6 +151,8 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
   if (!form) return;
 
+  let submitting = false;
+
   // tạo form value (thằng cha cho giá trị gì thì set giá trị đó)
   console.log("form: ", form);
   setFormValues(form, defaultValues);
@@ -159,8 +161,13 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    if (submitting) {
+      return;
+    }
+
     // show loading/disabled button
     showLoading(form);
+    submitting = true;
 
     // get form values
     const formValues = getFormValues(form);
@@ -186,5 +193,6 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
 
     // sau khi submit xong thi hideloading
     hideLoading(form);
+    submitting = false;
   });
 }
