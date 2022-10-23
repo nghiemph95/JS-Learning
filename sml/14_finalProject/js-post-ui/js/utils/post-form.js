@@ -141,6 +141,8 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    // show loading/disabled button
+
     // get form values
     const formValues = getFormValues(form);
     // lấy formId từ defaultValude gắn cho formValues
