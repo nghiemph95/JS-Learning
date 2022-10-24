@@ -93,14 +93,14 @@
 
                         <div class="mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="imageSource" id="imageSourcePicsum">
+                                <input class="form-check-input" type="radio" name="imageSource" id="imageSourcePicsum"
+                                    checked>
                                 <label class="form-check-label" for="imageSourcePicsum">
                                     Random image using picsum.photos
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="imageSource" id="imageSourceUpload"
-                                    checked>
+                                <input class="form-check-input" type="radio" name="imageSource" id="imageSourceUpload">
                                 <label class="form-check-label" for="imageSourceUpload">
                                     Upload image from your computer
                                 </label>
@@ -127,6 +127,11 @@
                                 Please enter imageUrl of this post!
                             </div>
 
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input name="image" type="file" class="form-control" id="uploadImage">
+                            <label class="input-group-text" for="uploadImage">Upload</label>
                         </div>
 
                         <div class="text-center">
