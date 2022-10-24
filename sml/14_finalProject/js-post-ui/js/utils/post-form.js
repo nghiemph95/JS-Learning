@@ -211,10 +211,9 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
     // tại vì khi đó cái if sẽ là 1 promise, mà promise là truthy
     // nên cái if này sẽ ko bh thỏa
     const isValid = await validatePostForm(form, formValues);
-    if (!isValid) return;
 
     //truyền formValues vào onSubmit
-    await onSubmit?.(formValues);
+    if (isValid) await onSubmit?.(formValues);
 
     // sau khi submit xong thi hideloading
     hideLoading(form);
