@@ -13,10 +13,10 @@ function getFormValues(form) {
   const formValues = {};
 
   //S1: query each input and add to values object
-  //   ["title", "author", "description", "imageUrl"].forEach((element) => {
-  //     const field = form.querySelector(`[name="${element}"]`);
-  //     if (field) formValues[element] = field.value;
-  //   });
+    ["title", "author", "description", "imageUrl"].forEach((element) => {
+      const field = form.querySelector(`[name="${element}"]`);
+      if (field) formValues[element] = field.value;
+    });
 
   //S2: using form data
   const data = new FormData(form);
