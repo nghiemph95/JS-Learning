@@ -13,7 +13,7 @@ async function handleFilterChange(filterName, filterValue) {
     const url = new URL(window.location);
     url.searchParams.set(filterName, filterValue);
 
-    // reset page khi search
+    // reset page khi searchh
     if (filterName === "title_like") url.searchParams.set("_page", 1);
 
     history.pushState({}, "", url);
