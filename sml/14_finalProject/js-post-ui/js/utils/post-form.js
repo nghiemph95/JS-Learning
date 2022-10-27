@@ -13,10 +13,10 @@ function getFormValues(form) {
   const formValues = {};
 
   //S1: query each input and add to values object
-    ["title", "author", "description", "imageUrl"].forEach((element) => {
-      const field = form.querySelector(`[name="${element}"]`);
-      if (field) formValues[element] = field.value;
-    });
+  ["title", "author", "description", "imageUrl"].forEach((element) => {
+    const field = form.querySelector(`[name="${element}"]`);
+    if (field) formValues[element] = field.value;
+  });
 
   //S2: using form data
   const data = new FormData(form);
@@ -169,6 +169,24 @@ function initRandomImage(form) {
   }
 }
 
+function renderImageSourceControl(form, selectedValue) {
+  const controlList = form.querySelectorAll('[data-id="imageSource"]');
+  controlList.forEach((control) => {
+    control.hidden = control.dataset.imageSource !== selectedValue;
+  });
+}
+
+// Khơi tạo sự kiện radio
+function initRadioImageSource(form) {
+  // tìm tất cả radio có cùng name là ImageSource
+  const radioList = form.querySelectorAll('[name="imageSource"]');
+  radioList.forEach((radio) => {
+    radio.addEventListener("change", (event) =>
+      renderImageSourceControl(form, event.target.value)
+    );
+  });
+}
+
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
   if (!form) return;
@@ -181,6 +199,9 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
 
   // khởi tạo sự kiện randomImage
   initRandomImage(form);
+
+  // Khơi tạo sự kiện radio
+  initRadioImageSource(form);
 
   // gắn sự kiện submit cho form
   form.addEventListener("submit", async (event) => {
