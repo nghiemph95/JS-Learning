@@ -187,6 +187,21 @@ function initRadioImageSource(form) {
   });
 }
 
+// khởi tạo sự kiện upload image
+function initUploadImage(form) {
+  const uploadImage = form.querySelector('[name="image"]');
+  if (uploadImage) {
+    uploadImage.addEventListener("change", (event) => {
+      console.log("selected file", event.target.files[0]);
+      const file = event.target.files[0];
+      if (file) {
+        const imageUrl = URL.createObjectURL(file);
+        setHeroImage(document, "postHeroImage", imageUrl);
+      }
+    });
+  }
+}
+
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
   if (!form) return;
@@ -202,6 +217,9 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
 
   // Khơi tạo sự kiện radio
   initRadioImageSource(form);
+
+  // khởi tạo sự kiện upload image
+  initUploadImage(form);
 
   // gắn sự kiện submit cho form
   form.addEventListener("submit", async (event) => {
