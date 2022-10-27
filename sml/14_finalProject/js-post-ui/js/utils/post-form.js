@@ -187,7 +187,7 @@ function initRadioImageSource(form) {
   });
 }
 
-// khởi tạo sự kiện upload image
+// khởi tạo sự kiện upload images
 function initUploadImage(form) {
   const uploadImage = form.querySelector('[name="image"]');
   if (uploadImage) {
