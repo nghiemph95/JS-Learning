@@ -192,7 +192,7 @@ function initUploadImage(form) {
   const uploadImage = form.querySelector('[name="image"]');
   if (uploadImage) {
     uploadImage.addEventListener("change", (event) => {
-      console.log("selected file", event.target.files[0]);
+      // console.log("selected file", event.target.files[0]);
       const file = event.target.files[0];
       if (file) {
         const imageUrl = URL.createObjectURL(file);
