@@ -61,6 +61,7 @@ function getPostSchema() {
           value.split(" ").filter((x) => !!x && x.length >= 3).length >= 2
       ),
     description: yup.string().required("Please input description"),
+    imageSource: yup.string(),
     imageUrl: yup
       .string()
       .required("Please random a background image")
