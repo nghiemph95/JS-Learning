@@ -2,8 +2,8 @@ import postApi from "./api/postApi";
 import { initPostForm, toast } from "./utils";
 
 async function handlePostFormSubmit(formValues) {
-  // console.log("submit from parent", formValues);
-
+  console.log("submit from parent", formValues);
+  return;
   // call api
   try {
     // check if is add/edit mode

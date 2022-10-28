@@ -1,6 +1,11 @@
 import { setFieldValue, setHeroImage, setTextContent, randomNumber } from ".";
 import * as yup from "yup";
 
+const ImageSource = {
+  PICSUM: "picsum",
+  UPLOAD: "upload",
+};
+
 function setFormValues(form, defaultValues) {
   setFieldValue(form, '[name="title"]', defaultValues?.title);
   setFieldValue(form, '[name="author"]', defaultValues?.author);
@@ -61,11 +66,25 @@ function getPostSchema() {
           value.split(" ").filter((x) => !!x && x.length >= 3).length >= 2
       ),
     description: yup.string().required("Please input description"),
-    imageSource: yup.string(),
-    imageUrl: yup
+    imageSource: yup
       .string()
-      .required("Please random a background image")
-      .url("Please enter imageUrl"),
+      .require("Please select an image source")
+      .oneOf([ImageSource.PICSUM, ImageSource.UPLOAD], "Invalid image source"),
+    imageUrl: yup.string().when("imageSource", {
+      is: ImageSource.PICSUM,
+      then: yup
+        .string()
+        .required("Please random a background image")
+        .url("Please enter a valid URL"),
+    }),
+    image: yup.mixed().when("imageSource", {
+      is: ImageSource.UPLOAD,
+      then: yup
+        .mixed()
+        .test("required", "Please select an image to upload", (value) =>
+          Boolean(value?.name)
+        ),
+    }),
   });
 }
 
