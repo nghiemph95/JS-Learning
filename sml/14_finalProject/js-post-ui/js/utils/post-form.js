@@ -68,7 +68,7 @@ function getPostSchema() {
     description: yup.string().required("Please input description"),
     imageSource: yup
       .string()
-      .require("Please select an image source")
+      .required("Please select an image source")
       .oneOf([ImageSource.PICSUM, ImageSource.UPLOAD], "Invalid image source"),
     imageUrl: yup.string().when("imageSource", {
       is: ImageSource.PICSUM,
