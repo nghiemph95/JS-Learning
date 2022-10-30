@@ -81,10 +81,15 @@ function getPostSchema() {
       is: ImageSource.UPLOAD,
       then: yup
         .mixed()
-        .test("required", "Please select an image to upload", (value) =>
-          // Nếu value.name ko tồn tại thì return false
-          Boolean(value?.name)
-        ),
+        .test("required", "Please select an image to upload", (file) =>
+          // Nếu file.name ko tồn tại thì return false
+          Boolean(file?.name)
+        )
+        .test("max-3mb", "The image is two large (max 3mb)", (file) => {
+          const fileSize = file?.size || 0;
+          const MAX_SIZE = 3 * 1024 * 1024;
+          return fileSize <= MAX_SIZE;
+        }),
     }),
   });
 }
@@ -123,7 +128,7 @@ async function validatePostForm(form, formValues) {
 
   try {
     //reset previous errors
-    ["title", "author", "description", "imageUrl"].forEach((name) =>
+    ["title", "author", "description", "imageUrl", "image"].forEach((name) =>
       setFieldError(form, name, "")
     );
 
