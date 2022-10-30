@@ -164,7 +164,18 @@ async function validationFormField(form, formValues, name) {
   try {
     //clear pervious error
     setFieldError(form, name, "");
-  } catch (error) {}
+
+    const schema = getPostSchema();
+    await schema.validateAt(name, formValues); // image, title, imageUrl = name
+  } catch (error) {
+    setFieldError(form, name, error.message);
+  }
+
+  // show validation err
+  const field = form.querySelector(`[name = "${name}"]`);
+  if (field && !field.checkValidity()) {
+    field.parentElement.classList.add("was-validated");
+  }
 }
 
 // enable cái button Save
@@ -233,6 +244,11 @@ function initUploadImage(form) {
         setHeroImage(document, "postHeroImage", imageUrl);
 
         // trigger validation of upload input
+        validationFormField(
+          form,
+          { imageSource: ImageSource.UPLOAD, image: file },
+          "image"
+        );
       }
     });
   }
