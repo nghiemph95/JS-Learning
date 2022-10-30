@@ -82,6 +82,7 @@ function getPostSchema() {
       then: yup
         .mixed()
         .test("required", "Please select an image to upload", (value) =>
+          // Nếu value.name ko tồn tại thì return false
           Boolean(value?.name)
         ),
     }),
