@@ -8,8 +8,9 @@ function removeUnusedFields(formValues) {
   // nếu imageSource = 'upload' -> remove imageUrl
   if (payload.imageSource === "upload") {
     delete payload.imageUrl;
+  } else {
+    delete payload.image;
   }
-  delete payload.image;
 
   // xóa imageSource
   delete payload.imageSource;
