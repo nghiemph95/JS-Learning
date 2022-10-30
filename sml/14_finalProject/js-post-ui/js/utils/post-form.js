@@ -254,6 +254,18 @@ function initUploadImage(form) {
   }
 }
 
+function initValidaitonOnChange(form) {
+  ["title", "author"].forEach((name) => {
+    const field = form.querySelector(`[name = "${name}"]`);
+    if (field) {
+      field.addEventListener("input", (event) => {
+        const newValue = event.target.value;
+        validationFormField(form, { [name]: newValue }, name);
+      });
+    }
+  });
+}
+
 export function initPostForm({ formId, defaultValues, onSubmit }) {
   const form = document.getElementById(formId); //formId = 'postForm'
   if (!form) return;
@@ -272,6 +284,9 @@ export function initPostForm({ formId, defaultValues, onSubmit }) {
 
   // khởi tạo sự kiện upload image
   initUploadImage(form);
+
+  // khỏi tạo sự kiện validation từng input field
+  initValidaitonOnChange(form);
 
   // gắn sự kiện submit cho form
   form.addEventListener("submit", async (event) => {
