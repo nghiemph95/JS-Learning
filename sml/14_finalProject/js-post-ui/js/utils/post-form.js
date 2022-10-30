@@ -18,10 +18,10 @@ function getFormValues(form) {
   const formValues = {};
 
   //S1: query each input and add to values object
-  ["title", "author", "description", "imageUrl"].forEach((element) => {
-    const field = form.querySelector(`[name="${element}"]`);
-    if (field) formValues[element] = field.value;
-  });
+  // ["title", "author", "description", "imageUrl"].forEach((element) => {
+  //   const field = form.querySelector(`[name="${element}"]`);
+  //   if (field) formValues[element] = field.value;
+  // });
 
   //S2: using form data
   const data = new FormData(form);
@@ -159,6 +159,14 @@ async function validatePostForm(form, formValues) {
   return isValid;
 }
 
+// hàm chỉ validate 1 field duy nhất
+async function validationFormField(form, formValues, name) {
+  try {
+    //clear pervious error
+    setFieldError(form, name, "");
+  } catch (error) {}
+}
+
 // enable cái button Save
 function showLoading(form) {
   const button = form.querySelector('[name="submit"]');
@@ -223,6 +231,8 @@ function initUploadImage(form) {
       if (file) {
         const imageUrl = URL.createObjectURL(file);
         setHeroImage(document, "postHeroImage", imageUrl);
+
+        // trigger validation of upload input
       }
     });
   }
