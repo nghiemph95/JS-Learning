@@ -17,12 +17,22 @@ function removeUnusedFields(formValues) {
   return payload;
 }
 
+function jsonToFormData(jsonObject) {
+  const formData = new FormData();
+
+  for (const key in jsonObject) {
+    formData.set(key, jsonObject[key]);
+  }
+
+  return formData;
+}
+
 async function handlePostFormSubmit(formValues) {
-  const payload = removeUnusedFields(formValues);
-  console.log("submit from parent", { formValues, payload });
-  return;
   // call api
   try {
+    const payload = removeUnusedFields(formValues);
+    const formData = jsonToFormData(payload);
+
     // check if is add/edit mode
     // S1: dựa vào searchParam (check id)
     // S2: kiểm tra có id hay ko trong formValues
@@ -36,16 +46,16 @@ async function handlePostFormSubmit(formValues) {
     // }
 
     const savePost = formValues.id
-      ? await postApi.update(formValues)
-      : await postApi.add(formValues);
+      ? await postApi.updateFormData(formData)
+      : await postApi.addFormData(formData);
 
     // show success message
     toast.success("Save post successfully!");
 
     // redirect to detail page
-    setTimeout(() => {
-      window.location.assign(`/post-detail.html?id=${savePost.id}`);
-    }, 1500);
+    // setTimeout(() => {
+    //   window.location.assign(`/post-detail.html?id=${savePost.id}`);
+    // }, 1500);
   } catch (error) {
     toast.error(`Error: ${error.message}`);
   }
