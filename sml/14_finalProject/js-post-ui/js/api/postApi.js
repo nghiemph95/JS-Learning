@@ -32,14 +32,14 @@ const postApi = {
   },
 
   addFormData(data) {
-    const url = '/with-thumbnail/posts';
+    const url = "/with-thumbnail/posts";
     return axiosClient.post(url, data, {
       headers: { "Content-Type": "multipart/form-data" }, // có thể overwrite bất cứ thứ gì
     });
   },
 
   updateFormData(data) {
-    const url = `/with-thumbnail/posts/${data.get(id)}`;
+    const url = `/with-thumbnail/posts/${data.get("id")}`;
     return axiosClient.patch(url, data, {
       headers: { "Content-Type": "multipart/form-data" }, // có thể overwrite bất cứ thứ gì
     });

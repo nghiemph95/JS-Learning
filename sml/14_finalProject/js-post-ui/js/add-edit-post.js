@@ -14,6 +14,9 @@ function removeUnusedFields(formValues) {
   // xóa imageSource
   delete payload.imageSource;
 
+  // xóa id khi ở add mode
+  if (!payload.id) delete payload.id;
+
   return payload;
 }
 
@@ -53,10 +56,11 @@ async function handlePostFormSubmit(formValues) {
     toast.success("Save post successfully!");
 
     // redirect to detail page
-    // setTimeout(() => {
-    //   window.location.assign(`/post-detail.html?id=${savePost.id}`);
-    // }, 1500);
+    setTimeout(() => {
+      window.location.assign(`/post-detail.html?id=${savePost.id}`);
+    }, 1500);
   } catch (error) {
+    console.log("failed to save post", error);
     toast.error(`Error: ${error.message}`);
   }
 }
