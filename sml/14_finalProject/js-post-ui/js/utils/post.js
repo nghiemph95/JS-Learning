@@ -52,6 +52,19 @@ export function createPostElement(post) {
       window.location.assign(`/add-edit-post.html?id=${post.id}`);
     });
 
+  const removeButton = liElement.querySelector('[data-id="remove"]');
+  if (removeButton)
+    removeButton.addEventListener("click", () => {
+      // tạo 1 customEvent có kiểu dữ liệu sự kiện là post-delete, 
+      // sẽ bubbles lên thằng cha và truyền nguyên thông tin bài post lên thằng cha
+      const customEvent = new CustomEvent("post-delete", {
+        bubbles: true,
+        detail: post,
+      });
+
+      removeButton.dispatchEvent(customEvent);
+    });
+
   return liElement;
 }
 
