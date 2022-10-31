@@ -90,10 +90,11 @@ function registerPostDeleteEvent() {
     // lấy dữ liệu từ param
     // const queryParams = new URLSearchParams(window.location.search);
     // set default query param
-    const { data, pagination } = await postApi.getAll(queryParams);
+    // const { data, pagination } = await postApi.getAll(queryParams);
     // khi error xảy ra ở catch của createPostElement() thì nó sẽ vô tình đẩy tới đây và nó hiểu là success
-    renderPostList("postList", data);
-    renderPagination("pagination", pagination);
+    // renderPostList("postList", data);
+    // renderPagination("pagination", pagination);
+    handleFilterChange();
   } catch (error) {
     console.log("get all failed", error);
   }
