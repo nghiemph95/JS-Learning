@@ -87,9 +87,9 @@ function registerPostDeleteEvent() {
       onChange: (value) => handleFilterChange("title_like", value),
     });
 
-    //lấy dữ liệu từ param
+    // lấy dữ liệu từ param
     // const queryParams = new URLSearchParams(window.location.search);
-    //set default query param
+    // set default query param
     const { data, pagination } = await postApi.getAll(queryParams);
     // khi error xảy ra ở catch của createPostElement() thì nó sẽ vô tình đẩy tới đây và nó hiểu là success
     renderPostList("postList", data);
