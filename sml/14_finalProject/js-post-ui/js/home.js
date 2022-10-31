@@ -12,7 +12,7 @@ async function handleFilterChange(filterName, filterValue) {
   try {
     // update query param
     const url = new URL(window.location);
-    if (filterName) url.searchParams.set(filterName, filterValue);
+    if (filterName) url.searchParams.set(filterName, filterValue); // Chỉ khi truyền filterName thì mới trigger set vì lỡ khi muốn refresh thì ko cần truyền filterName
 
     // reset page khi searchh
     if (filterName === "title_like") url.searchParams.set("_page", 1);
