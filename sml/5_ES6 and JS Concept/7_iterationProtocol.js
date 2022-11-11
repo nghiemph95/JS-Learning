@@ -26,7 +26,7 @@ while (!result.done) {
 }
 
 for (const number of interator) {
-  console.log(number); // interator is not iterable
+  console.log(number); // interator is not iterable ê
 }
 
 /** Create Iterable */
