@@ -64,6 +64,6 @@ export function registerLightbox({
     showImageAtIndex(currentIndex);
   });
 
-  // set true flag khi có 1 hình đã click vào 1 hình bất kì
+  // set true flag khi có 1 hình đã click vào 1 hình bất kìddd
   modalElement.dataset.registerd = "true";
 }
