@@ -35,7 +35,7 @@ export function registerLightbox({
     const { target } = event;
     if (target.tagName !== "IMG" || !target.dataset.album) return;
 
-    // tìm các hình ảnh có cùng album/galary
+    // tìm các hình ảnh có cùng album/galarytt
     // lấy các hình các data là album
     imgList = document.querySelectorAll(
       `img[data-album="${target.dataset.album}"]`
