@@ -41,7 +41,7 @@ function renderPostDetail(post) {
     const postId = searchParams.get("id"); // id của bài post, từng thẻ li.div.post-item
     if (!postId) return;
 
-    // fetch dữ liệu chi tiết từ API
+    // fetch dữ liệu chi tiết từ APIII
     const postDetail = await postApi.getById(postId); // dữ liệu từ server về bài post-detail
 
     // render dữ liệu vừa fetch
