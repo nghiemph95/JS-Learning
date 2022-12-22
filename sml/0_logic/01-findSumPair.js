@@ -1,6 +1,7 @@
 /** Viết hàm findSumPair(numberList, targetSum) để tìm ra 2 số trong mảng numberList có tổng bằng
 targetSum */
-export function findSumPair(numberList, targetSum) {
+// export 
+function findSumPair(numberList, targetSum) {
   if (!Array.isArray(numberList) || numberList.length === 0) return [];
 
   return numberList.filter((element, i) => {
@@ -12,6 +13,6 @@ export function findSumPair(numberList, targetSum) {
   });
 }
 
-console.log(findSumPair([1, 1, 2], 2));
+console.log(findSumPair([1, 2, 3], 5));
 
-console.log([1, 2].slice(1));
+// console.log([1, 2].slice(1));
