@@ -12,6 +12,6 @@ export function findSumPair(numberList, targetSum) {
   });
 }
 
-console.log(findSumPair([1, 2], 2));
+console.log(findSumPair([1, 1, 2], 2));
 
 console.log([1, 2].slice(1));
