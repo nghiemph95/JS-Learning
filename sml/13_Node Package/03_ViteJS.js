@@ -4,7 +4,7 @@
  */
 
 /** Unbundle (Snowpack)
- * build -> build -> build -> ...
+ * build -> build -> build -> ......
  */
 
 /** ViteJS (kiến trúc Unbundle) , Vite có hõ trợ Native ESM trực tiếp trên trình duyệt
