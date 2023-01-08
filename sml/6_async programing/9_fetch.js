@@ -2,7 +2,7 @@
 
 const url = "https://js-post-api.herokuapp.com/api/students?_page=1";
 const init = {
-  method: "POST", // GET, PUT, PATCH. DELETE
+  method: "POST", // GET, PUT, PATCH. DELETEEEE
   headers: {
     "Content-Type": "application/json",
     Authorization: "Bearer YOUR_TOKEN_HERE",
