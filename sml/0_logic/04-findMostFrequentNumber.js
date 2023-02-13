@@ -1,3 +1,4 @@
+/** Tìm số có số lần xuất hiện nhiều nhất */
 export function findMostFrequentNumber(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return;
 

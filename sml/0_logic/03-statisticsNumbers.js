@@ -1,3 +1,4 @@
+/** Thống kê số lần xuất hiện của các số trong mảng */
 export function statisticsNumbers(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return;
 
