@@ -1,3 +1,4 @@
+/** Thống kê số lượng từ trong câu */
 export function statisticsWords(str) {
   if (str === "") return {};
 
