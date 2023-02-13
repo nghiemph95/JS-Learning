@@ -1,3 +1,4 @@
+/** Ghép chuỗi từ các thuộc tính của object thành một chuỗi addres hoàn chỉnh */
 export function getDisplayedAddress(address) {
   if (typeof address !== "object") return {};
 
@@ -14,15 +15,15 @@ export function getDisplayedAddress(address) {
   return res.slice(0, -2);
 }
 
-// console.log(
-//   getDisplayedAddress({
-//     number: 123,
-//     street: "Nguyen Cong Tru",
-//     ward: "Ward 11",
-//     district: "Binh Thanh District",
-//     city: "HCMC",
-//   })
-// );
+console.log(
+  getDisplayedAddress({
+    number: 123,
+    street: "Nguyen Cong Tru",
+    ward: "Ward 11",
+    district: "Binh Thanh District",
+    city: "HCMC",
+  })
+);
 
 // const object = {
 //   // number: 123,
