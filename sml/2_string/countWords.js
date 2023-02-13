@@ -1,3 +1,4 @@
+/** Đếm số từ trong câu */
 export function countWords(str) {
   if (str === "") return 0;
 
