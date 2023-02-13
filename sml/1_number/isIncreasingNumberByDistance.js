@@ -1,3 +1,4 @@
+/** Kiểm tra số tăng dần đều theo khoảng cách cho trước */
 export function isIncreasingNumberByDistance(n, x) {
   if (n < 10) return false;
 

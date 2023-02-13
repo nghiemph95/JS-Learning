@@ -1,3 +1,4 @@
+/** Kiểm tra số tăng dần */
 export function isIncreasingNumber(n) {
   if (n < 10) return false;
 
