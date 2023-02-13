@@ -1,3 +1,4 @@
+/** Thống kê kí tự trong câu */
 export function statisticsCharacters(str) {
   if (str === "") return {};
 
