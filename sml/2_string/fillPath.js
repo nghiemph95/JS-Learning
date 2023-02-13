@@ -1,3 +1,4 @@
+/** Thay thế param thay value tương ứng */
 export function fillPath(path, params) {
   if (path.length <= 0 || typeof params !== "object") return "";
 
