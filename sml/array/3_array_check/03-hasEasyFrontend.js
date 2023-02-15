@@ -1,3 +1,4 @@
+/** Kiểm tra có từ easy frontend có trong mảng hay không */
 export function hasEasyFrontend(wordList) {
   if (!Array.isArray(wordList)) return false;
 
