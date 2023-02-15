@@ -1,3 +1,4 @@
+/** Tìm từ dài nhất nhưng nhỏ hơn 5 trong mảng */
 function findLongestWordV1(wordList) {
   if (!Array.isArray(wordList) || wordList.length === 0) return "";
 
