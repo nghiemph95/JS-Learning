@@ -5,10 +5,11 @@ export function hasFibonaciNumber(numberList) {
   let array = [0, 1];
   let newArray = [];
 
-  for (let i = 2; i <= 11; i++) {
+  for (let i = 1; i <= 11; i++) {
     array[i] = array[i - 1] + array[i - 2];
     newArray.push(array[i]);
   }
+  console.log(newArray);
 
   for (let i = 0; i < numberList.length; i++) {
     const element = numberList[i];
@@ -20,4 +21,4 @@ export function hasFibonaciNumber(numberList) {
 }
 
 // console.log(hasFibonaciNumber([0, 1, 2, 3]));
-// console.log(hasFibonaciNumber([4, 6, 7]));
+console.log(hasFibonaciNumber([4, 6, 7]));
