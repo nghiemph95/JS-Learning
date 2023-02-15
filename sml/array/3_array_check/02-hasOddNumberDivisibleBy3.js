@@ -1,3 +1,4 @@
+/** Kiểm tra có số lẻ và chia hết cho 3 không */
 export function hasOddNumberDivisibleBy3(numberList) {
   if (!Array.isArray(numberList)) return false;
 
