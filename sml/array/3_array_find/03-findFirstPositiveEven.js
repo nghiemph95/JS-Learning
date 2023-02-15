@@ -1,3 +1,4 @@
+/** Tìm số dương chẵn đầu tiên trong mảng */
 export function findFirstPositiveEvenV1(numberList) {
   if (!Array.isArray(numberList) || numberList === 0) return;
 
