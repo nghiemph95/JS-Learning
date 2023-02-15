@@ -1,3 +1,4 @@
+/** Tìm số lớn thứ 2 trong mảng */
 export function findSecondLargestNumber(numberList) {
   if (
     !Array.isArray(numberList) ||
