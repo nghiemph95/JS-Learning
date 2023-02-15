@@ -1,3 +1,4 @@
+/** Tìm vị trí của student có id cho trước */
 export function findStudentById(studentList, studentId) {
   if (!Array.isArray(studentList) || studentList.length === 0) return -1;
 

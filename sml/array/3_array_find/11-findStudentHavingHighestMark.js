@@ -1,3 +1,4 @@
+/** Tìm student có điểm môn toán lớn nhất đầu tiên */
 export function findStudentHavingHighestMarkV1(studentList) {
   if (!Array.isArray(studentList) || studentList.length === 0) return;
   let max = studentList[0].math;
