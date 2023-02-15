@@ -1,3 +1,4 @@
+/** Tìm student có điểm trung bình môn thấp nhất cuối cùng */
 export function findLastStudentHavingMinAvg(studentList) {
   if (!Array.isArray(studentList) || studentList.length === 0) return;
 
