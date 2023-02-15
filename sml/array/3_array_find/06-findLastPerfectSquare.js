@@ -1,3 +1,5 @@
+
+/** Tìm số chính phương cuối cùng trong mảng */
 export function findLastPrefectSquare(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return;
 
