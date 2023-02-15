@@ -1,3 +1,4 @@
+/** Tìm số âm lẻ cuối cùng trong mảng */
 export function findLastNegativeOddV1(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return;
 
