@@ -3,6 +3,8 @@
 //   { id: 2, name: "Iphone 16 Pro Max", isFreeShip: true, price: 1500000 },
 // ];
 
+/** Kiểm tra có sản phẩm nào nhỏ hơn giá cho trước và freeship không */
+
 export function hasFreeShip(productList, price) {
   if (!Array.isArray(productList) || productList.length === 0) return false;
   if (price < 0) return false;

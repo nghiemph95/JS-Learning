@@ -1,3 +1,4 @@
+/** Kiểm tra mảng có tăng dần không */
 export function isIncreasingNumberList(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return false;
 
