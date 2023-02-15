@@ -1,3 +1,4 @@
+/** Tìm email đầu tiên trong mảng */
 function isEmailValidate(email) {
   if (email.length <= 0 || !email.includes("@")) return;
 
