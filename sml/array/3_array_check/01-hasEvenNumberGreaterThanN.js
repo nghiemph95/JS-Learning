@@ -1,3 +1,4 @@
+/** Kiểm tra có số chẵn nào lớn hơn n trong mảng không */
 export function hasEvenNumberGreaterThanN(arr, n) {
   if (!Array.isArray(arr) || n === 0) return false;
 
