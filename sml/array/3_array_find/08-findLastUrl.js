@@ -1,3 +1,4 @@
+/** Tìm URL cuối cùng trong mảng */
 function isUrl(url) {
   if (url.length <= 0 || !url.includes("://")) return;
 
