@@ -1,3 +1,4 @@
+/** Kiểm tra mảng có số fibonaci nhỏ hơn 100 không */
 export function hasFibonaciNumber(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return false;
 
