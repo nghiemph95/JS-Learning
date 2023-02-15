@@ -1,3 +1,4 @@
+/** Kiểm tra có student giới tính là Nữ tên Alice không */
 function isAlice(student) {
   if (!student) return false;
 
