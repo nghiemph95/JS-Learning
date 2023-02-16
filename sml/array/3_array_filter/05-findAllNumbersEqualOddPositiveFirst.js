@@ -10,4 +10,4 @@ export function findAllNumbers(numberList) {
     .filter((element) => element > 0 && element % 2 === 0)
     .slice(1);
 }
-// console.log(findAllNumbers([1, 3, 5]));
+console.log(findAllNumbers([1, 4, 5, 4, 2, 8, 4]));
