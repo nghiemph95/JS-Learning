@@ -1,3 +1,4 @@
+/** Đếm số từ có độ dài lớn hơn n */
 export function countWordsV1(wordList, n) {
   if (!Array.isArray(wordList) || wordList.length === 0) return 0;
 
