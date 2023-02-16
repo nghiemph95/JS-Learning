@@ -1,9 +1,7 @@
 export function generatePrimeNumbers(n) {
   if (!n) return;
 
-  let array = [];
-  array = Array.from({ length: n }, (_, i) => i);
-
+  /** Function check số nguyên tố */
   function checkPrime(number) {
     if (number <= 1) {
       return false;
@@ -17,8 +15,13 @@ export function generatePrimeNumbers(n) {
     }
   }
 
+  /** Array với n phần tử */
+  let array = [];
+  array = Array.from({ length: n }, (_, i) => i);
+
   let newArray = [];
 
+  /** Mảng các số nguyên tố nhỏ hơn n */
   array.find((element) => {
     const isPrime = checkPrime(element);
     newArray.push(isPrime);
@@ -27,4 +30,4 @@ export function generatePrimeNumbers(n) {
   return newArray.filter((e) => e !== false);
 }
 
-// console.log(generatePrimeNumbers(10));
+console.log(generatePrimeNumbers(20));
