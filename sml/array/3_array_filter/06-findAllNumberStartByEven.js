@@ -1,3 +1,4 @@
+/** Tìm tất cả các số mà bắt đầu bằng chữ số lẻ */
 export function findAllNumber(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return;
 
