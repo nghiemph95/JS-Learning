@@ -27,6 +27,8 @@ export function generatePrimeNumbers(n) {
     newArray.push(isPrime);
   });
 
+  console.log(newArray);
+
   return newArray.filter((e) => e !== false);
 }
 
