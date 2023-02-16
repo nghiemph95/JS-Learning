@@ -49,6 +49,8 @@ export function generateFibonaciV2(n) {
   return res;
 }
 
+console.log(generateFibonaciV2(100));
+
 export function generateFibonaciV1(n) {
   return Array.from({ length: n }).reduce(
     (acc, _val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),
@@ -56,4 +58,4 @@ export function generateFibonaciV1(n) {
   );
 }
 
-// console.log(generateFibonaciV1(10));
+console.log(generateFibonaciV1(100));
