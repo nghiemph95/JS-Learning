@@ -1,3 +1,4 @@
+/** Tìm tất cả các số mà nó lớn hơn số đứng trước nó */
 export function findNumbersV1(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 1) return [];
 
