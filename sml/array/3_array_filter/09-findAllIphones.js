@@ -1,3 +1,4 @@
+/** Tìm tất cả sản phẩm iphone có hàng tồn kho */
 export function findAllIphones(productList) {
   return productList.filter(
     (element) =>
