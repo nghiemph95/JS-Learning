@@ -20,6 +20,6 @@ export function findAllIncreasingSubArr(numberList) {
   return arr;
 }
 
-// console.log(findAllIncreasingSubArr([1, 2, 3, -5, -10, 5, 10]));
+console.log(findAllIncreasingSubArr([1, 2, 3, -5, -10, 5, 10]));
 
 // console.log([1, 2, 3], [-10, 5, 10].split(","));
