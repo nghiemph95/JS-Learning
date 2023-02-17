@@ -29,7 +29,7 @@ export function countUniqueNumbersV3(numberList) {
 
   return new Set(numberList).size;
 }
-console.log(countUniqueNumbers([1, 1, 1]));
+console.log(countUniqueNumbersV3([1, 1, 1]));
 
 export function countUniqueNumbersV4(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return 0;
