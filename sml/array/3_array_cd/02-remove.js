@@ -1,3 +1,4 @@
+/** Xoá phần tử tại vị trí k */
 export function remove(arr, k, n) {
   if (!Array.isArray(arr) || arr.length === 0) return;
 
