@@ -16,7 +16,7 @@ export function countNumbersNotInBV1(a, b) {
   return count;
 }
 
-// console.log(countNumbersNotInB([1, 2, 3], [4, 5]));
+console.log(countNumbersNotInBV1([1, 2, 3], [4, 5]));
 
 export function countNumbersNotInBV2(a, b) {
   if (!Array.isArray(a, b) && a.length === 0 && b.length === 0) return 0;
@@ -24,8 +24,11 @@ export function countNumbersNotInBV2(a, b) {
   return a.filter((element) => !b.includes(element)).length;
 }
 
+console.log(countNumbersNotInBV2([1, 2, 3], [3, 4, 5]));
+
 export function countNumbersNotInB(a, b) {
   if (!Array.isArray(a, b) && a.length === 0 && b.length === 0) return 0;
+
   let count = 0;
   a.filter((element) => {
     if (b.indexOf(element) < 0) {
@@ -36,4 +39,4 @@ export function countNumbersNotInB(a, b) {
   return count;
   
 }
-// console.log(countNumbersNotInB([1, 2, 3], [3, 4, 5]));
+console.log(countNumbersNotInB([1, 2, 3], [ 4, 5]));
