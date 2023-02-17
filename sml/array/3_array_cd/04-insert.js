@@ -1,3 +1,6 @@
+/** Cho một mảng đã được sắp xếp tăng dần, cho 1 số, nhờ bạn add
+ *  vào mảng nhưng phải đảm bảo mảng vẫn đc sắp xếp tăng dần
+ */
 export function insert(numberList, newNumber) {
   if (!Array.isArray(numberList)) return;
 
