@@ -1,3 +1,4 @@
+/** Xoá các số trùng nhau trong mảng */
 export function removeDuplicatedNumbers(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return [];
 
