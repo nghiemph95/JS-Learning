@@ -1,3 +1,4 @@
+/** Tổng các chữ số trong mảng ([123, 4]) */
 export function sumAllDigitsV1(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return 0;
 
