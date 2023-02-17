@@ -1,3 +1,4 @@
+/** Xoá một student có id cho trước */
 export function removeStudentById(studentList, studentId) {
   if (!Array.isArray(studentList) || studentList.length === 0) return;
 
