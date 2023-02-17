@@ -1,3 +1,4 @@
+/** Tính tổng các số chẵn mà nó lớn hơn số trước đó */
 export function sumEvenNumbers(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return;
   let array = [];
