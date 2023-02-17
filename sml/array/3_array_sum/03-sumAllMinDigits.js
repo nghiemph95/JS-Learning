@@ -1,3 +1,4 @@
+/** Tổng các chữ số nhỏ nhất của số trong mảng */
 export function sumAllMinDigitsV1(numberList) {
   if (!Array.isArray(numberList) || numberList.length === 0) return 0;
   let sum = 0;

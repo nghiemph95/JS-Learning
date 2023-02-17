@@ -1,3 +1,4 @@
+/** Tổng tiền của giỏ hàng */
 export function calcCartTotalV1(cartItemList) {
   if (!Array.isArray(cartItemList) || cartItemList.length === 0) return;
 
