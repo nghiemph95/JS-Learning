@@ -1,3 +1,4 @@
+/** Thêm 1 phần tử tại vị trí k */
 export function insert(arr, newItem, index) {
   if (!Array.isArray(arr) || arr.length === 0) return;
 
