@@ -28,3 +28,9 @@ const cityMapss = cityList.reduce((map, city) => {
 }, new Map());
 
 console.log(cityMapss.get(1).name);
+
+
+/** Khi nào xài Map , xài Object
+ * 1. Size: Map -> using map.size, Object -> Object.keys(obj).lenght
+ * dữ liệu nhiều và thay đổi nhiều thì nên dùng Map để đảm bảo performance
+ */
