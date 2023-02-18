@@ -18,3 +18,7 @@ function getIntersectionSet(set1, set2) {
 const set1 = new Set([1, 2, 3]);
 const set2 = new Set([2, 3, 4, 5]);
 console.log(getIntersectionSet(set1, set2));
+
+/** Set: Tập hợp những giá trị (value) (ko có key)
+ * mỗi value là unique
+ */
