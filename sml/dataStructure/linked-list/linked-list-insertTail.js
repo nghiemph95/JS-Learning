@@ -11,6 +11,7 @@ function createLinkedList() {
     if (!head) {
       head = newNode;
     } else {
+      /** get tail */
       let lastNode = head;
       while (lastNode.next != null) {
         lastNode = lastNode.next;
