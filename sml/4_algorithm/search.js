@@ -1,3 +1,8 @@
+/** Có 2 dạng tìm kiếm:
+ * 1. Tìm kiếm tuyến tính (Linear Search): tìm kiếm từng thằng cho đến cuối mảng
+ * 2. Tìm kiếm nhị phân (Binary Search): tìm kiếm nguyên 1 mảng -> giới hạn xuống nữa mảng -> đến khi tìm kiếm đc thì thôi
+ */
+
 function binarySearch(numberList, target) {
   if (!Array.isArray(numberList) || numberList.length === 0) return -1;
 
