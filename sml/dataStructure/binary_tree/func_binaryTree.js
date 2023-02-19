@@ -78,6 +78,7 @@ function createBinarySearchTree(initKeyList) {
     printNodeAtLevel(node.right, level - 1);
   }
   //bfs: breadth first traversal: duyệt qua tất cả node
+  /** Duyệt từng tầng */
   function bfs() {
     const height = getHeight();
 
