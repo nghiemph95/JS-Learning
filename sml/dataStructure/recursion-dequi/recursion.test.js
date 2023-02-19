@@ -29,10 +29,12 @@ function fibonacci(n) {
 }
 
 function genFibonaci(n) {
-  if (n <= 0) return 0;
-  if (n === 1) return 1;
+  if (n <= 0) return [0];
+  if (n === 1) return [0, 1];
 
-  return genFibonaci(n - 1) + genFibonaci(n - 2);
+  let s = genFibonaci(n - 1);
+  s.push(s[s.length - 1] + s[s.length - 2]);
+  return s;
 }
 
 console.log(genFibonaci(10));
