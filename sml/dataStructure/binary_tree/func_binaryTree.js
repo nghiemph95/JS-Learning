@@ -56,7 +56,7 @@ function createBinarySearchTree(initKeyList) {
     if (node === null) return 0;
 
     const leftHeight = getMaxNodesCount(node.left);
-    const rightHeight = getMaxNodesCount(node.rifht);
+    const rightHeight = getMaxNodesCount(node.right);
 
     return leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
   }
