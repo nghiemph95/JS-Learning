@@ -29,6 +29,7 @@ function createBinarySearchTree(initKeyList) {
     return node;
   }
 
+  /** Find Min: node nhỏ nhất trong tree tính từ root */
   function findMin(node) {
     if (node === null) return null;
 
@@ -41,6 +42,7 @@ function createBinarySearchTree(initKeyList) {
     return minNode;
   }
 
+  /** Search */
   function search(node, key) {
     if (node === null) return null;
 
