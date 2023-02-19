@@ -28,6 +28,15 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
+function genFibonaci(n) {
+  if (n <= 0) return 0;
+  if (n === 1) return 1;
+
+  return genFibonaci(n - 1) + genFibonaci(n - 2);
+}
+
+console.log(genFibonaci(10));
+
 describe("Name of the group", () => {
   test("should ", () => {
     [0, 1, 1, 2, 3, 5, 8, 13, 21, 34].forEach((element, n) => {
