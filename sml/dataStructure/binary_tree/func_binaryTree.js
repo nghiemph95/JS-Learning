@@ -52,6 +52,7 @@ function createBinarySearchTree(initKeyList) {
     return node;
   }
 
+  /** Đếm số node */
   function getMaxNodesCount(node) {
     if (node === null) return 0;
 
@@ -60,6 +61,7 @@ function createBinarySearchTree(initKeyList) {
 
     return leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
   }
+  /** Tính chiều cao tree dựa vào nhánh dài nhất */
   function getHeight() {
     const height = getMaxNodesCount(root);
 
