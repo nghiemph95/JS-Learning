@@ -1,3 +1,11 @@
+/** Sẽ có 3 thành phần: left, right, pivot
+ * pivot: có nhiều chiến lược chọn pivot (đầu tiên, cuối cùng, hoặc giữa mảng) , tuỳ vị trí
+ * sẽ mang lại độ hiệu quả khác nhau
+ * 
+ * CỐ gắng đem tất cả những thằng lớn hơn pivot bên trái thì chuyển sang phải
+ * ngược lại những thằng nhỏ hơn pivot bên phải thì chuyển sang trái
+ */
+
 function partition(numberList, left, right) {
   const mid = left + Math.trunc((right - left) / 2);
   const pivot = numberList[mid];
