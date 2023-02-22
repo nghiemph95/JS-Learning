@@ -1,3 +1,4 @@
+/** Closures: Là 1 function có sử dụng 1 cái biến ở bên ngoài */
 function outerFunc() {
   let outerVar = "I am outside"; // lexical scope
 
