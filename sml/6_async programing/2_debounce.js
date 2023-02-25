@@ -17,6 +17,7 @@ debounceLog();
 function debounce(callBack, wait) {
   let timeoutId; // Clouser
 
+  /** Higher Order Function */
   return function () {
     if (timeoutId) {
       clearTimeout(timeoutId);
@@ -26,6 +27,9 @@ function debounce(callBack, wait) {
   };
 }
 
+
+
+/** How it workÏ */
 function log() {
   console.log("test");
 }
