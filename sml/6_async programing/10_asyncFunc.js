@@ -10,7 +10,7 @@ const func3 = async () => {};
 /** Async method definition in an object literal - Phương thức của 1 object */
 const obj = { async say() {} };
 
-/** await phải được đặt trong async
+/** await phải được đặt trong hàm async
  * async function luôn luôn trả về Promise
  */
 
