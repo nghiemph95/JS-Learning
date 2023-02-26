@@ -23,22 +23,24 @@ function throttle(callback, wait) {
 
 const throttleLog = throttle(log, 500);
 
+/** 0 -> 500 */
 throttleLog(); // set timeout 500 -> call -> turn off flag throttle
 throttleLog(); // check throttling -> ignore
 throttleLog(); // check throttling -> ignore
 throttleLog(); // check throttling -> ignore
 throttleLog(); // check throttling -> ignore
 
+/** 600 -> 1100 */
 setTimeout(throttleLog, 600); // start throttling
 setTimeout(throttleLog, 600);
 setTimeout(throttleLog, 600);
 setTimeout(throttleLog, 600);
 setTimeout(throttleLog, 700);
-setTimeout(throttleLog, 800);
-setTimeout(throttleLog, 900);
-setTimeout(throttleLog, 1100);
+// setTimeout(throttleLog, 800);
+// setTimeout(throttleLog, 900);
+// setTimeout(throttleLog, 1100);
 setTimeout(throttleLog, 1200);
-setTimeout(throttleLog, 1400);
-setTimeout(throttleLog, 1700);
-setTimeout(throttleLog, 1800);
-setTimeout(throttleLog, 1900);
+// setTimeout(throttleLog, 1400);
+// setTimeout(throttleLog, 1700);
+// setTimeout(throttleLog, 1800);
+// setTimeout(throttleLog, 1900);
