@@ -4,7 +4,7 @@
 // thông tin sẽ được đến DNS server để check domain và lấy ip của web đó
 // sau đó sẽ trả về server để gọi dữ liệu và trả về lại website
 
-/** sau khi lấy đc ip từ DNS
+/** sau khi lấy đc ip từ DNS (Domain Name System)
  * đối với :
  * http: sẽ thực hiện việc bắt tay: SYN - ACK
  * https: sẽ thực hiện bắt tay:
