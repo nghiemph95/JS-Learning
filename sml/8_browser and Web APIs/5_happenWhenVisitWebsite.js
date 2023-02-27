@@ -7,6 +7,7 @@
 /** sau khi lấy đc ip từ DNS (Domain Name System)
  * đối với :
  * http: sẽ thực hiện việc bắt tay: SYN - ACK
+ * 
  * https: sẽ thực hiện bắt tay:
  * browser -> site: clientHello
  * site -> browser: serverHello & certificate
@@ -14,3 +15,4 @@
  * site -> browser: finished
  * browser -> site: finished
  */
+
