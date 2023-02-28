@@ -7,6 +7,7 @@ function createBinarySearchTree(initKeyList) {
     });
   }
 
+  /** Insert */
   function insert(node, key) {
     const newNode = {
       key,
