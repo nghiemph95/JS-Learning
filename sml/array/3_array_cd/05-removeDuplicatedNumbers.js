@@ -7,6 +7,6 @@ export function removeDuplicatedNumbers(numberList) {
   });
 }
 
-// const arr = [1, 2, 2, 3];
+// const arr = [1, 1, 2];
 
-// console.log(removeDuplicatedNumbers([1, 1, 2, 3, 2]));
+console.log(removeDuplicatedNumbers([1, 1, 2]));
