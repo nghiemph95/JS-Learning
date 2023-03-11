@@ -20,3 +20,6 @@ function hurdleRace(k, height) {
     return pre;
   }, 0);
 }
+
+
+console.log("42d426ce151b".toUpperCase());
