@@ -22,4 +22,4 @@ function hurdleRace(k, height) {
 }
 
 
-console.log("42d426ce151b".toUpperCase());
+console.log("0e4af596a6a4".toUpperCase());
