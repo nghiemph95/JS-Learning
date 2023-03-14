@@ -50,3 +50,12 @@ Number of child tables: 2 (Use \d+ to list them.)
 
 // Tuy nhiên cột X ở table: t_data_2 vẫn sẽ giữ nguyên bởi vì
 // Postgres ghi nhớ các cột được merged và đảm bảo cột vẫn giữ nguyên như cũ
+
+test=# \d t_data_2
+      Table "public.t_data_2"
+ Column |  Type   |     Modifiers
+--------+---------+-----------------------
+ id     | integer |
+ name   | text    |
+ x      | integer | Postgres vẫn giữ nguyên cột X trong bảng con
+Inherits: t_data
