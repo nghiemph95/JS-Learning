@@ -41,7 +41,7 @@ setTimeout(() => console.log("b"), 0);
 
 new Promise((resolve, reject) => {
   console.log("f")
-  resolve();
+  resolve(); // promise đã được resolve state nên console.log("c") sẽ được add to microtask queue
 }).then(() => {
   console.log("c");
 });
