@@ -57,3 +57,17 @@ function d() {}
 d();
 // task queue: -> a, b, c
 // d -> c -> b -> a
+
+
+async function getNumber() {
+  return 10; 
+}
+
+getNumber(); // Return promise , but not return 10
+
+getNumber().then((n) => {console.log(n)}) // Return 10
+
+async function getNumber(){
+  return Promise.resolve(10)
+}
+getNumber(10) // return 10
