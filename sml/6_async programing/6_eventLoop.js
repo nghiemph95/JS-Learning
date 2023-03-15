@@ -185,8 +185,17 @@ const timer002 = setTimeout(() => {
 // 5. sau 1s, timer002 hoàn thành -> error
 
 /** Ví dụ về setTimeout() 05 */
+// block-level declarations (using let, const, and in catch clauses) - khai báo cấp khối
 for (let i = 0; i < 4; i++) {
-  setTimeout(() => console.log(i), 0);
+  setTimeout(() => console.log(i)); // 0, 1, 2, 3
+}
+
+// function-level declarations (using var) - khai báo cấp hàm
+for (var i = 0; i < 4; i++) {
+  /** Vì dùng var, nên đã vô tình khai báo 1 biến duy nhất i và đc chia sẽ cả 4 lệnh gọi setTimeout
+   * Vào thời điểm setTimeout đầu tiên đc kích hoạt, vòng lặp đã chạy đc 4 lần rồi. Nên i lúc này = 4
+   */
+  setTimeout(() => console.log(i)); // 4, 4, 4, 4
 }
 
 
