@@ -126,6 +126,8 @@ console.log("start");
 // Result: start -> timer1 -> timer2 -> timer3
 
 /** Ví dụ về setTimeout() 02 */
+/** setTimeout() is a macrotask, Promise.then is a microtask */
+/** microtask ưu tiên cao hơn macrotask */
 const timer01 = setTimeout(() => {
   console.log("timer1");
   const promise1 = Promise.resolve().then(() => {
@@ -139,6 +141,49 @@ const timer02 = setTimeout(() => {
 
 console.log("start");
 // start -> timer1 -> promise1 -> timer2
+
+/** Ví dụ về setTimeout() 03 */
+const promise01 = Promise.resolve().then(() => {
+  console.log("promise1");
+  const timer2 = setTimeout(() => {
+    console.log("timer2");
+  }, 0);
+});
+
+const timer001 = setTimeout(() => {
+  console.log("timer1");
+  const promise2 = Promise.resolve().then(() => {
+    console.log("promise2");
+  });
+}, 0);
+
+console.log("start");
+// start -> promise1 -> timer1 -> promise2 -> timer2
+
+/** Ví dụ về setTimeout() 04 */
+const promise001 = new Promise((resolve, reject) => {
+  const timer1 = setTimeout(() => {
+    resolve("success");
+  }, 1000);
+});
+
+const promise002 = promise001.then(() => {
+  throw new Error("error!!!");
+});
+
+console.log("promise001", promise001);
+console.log("promise002", promise002);
+
+const timer002 = setTimeout(() => {
+  console.log("promise001", promise001);
+  console.log("promise002", promise002);
+}, 2000);
+// 1. promise001 đang pending state
+// 2. tiếp tục execute promise002, bởi vị promise001 đang pending state
+// 3. 2 console.log tiếp theo sẽ show ra kết quả pending
+// 4. execute timer002 sau 2s sẽ create và gọi timer 1, sau 1s timer1 hoàn thành -> console ra success
+// 5. sau 1s, timer002 hoàn thành -> error
+
 
 
 
