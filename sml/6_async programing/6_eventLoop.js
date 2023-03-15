@@ -40,13 +40,14 @@ console.log("a");
 setTimeout(() => console.log("b"), 0);
 
 new Promise((resolve, reject) => {
+  console.log("f")
   resolve();
 }).then(() => {
   console.log("c");
 });
 
 console.log("d");
-// a -> d -> c -> b
+// a -> f -> d -> c -> b
 
 /** Mặc dù callback queue áp dụng kiến trúc FIFO nhưng tùy thuộc vào thời gian set Timeout */
 setTimeout(function a() {}, 1000);
