@@ -34,7 +34,7 @@
 */
 
 /** Bất cứ khi nào một hàm không đồng bộ được gọi, nó sẽ được gửi đến một API của trình duyệt  */
-/** Promise queue (Microtask) có độ ưu tiên cao hơn Callback Queue(Macrotask) */
+/** Promise queue (Microtask) có độ ưu tiên (precedence) cao hơn Callback Queue(Macrotask) */
 console.log("a");
 
 setTimeout(() => console.log("b"), 0);
@@ -48,6 +48,106 @@ new Promise((resolve, reject) => {
 
 console.log("d");
 // a -> f -> d -> c -> b
+
+/** Ví dụ khác về Promise 01*/
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1);
+});
+// promise1 luôn luôn bị pending state, cho nên console.log(3) sẽ ko đc executed
+promise1.then(() => {
+  console.log(3);
+});
+
+console.log(4);
+// 1 -> 4
+
+/** Ví dụ về Promise 02*/
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  resolve("resolve1");
+});
+
+const promise2 = promise.then((res) => {
+  console.log(res); // res đc add vào microtask (callback Queue) nên sẽ out ra cuối cùng
+});
+console.log("promise:", promise);
+console.log("promise2:", promise2);
+// 1 -> promise: Promise {<resolved>: "resolve1"} -> promise2: Promise {<pending>}
+
+/** Ví dụ về Promise 03*/
+const fn = () =>
+  new Promise((resolve, reject) => {
+    console.log(1);
+    resolve("success");
+  });
+
+fn().then((res) => {
+  console.log(res); // res đc add vào microtask (callback Queue) nên sẽ out ra cuối cùng
+});
+
+console.log(2);
+// 1 -> 2 -> 'success'
+
+/** Ví dụ về Promise 04 */
+const promiseTest = new Promise((resolve, reject) => {
+  console.log(1);
+  setTimeout(() => {
+    console.log("timerStart");
+    resolve("success");
+    console.log("timerEnd");
+  }, 0);
+  console.log(2);
+});
+
+promiseTest.then((res) => {
+  console.log(res);
+});
+
+console.log(4);
+// 1 -> 2 -> 4 -> timerStart -> timerEnd -> success
+
+/** Ví dụ về setTimeout() */
+const timer1 = setTimeout(() => {
+  console.log("timer1");
+
+  const timer3 = setTimeout(() => {
+    console.log("timer3");
+  }, 0);
+}, 0);
+
+const timer2 = setTimeout(() => {
+  console.log("timer2");
+}, 0);
+
+console.log("start");
+// 1. Macrotask queue -> console.log('timer1) && timer3
+// 2. Macrotask queue -> timer2
+// 3. Macrotask queue -> console.log('start')
+// Result: start -> timer1 -> timer2 -> timer3
+
+/** Ví dụ về setTimeout() 02 */
+const timer01 = setTimeout(() => {
+  console.log("timer1");
+  const promise1 = Promise.resolve().then(() => {
+    console.log("promise1");
+  });
+}, 0);
+
+const timer02 = setTimeout(() => {
+  console.log("timer2");
+}, 0);
+
+console.log("start");
+// start -> timer1 -> promise1 -> timer2
+
+
+
+
+
+
+
+
+
 
 /** Mặc dù callback queue áp dụng kiến trúc FIFO nhưng tùy thuộc vào thời gian set Timeout */
 setTimeout(function a() {}, 1000);
