@@ -184,6 +184,11 @@ const timer002 = setTimeout(() => {
 // 4. execute timer002 sau 2s sẽ create và gọi timer 1, sau 1s timer1 hoàn thành -> console ra success
 // 5. sau 1s, timer002 hoàn thành -> error
 
+/** Ví dụ về setTimeout() 05 */
+for (let i = 0; i < 4; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+
 
 
 
