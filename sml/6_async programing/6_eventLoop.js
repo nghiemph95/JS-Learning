@@ -45,7 +45,7 @@ new Promise((resolve, reject) => {
   console.log("c");
 });
 
-console.log("dd");
+console.log("d");
 // a -> d -> c -> b
 
 /** Mặc dù callback queue áp dụng kiến trúc FIFO nhưng tùy thuộc vào thời gian set Timeout */
