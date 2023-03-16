@@ -73,6 +73,7 @@ Promise.all(promiseList)
 
 /** await chỉ được phép sử dụng trong async function, nhưng sau ES2022 thì sẽ được nhé */
 
+/** Ví dụ về async khi pagination */
 (async () => {
   try {
     const queryParam = {
