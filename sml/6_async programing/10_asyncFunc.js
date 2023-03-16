@@ -72,3 +72,19 @@ Promise.all(promiseList)
   .catch((error) => console.log(error));
 
 /** await chỉ được phép sử dụng trong async function, nhưng sau ES2022 thì sẽ được nhé */
+
+(async () => {
+  try {
+    const queryParam = {
+      _page: 1,
+      _pagination: 5,
+    };
+
+    const data = await getData(queryParam);
+    console.log("data", data);
+
+    renderData(data);
+  } catch (error) {
+    console.log("get all fail", error);
+  }
+})();
