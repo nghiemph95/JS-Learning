@@ -106,7 +106,6 @@ Về nguyên tắc đơn giản,
 
 - Server: sau khi nhận được request sẽ xử lý và trả về một HTTP Response */
 
-
 /** Fetch with async : Extracting data */
 (async function getResponse() {
   const response = await fetch("https://....", {
@@ -114,6 +113,12 @@ Về nguyên tắc đơn giản,
     headers: {
       "Content-Type": "application/json",
     },
-  });
-  const data = await response.json()
-})()
+  })
+    .then((response) => {
+      if (response.ok) return response.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  const data = await response.json();
+})();
