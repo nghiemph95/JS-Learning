@@ -157,10 +157,10 @@ async function fetchRetry1(url, options = {}, retries = 3, backoff = 200) {
 
       if (retries > 0 && retryCodes.includes(response.status)) {
         setTimeout(() => {
-          return fetchRetry(url, options, retries -1, backoff * 2);
+          return fetchRetry1(url, options, retries - 1, backoff * 2);
         }, backoff);
       } else {
-        throw new Error(response)
+        throw new Error(response);
       }
     })
     .catch((error) => {
@@ -169,13 +169,24 @@ async function fetchRetry1(url, options = {}, retries = 3, backoff = 200) {
 }
 
 /** Áp dụng retry fetch vs async/await và try catch */
-async function fetchRetry2(retries = 3, backoff = 200) {
+async function fetchRetry2(url, retries = 3, backoff = 200) {
   try {
     const retryCodes = [408, 500, 502, 503, 504];
 
-    const response = await fetch(url)
-    if (response.ok) {}
+    const response = await fetch(url);
+    if (response.ok) {
+      const body = await response.json();
+      console.log(body);
+
+      if (retries > 3 && retryCodes.includes(response.status)) {
+        setTimeout(() => {
+          return fetchRetry2(url, retries - 1, backoff * 2);
+        }, backoff);
+      }
+    } else {
+      throw new Error(response);
+    }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
