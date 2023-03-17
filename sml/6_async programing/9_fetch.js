@@ -105,3 +105,15 @@ Về nguyên tắc đơn giản,
 - Client: gửi một HTTP Request lên server
 
 - Server: sau khi nhận được request sẽ xử lý và trả về một HTTP Response */
+
+
+/** Fetch with async : Extracting data */
+(async function getResponse() {
+  const response = await fetch("https://....", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json()
+})()
