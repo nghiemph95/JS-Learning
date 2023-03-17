@@ -122,3 +122,60 @@ Về nguyên tắc đơn giản,
     });
   const data = await response.json();
 })();
+
+/** Retry fetch API  */
+function fetchRetry(url, options = {}, retries = 3, backoff = 300) {
+  /** 1 */
+  const retryCodes = [408, 500, 502, 503, 504];
+  return fetch(url, options)
+    .then((res) => {
+      if (res.ok) return res.json();
+
+      if (retries > 0 && retryCodes.includes(res.status)) {
+        setTimeout(() => {
+          /** 2 */
+          return fetchRetry(url, options, retries - 1, backoff * 2);
+        }, backoff);
+      } else {
+        throw new Error(res);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+/** Một tùy chọn khác là sử dụng một công cụ quan sát và phản ứng với những điểm bất thường trong lệnh gọi API */
+
+/** Áp dụng retry fetch vơi async/await */
+async function fetchRetry1(url, options = {}, retries = 3, backoff = 200) {
+  const retryCodes = [408, 500, 502, 503, 504];
+
+  return await fetch(url, options)
+    .then((response) => {
+      if (response.ok) return response.json();
+
+      if (retries > 0 && retryCodes.includes(response.status)) {
+        setTimeout(() => {
+          return fetchRetry(url, options, retries -1, backoff * 2);
+        }, backoff);
+      } else {
+        throw new Error(response)
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+/** Áp dụng retry fetch vs async/await và try catch */
+async function fetchRetry2(retries = 3, backoff = 200) {
+  try {
+    const retryCodes = [408, 500, 502, 503, 504];
+
+    const response = await fetch(url)
+    if (response.ok) {}
+  } catch (error) {
+    console.log(error)
+  }
+}
