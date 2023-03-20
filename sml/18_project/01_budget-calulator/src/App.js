@@ -3,7 +3,7 @@ import React from "react";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseForm from "./components/ExpenseForm";
 import Alert from "./components/Alert";
-import uuid from "uuid/v4";
+import { uuid } from "uuidv4";
 
 const initialExpenses = [
   { id: uuid(), charge: "rent", amount: 1600 },
