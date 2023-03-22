@@ -29,7 +29,7 @@ function debounce(callBack, wait) {
 
 
 
-/** How it workÏ */
+/** How it works */
 function log() {
   console.log("test");
 }
