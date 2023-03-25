@@ -19,7 +19,7 @@
 
 /** Memory heap: Vùng nhớ lưu trữ biến , object, array....
  *  Call Stack: Mỗi lần gọi 1 cái hàm, hàm đó sẽ đc push vào call stack, nếu hàm đó đc thực thi xong sẽ pop khỏi call stack
- *  Web APIs : Trong trường hợp call stack ko xử lý hoặc ko hiểu một số hàm trong call stack nó sẽ đẩy 
+ *  Web APIs : Trong trường hợp call stack ko xử lý hoặc ko hiểu một số hàm trong call stack nó sẽ đẩy
  * qua Web APIs. Ví dụ: xử lý DOM, AJAX, setTimeout, setInterval
  *  Khi Web APIs làm xong, sẽ có 1 số hàm cần thực thi thì sẽ đưa vô callback Queue
  *  Khi Call Stack empty (tức là xử lý xong các hàm trong script) thì evet loop sẽ đẩy hàm trong Callback queue lên Call Stack
@@ -40,7 +40,7 @@ console.log("a");
 setTimeout(() => console.log("b"), 0);
 
 new Promise((resolve, reject) => {
-  console.log("f")
+  console.log("f");
   resolve(); // promise đã được resolve state nên console.log("c") sẽ được add to microtask queue
 }).then(() => {
   console.log("c");
@@ -195,23 +195,13 @@ for (var i = 0; i < 4; i++) {
   /** Vì dùng var, nên đã vô tình khai báo 1 biến duy nhất i và đc chia sẽ cả 4 lệnh gọi setTimeout
    * Vào thời điểm setTimeout đầu tiên đc kích hoạt, vòng lặp đã chạy đc 4 lần rồi. Nên i lúc này = 4
    */
+
   setTimeout(() => console.log(i)); // 4, 4, 4, 4
 }
 
 for (var i = 0; i < 4; i++) {
-  setTimeout(() => console.log(i)); 
+  setTimeout(() => console.log(i));
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /** Mặc dù callback queue áp dụng kiến trúc FIFO nhưng tùy thuộc vào thời gian set Timeout */
 setTimeout(function a() {}, 1000);
@@ -223,16 +213,17 @@ d();
 // task queue: -> a, b, c
 // d -> c -> b -> a
 
-
 async function getNumber() {
-  return 10; 
+  return 10;
 }
 
 getNumber(); // Return promise , but not return 10
 
-getNumber().then((n) => {console.log(n)}) // Return 10
+getNumber().then((n) => {
+  console.log(n);
+}); // Return 10
 
-async function getNumber(){
-  return Promise.resolve(10)
+async function getNumber() {
+  return Promise.resolve(10);
 }
-getNumber(10) // return 10
+getNumber(10); // return 10
