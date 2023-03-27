@@ -186,7 +186,7 @@ async function fetchRetry2(url, retries = 3, backoff = 200) {
     } else {
       throw new Error(response);
     }
-  } catch (error) {
+  } catch (error) { 
     console.log(error);
   }
 }
