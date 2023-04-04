@@ -15,6 +15,6 @@ describe("Name of the group", () => {
       k50: 0,
     });
     expect(withdraw(125000)).toStrictEqual("Invalid balance");
-    expect(withdraw(90000000)).toStrictEqual("Insufficient balance from ATM");
+    expect(withdraw(90000000)).toStrictEqual("Insufficient balance from ATMM");
   });
 });
