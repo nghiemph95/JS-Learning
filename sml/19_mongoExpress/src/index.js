@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // get midleware to use in case POST Form Data
-app.use(express.urlencoded()); // data gửi từ client thì sử dụng midleware này để xử lý
+app.use(express.urlencoded({ extended: true })); // data gửi từ client thì sử dụng midleware này để xử lý
 app.use(express.json()); //đata gửi từ server thì sử dụng midleware này để xử lý
 
 //HTTP logger
@@ -45,6 +45,8 @@ app.get('/search', (req, res) => {
 });
 
 app.post('/search', (req, res) => {
+  // express sử dụng parkage qs npm (querystring) để lấy thông tin bỏ vô body cho mình
+  console.log(req.body);
   res.send('OK');
 });
 
