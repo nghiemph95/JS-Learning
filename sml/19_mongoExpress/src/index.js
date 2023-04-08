@@ -16,6 +16,7 @@ const port = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/** App là instance của express */
 // get Image
 app.use(express.static(path.join(__dirname, 'public')));
 
