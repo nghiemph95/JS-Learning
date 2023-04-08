@@ -3,9 +3,9 @@
 // const morgan = require("morgan");
 // const handlebars = require("express-handlebars");
 import express from 'express';
-import path from 'path';
-import morgan from 'morgan';
 import { engine } from 'express-handlebars';
+import morgan from 'morgan';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 //App init
@@ -19,6 +19,10 @@ const __dirname = path.dirname(__filename);
 /** App là instance của express */
 // get Image
 app.use(express.static(path.join(__dirname, 'public')));
+
+// get midleware to use in case POST Form Data
+app.use(express.urlencoded()); // data gửi từ client thì sử dụng midleware này để xử lý
+app.use(express.json()); //đata gửi từ server thì sử dụng midleware này để xử lý
 
 //HTTP logger
 app.use(morgan('combined'));
@@ -37,8 +41,11 @@ app.set('views', path.join(__dirname, 'resources/views'));
 app.get('/', (req, res) => res.render('home'));
 app.get('/news', (req, res) => res.render('news'));
 app.get('/search', (req, res) => {
-  console.log(req.query);
   res.render('search');
+});
+
+app.post('/search', (req, res) => {
+  res.send('OK');
 });
 
 app.listen(port, () => console.log(`Example app listenning at http://localhost:${port}`));
