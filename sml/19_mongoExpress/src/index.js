@@ -7,6 +7,10 @@ import { engine } from 'express-handlebars';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { connect } from './config/db';
+
+// Connect to MongoDB
+connect();
 
 //App init
 const app = express();
