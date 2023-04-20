@@ -10,8 +10,7 @@ import { fileURLToPath } from 'url';
 import { connect } from './config/db';
 
 // Connect to MongoDB
-const db = connect();
-console.log(db);
+console.log(connect());
 
 //App init
 const app = express();

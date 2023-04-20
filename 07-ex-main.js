@@ -41,7 +41,7 @@ function parameterize(str) {
   return str.toLowerCase().split(" ").join("");
 }
 
-console.log(parameterize("Code JS Fun"));
+console.log(parameterize("Codeê JS Fun"));
 
 /** String truncate */
 function truncate(text, maxLength) {
