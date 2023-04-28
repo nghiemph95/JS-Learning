@@ -116,7 +116,7 @@ const timer1 = setTimeout(() => {
 }, 0);
 
 const timer2 = setTimeout(() => {
-  console.log("timer2");
+  console.log("timer22");
 }, 0);
 
 console.log("start");
