@@ -4,7 +4,7 @@
  * vị trí của 1 cái tài nguyên/resource nào đó
  */
 
-/** URN: đơn giản là 1 cái tên */
+/** URN: đơn giản là 1 cái tênNN */
 
 /** URL: tên chính xác về đường dẫn
  * http/https: scheme
