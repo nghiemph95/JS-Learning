@@ -147,7 +147,7 @@ function fetchRetry(url, options = {}, retries = 3, backoff = 300) {
 
 /** Một tùy chọn khác là sử dụng một công cụ quan sát và phản ứng với những điểm bất thường trong lệnh gọi API */
 
-/** Áp dụng retry fetch vơi async/await */
+/** Áp dụng retry fetch vơi async/awaitt */
 async function fetchRetry1(url, options = {}, retries = 3, backoff = 200) {
   const retryCodes = [408, 500, 502, 503, 504];
 
