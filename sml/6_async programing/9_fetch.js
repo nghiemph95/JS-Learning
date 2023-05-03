@@ -168,7 +168,7 @@ async function fetchRetry1(url, options = {}, retries = 3, backoff = 200) {
     });
 }
 
-/** Áp dụng retry fetch vs async/await và try catch */
+/** Áp dụng retry fetch vs async/await và try catching */
 async function fetchRetry2(url, retries = 3, backoff = 200) {
   try {
     const retryCodes = [408, 500, 502, 503, 504, 506];
