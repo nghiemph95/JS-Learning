@@ -51,3 +51,24 @@ function isSymmetricNumber(n) {
 }
 
 console.log(isSymmetricNumber(001));
+
+<MyTablePagination
+  count={props.count}
+  rowsPerPage={props.rowsPerPage}
+  page={props.page}
+  isHidePagination={props.isHidePagination}
+  onChangePage={(newPage) => {
+    props.onChangePage(newPage);
+    cache[CacheEnum.spentPaymentAdvanceScreen].cacheData("spentPaymentTable", {
+      rowsPerPage: props.rowsPerPage,
+      page: newPage,
+    });
+  }}
+  onChangeRowsPerPage={(rowsPerPage) => {
+    props.onChangeRowsPerPage(rowsPerPage);
+    cache[CacheEnum.spentPaymentAdvanceScreen].cacheData("spentPaymentTable", {
+      rowsPerPage,
+      page: 0,
+    });
+  }}
+/>
