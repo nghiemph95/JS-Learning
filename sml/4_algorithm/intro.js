@@ -14,7 +14,7 @@ const compareAssignedListChangedV1 = (newList, oldList) => {
   return allElementInOld;
 };
 
-const compareAssignedListChanged = (newList, oldList) => {
+const compareAssignedListChangedv2 = (newList, oldList) => {
   const elementsInOld = new Set(oldList);
   const allElementsInOld = newList.every((element) =>
     elementsInOld.has(element)
@@ -27,5 +27,36 @@ const compareAssignedListChanged = (newList, oldList) => {
   );
 };
 
+const compareAssignedListChangedv3 = (newList, oldList) => {
+  const elementsInOld = new Set(oldList);
+  const elementsInNew = new Set(newList);
+  if (
+    elementsInOld.size !== elementsInNew.size ||
+    newList.length !== oldList.length
+  ) {
+    return false;
+  }
+  for (const element of elementsInNew) {
+    if (!elementsInOld.has(element)) {
+      return false;
+    }
+  }
+  return true;
+};
 
-console.log(compareAssignedListChanged([3, 2], [1, 2, 3]));
+const compareAssignedListChanged = (newList, oldList) => {
+  if (!newList && !oldList) return true;
+
+  if (newList && oldList) {
+    if (newList.length !== oldList.length) {
+      return false;
+    }
+
+    return newList.every((newId) => oldList.includes(newId));
+  }
+
+  return false;
+};
+
+
+console.log(compareAssignedListChanged([], [1, 2, 3]));

@@ -37,4 +37,4 @@ function log() {
 const logDebounce = debounce(log, 500);
 logDebounce();
 logDebounce();
-logDebounce(); // log "test" at the end
+logDebounce(); // log "test" at the endeddd
