@@ -27,8 +27,6 @@ function debounce(callBack, wait) {
   };
 }
 
-
-
 /** How it works */
 function log() {
   console.log("test");
@@ -38,3 +36,6 @@ const logDebounce = debounce(log, 500);
 logDebounce();
 logDebounce();
 logDebounce(); // log "test" at the endeddd
+
+const a = { waiting: "cho", completed: "hoan thanh", reject: "tu choi" };
+console.log(a[waiting]);
