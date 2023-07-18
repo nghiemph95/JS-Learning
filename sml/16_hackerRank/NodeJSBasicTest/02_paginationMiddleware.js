@@ -28,4 +28,28 @@ router.get("/", async (req, res) => {
 
 module.exports = router;
 
-const _attribute = attribute.filter(({ key, label }) => key && label);
+// const _attribute = attribute.filter(({ key, label }) => key && label);
+
+const _attribute = [
+  {
+    attributeValues: ["a", "b"],
+    dataTYpe: "dropdown",
+    key: "abc",
+    label: "123",
+    position: 1,
+  },
+  {
+    attributeValues: ["c", "d"],
+    dataTYpe: "dropdown1",
+    key: "def",
+    label: "234",
+    position: 2,
+  },
+];
+
+const result = _attribute.map((item) => ({
+  ...item,
+  attributeValues: JSON.stringify(item.attributeValues),
+}));
+
+console.log(result);
