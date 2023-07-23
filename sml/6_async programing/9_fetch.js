@@ -186,7 +186,96 @@ async function fetchRetry2(url, retries = 3, backoff = 200) {
     } else {
       throw new Error(response);
     }
-  } catch (error) { 
+  } catch (error) {
     console.log(error);
   }
 }
+
+const data = [
+  {
+    key: "nghiem",
+    label: "12312312",
+    dataType: "dropdown",
+    attributeValues: '["aaa","aaa"]',
+    positionDisplayedInTenant: 1,
+  },
+  {
+    key: "pham",
+    label: "1312",
+    dataType: "dropdown",
+    attributeValues: '["aaa","aaca","aacad","fdfd"]',
+    positionDisplayedInTenant: 2,
+  },
+];
+function checkDuplicateAttributeValues(data) {
+  const newAttribute = data.map((attr) => {
+    if (attr.dataType === "dropdown") {
+      attr.attributeValues = JSON.parse(attr.attributeValues);
+    }
+    return attr;
+  });
+
+  const seen = new Set();
+  for (const attribute of newAttribute) {
+    for (const value of attribute.attributeValues) {
+      if (seen.has(value)) {
+        return true;
+      } else {
+        seen.add(value);
+      }
+    }
+  }
+  return false;
+}
+console.log(checkDuplicateAttributeValues(data));
+
+const dataa = [
+  ["aaa", "aaca"],
+  ["aaa", "aac", "sdsds", "fdfd"],
+];
+function checkDUp(dataa) {
+  return dataa.some((subArray) => {
+    const seen = new Set();
+    for (let i = 0; i < subArray.length; i++) {
+      const element = subArray[i];
+      if (seen.has(element)) {
+        return true; // Exit early if a duplicate is found
+      } else {
+        seen.add(element);
+      }
+    }
+    return false;
+  });
+}
+
+console.log(checkDUp(dataa));
+
+useEffect(() => {
+  const globalSelectedTenant = localStorage.getItem(
+    `${lsConstants.GLOBAL_TENANT}`
+  );
+  if (globalSelectedTenant) {
+    const jsonGlobalSelectedTenant = JSON.parse(globalSelectedTenant) ?? {};
+    if (jsonGlobalSelectedTenant) {
+      const _attributes = jsonGlobalSelectedTenant.attributes
+        ? sortBy(
+            jsonGlobalSelectedTenant.attributes,
+            ["positionDisplayedInTenant"],
+            ["ASC"]
+          )
+        : [];
+      const jsonParseAttribute = _attributes.map((attr) => {
+        if (
+          attr.dataType === AttributeDataType.DROPDOWN &&
+          !Array.isArray(attr.attributeValues)
+        ) {
+          attr.attributeValues = JSON.parse(attr.attributeValues);
+        }
+        return attr;
+      });
+      setAttributes(jsonParseAttribute || []);
+    } else {
+      setAttributes([]);
+    }
+  }
+}, [store.global.globalSelectedTenant]);
