@@ -279,3 +279,9 @@ useEffect(() => {
     }
   }
 }, [store.global.globalSelectedTenant]);
+
+const arr = ["aaa", "bbb"];
+const newArr = [
+  { label: "aaa", value: "aaa" },
+  { label: "bbb", value: "bbb" },
+];
