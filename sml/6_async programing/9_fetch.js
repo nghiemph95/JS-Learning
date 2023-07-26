@@ -285,3 +285,109 @@ const newArr = [
   { label: "aaa", value: "aaa" },
   { label: "bbb", value: "bbb" },
 ];
+
+const object = {
+  attributes: {
+    order: 0,
+    placement: "",
+    nghiem: { value: "bbb" },
+    pham: { label: "ccc", value: "ddd" },
+  },
+  create: "abc",
+  update: "xyz",
+};
+
+const newObject = {
+  attributes: {
+    order: 0,
+    placement: "",
+    nghiem: { value: "bbb" },
+    pham: { value: "ddd" },
+  },
+  create: "abc",
+  update: "xyz",
+};
+
+const a = [
+  {
+    attribute: '["aaaaa","bbb", "ccc"]',
+    key: "abc",
+    dataType: "dropdown",
+  },
+  {
+    attribute: '["a","b","c"]',
+    key: "xyz",
+    dataType: "dropdown",
+  },
+  {
+    attribute: "",
+    key: "clm",
+    dataType: "text",
+  },
+];
+const dropdownAttributes = a
+  .filter((obj) => obj.dataType === "dropdown")
+  .map((obj) => obj.attribute);
+
+console.log(dropdownAttributes);
+const arrA = ['["aaaaa","bbb", "ccc"]', '["a","b","c"]'];
+const arrB = ['["a","b"]', '["aaaaa","bbb"]'];
+console.log(JSON.parse(arrA));
+
+const output = arrA
+  .map((item) => {
+    if (!arrB.includes(item)) {
+      return item;
+    }
+  })
+  .filter(Boolean);
+
+console.log(output);
+
+const b = [
+  {
+    attribute: '["a","b"]',
+    key: "xyz",
+    dataType: "dropdown",
+  },
+  {
+    attribute: '["aaaaa","bbb"]',
+    key: "abc",
+    dataType: "dropdown",
+  },
+  {
+    attribute: "",
+    key: "clm",
+    dataType: "text",
+  },
+];
+
+// const mmc = [
+//   {
+//     key: "abc",
+//     attribute: '["ccc"]',
+//   },
+//   {
+//     key: "xyz",
+//     attribute: '["c"]',
+//   },
+// ];
+
+const mmc = a.reduce((result, objA) => {
+  if (objA.dataType === "dropdown") {
+    const matchingObjB = b.find(
+      (objB) => objB.key === objA.key && objB.dataType === "dropdown"
+    );
+    if (matchingObjB) {
+      result.push({
+        key: objA.key,
+        attribute: matchingObjB.attribute,
+      });
+    }
+  }
+  return result;
+}, []);
+
+console.log(mmc);
+
+
