@@ -42,3 +42,7 @@ const attributeValidator = (attributes: any) => {
     throw CommonError.commonSomethingWentWrongError();
   }
 };
+
+const file = event?.currentTarget.files && event.currentTarget.file[0];
+
+
