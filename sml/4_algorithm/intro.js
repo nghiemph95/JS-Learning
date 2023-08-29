@@ -451,3 +451,12 @@ if (arr.length > 0) {
 } else {
   console.log(false);
 }
+
+
+const nghiem = {
+  a: 1,
+  b: 2,
+  c: 3,
+}
+
+console.log(Object.values(nghiem))
