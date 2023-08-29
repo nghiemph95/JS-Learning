@@ -196,37 +196,59 @@ const data = [
     key: "nghiem",
     label: "12312312",
     dataType: "dropdown",
-    attributeValues: '["aaa","aaa"]',
+    attributeValues: '["aaa","dfd"]',
     positionDisplayedInTenant: 1,
   },
   {
     key: "pham",
     label: "1312",
     dataType: "dropdown",
-    attributeValues: '["aaa","aaca","aacad","fdfd"]',
+    attributeValues: '["aaasad","aaca","aacad","aaa"]',
     positionDisplayedInTenant: 2,
   },
 ];
 function checkDuplicateAttributeValues(data) {
-  const newAttribute = data.map((attr) => {
-    if (attr.dataType === "dropdown") {
-      attr.attributeValues = JSON.parse(attr.attributeValues);
-    }
-    return attr;
-  });
+  const newAttribute = data.reduce((prev, curr) => {
+    const newObj = {
+      ...curr,
+      attributeValues:
+        curr.dataType === "dropdown"
+          ? JSON.parse(curr.attributeValues)
+          : curr.attributeValues,
+    };
+    prev.push(newObj);
+    return prev;
+  }, []);
 
-  const seen = new Set();
   for (const attribute of newAttribute) {
+    const seen = [];
+
     for (const value of attribute.attributeValues) {
-      if (seen.has(value)) {
+      console.log(seen);
+      if (seen.includes(value)) {
         return true;
       } else {
-        seen.add(value);
+        seen.push(value);
       }
     }
   }
+
   return false;
+
+  // const seen = new Set();
+  // for (const attribute of newAttribute) {
+  //   for (const value of attribute.attributeValues) {
+  //     console.log("value", value);
+  //     if (seen.has(value)) {
+  //       return true;
+  //     } else {
+  //       seen.add(value);
+  //     }
+  //   }
+  // }
+  // return false;
 }
+
 console.log(checkDuplicateAttributeValues(data));
 
 const dataa = [
@@ -390,4 +412,27 @@ const mmc = a.reduce((result, objA) => {
 
 console.log(mmc);
 
+JSON.parse("[]");
+console.log(Array.isArray(JSON.parse("[]")));
 
+const inValidKey = (str) => {
+  return !/^[a-z0-9_]*$/.test(str);
+};
+console.log(inValidKey("[]"));
+
+('["[]"]');
+
+const input = "[],[]";
+
+// Validate if the input is an array
+// if (!Array.isArray(input)) {
+//   console.log("Invalid input. Please provide an array.");
+//   return;
+// }
+
+// Format and stringify the array
+const stringifiedArray = JSON.stringify(
+  Array.from(input, (item) => item.toString())
+);
+
+console.log(stringifiedArray);

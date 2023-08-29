@@ -7,3 +7,4 @@ describe("Name of the group", () => {
     expect(insert([1, 2, 3], 10, 2)).toStrictEqual([1, 2, 10, 3]);
   });
 });
+

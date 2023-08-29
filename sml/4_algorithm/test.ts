@@ -45,4 +45,8 @@ const attributeValidator = (attributes: any) => {
 
 const file = event?.currentTarget.files && event.currentTarget.file[0];
 
+const findDuplicates = (arr: any[]) => {
+   return arr.filter((item, index) => arr.indexOf(item) !== index);
+};
 
+console.log(findDuplicates([1, 2, 2, 3]));

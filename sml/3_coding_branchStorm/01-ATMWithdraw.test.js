@@ -18,3 +18,17 @@ describe("Name of the group", () => {
     expect(withdraw(90000000)).toStrictEqual("Insufficient balance from ATMM");
   });
 });
+
+const a = {
+  name: "01",
+  attributes: {
+    a1: { label: "ddd", value: "dds" },
+    a2: "xxx",
+    a3: { label: "yyy", value: "yyy" },
+  },
+};
+
+const keys = Object.keys(a.attributes);
+const a2Key = keys.find((key) => a.attributes[key] === "xxx");
+
+console.log(a2Key);
